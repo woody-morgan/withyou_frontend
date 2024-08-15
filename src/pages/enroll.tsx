@@ -1,4 +1,4 @@
-import { withAuthSSR } from '@src/components/hoc';
+import { withEnrollAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import {
   Button,
@@ -14,7 +14,7 @@ import { commonRegex } from '@src/utils/regexUtil';
 import { useRouter } from 'next/router';
 import React, { useMemo, useState } from 'react';
 
-export const getServerSideProps = withAuthSSR();
+export const getServerSideProps = withEnrollAuthSSR();
 
 const EnrollPage = () => {
   const router = useRouter();
