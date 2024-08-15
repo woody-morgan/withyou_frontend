@@ -1,4 +1,4 @@
-import { Button } from '@src/components/atom';
+import { Button } from '@src/components/ui/atom';
 import Link from 'next/link';
 import React, { memo } from 'react';
 

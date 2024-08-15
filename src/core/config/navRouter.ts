@@ -1,4 +1,4 @@
-import { SVGTypes } from '@src/components/atom/Icon/Icon';
+import { SVGTypes } from '@src/components/ui/atom/Icon/Icon';
 
 export type NavRouterType = {
   path: string;

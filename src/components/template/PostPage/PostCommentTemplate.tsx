@@ -1,4 +1,4 @@
-import CommonProfile from '@src/components/atom/CommonProfile';
+import CommonProfile from '@src/components/ui/atom/CommonProfile';
 import { twcDivide } from '@src/utils/twcUtil';
 import cx from 'classnames';
 import React from 'react';

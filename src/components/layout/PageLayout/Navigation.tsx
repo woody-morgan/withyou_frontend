@@ -1,6 +1,6 @@
 import { layoutStateAtom } from '@src/atom/layout';
-import { IconButton } from '@src/components/atom';
-import { SVGTypes } from '@src/components/atom/Icon/Icon';
+import { IconButton } from '@src/components/ui/atom';
+import { SVGTypes } from '@src/components/ui/atom/Icon/Icon';
 import { navRouter } from '@src/core/config/navRouter';
 import cx from 'classnames';
 import { motion } from 'framer-motion';

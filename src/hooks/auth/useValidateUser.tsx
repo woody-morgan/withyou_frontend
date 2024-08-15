@@ -12,8 +12,14 @@ export default function useValidateUser() {
   useEffect(() => {
     async function checkAuth() {
       try {
-        await apiValidate();
-        showBottomCB();
+        const {
+          user: { isNew },
+        } = await apiValidate();
+        if (isNew) {
+          await router.push('/enroll');
+        } else {
+          showBottomCB();
+        }
       } catch (error) {
         //  need to show toast or alert or anything to user
         clearAuthToken();

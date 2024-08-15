@@ -1,7 +1,11 @@
-export type btnRounded = 'primary' | 'keyboard';
+import { SelectOption } from '@src/components/ui/atom/Input/SelectBox';
 
-export type btnSizes = 'large' | 'medium' | 'small' | 'xsmall';
-export type inputBoxSizes = 'large' | 'medium' | 'small';
+export type commonSizes = 'large' | 'medium' | 'small' | 'xsmall';
+
+export type btnRounded = 'primary' | 'keyboard';
+export type btnSizes = commonSizes;
+export type inputBoxSizes = commonSizes;
+export type selectBoxSizes = commonSizes;
 
 export type btnStyles =
   | 'primary'
@@ -15,3 +19,19 @@ export type btnStyles =
   | 'wy-red'
   | 'wy-yellow'
   | 'transparent';
+
+export const familyRoleList: SelectOption[] = [
+  { value: '엄마', label: '엄마' },
+  {
+    value: '아빠',
+    label: '아빠',
+  },
+  {
+    value: '할머니',
+    label: '할머니',
+  },
+  {
+    value: '할아버지',
+    label: '할아버지',
+  },
+];

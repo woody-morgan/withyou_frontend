@@ -1,20 +1,20 @@
 import { addPosts } from '@src/atom/posts';
 import { PageSEO } from '@src/components/analytics/SEO';
-import { FloatingButton, FullWidthOverflowWrapper } from '@src/components/atom';
+import { withAuthCSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import HomeMainSection from '@src/components/template/HomePage/HomeMainSection';
 import MainPostsSection from '@src/components/template/HomePage/MainPostsSection';
+import { FloatingButton, FullWidthOverflowWrapper } from '@src/components/ui/atom';
 import siteMetadata from '@src/core/config/siteMetadata';
-import { samplePostData } from '@src/core/data/sample-post-data';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRecoilState } from 'recoil';
 
 const HomePage = () => {
   const [posts, setPosts] = useRecoilState(addPosts);
 
-  useEffect(() => {
-    setPosts({ posts: samplePostData });
-  }, []);
+  // useEffect(() => {
+  //   setPosts({ posts: samplePostData });
+  // }, []);
 
   return (
     <PageLayout fullWidth fixedHeight className="bg-gray-50">
@@ -30,4 +30,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default withAuthCSR(HomePage);

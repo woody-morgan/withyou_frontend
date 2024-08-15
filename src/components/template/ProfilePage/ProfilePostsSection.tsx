@@ -1,5 +1,5 @@
-import ProfilePostCard from '@src/components/molecule/PostCard/ProfilePostCard';
-import PostsSectionWrapper from '@src/components/molecule/PostsSectionWrapper';
+import ProfilePostCard from '@src/components/ui/molecule/PostCard/ProfilePostCard';
+import PostsSectionWrapper from '@src/components/ui/molecule/PostsSectionWrapper';
 import { PostsInfoType } from '@src/core/types/posts-type';
 import React, { Fragment, FunctionComponent } from 'react';
 

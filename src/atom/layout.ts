@@ -2,7 +2,7 @@ import { LayoutInfoType } from '@src/core/types/layout-type';
 import { atom, selector } from 'recoil';
 
 const defaultState: LayoutInfoType = {
-  isShowBottomNav: true,
+  isShowBottomNav: false,
 };
 
 const layoutStateAtom = atom<LayoutInfoType>({

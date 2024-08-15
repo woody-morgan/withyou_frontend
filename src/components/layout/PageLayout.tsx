@@ -1,11 +1,11 @@
 import { pageVars } from '@src/animations/page';
-import CommonHeader from '@src/components/molecule/PageHeader/CommonHeader';
+import CommonHeader from '@src/components/ui/atom/Header/CommonHeader';
 import useWindowResize from '@src/hooks/useWindowResize';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import React, { FC, useRef } from 'react';
 
-import Header from './PageLayout/Header';
+import HeaderWrapper from './PageLayout/HeaderWrapper';
 
 const PageLayout: FC<{
   children: React.ReactNode;
@@ -53,9 +53,13 @@ const PageLayout: FC<{
       exit="exit"
       transition={{ type: 'linear' }}
     >
-      <Header fixed={headerFixed} transparent={headerTransparent} className={headerBackgroundColor}>
+      <HeaderWrapper
+        fixed={headerFixed}
+        transparent={headerTransparent}
+        className={headerBackgroundColor}
+      >
         {headerContent}
-      </Header>
+      </HeaderWrapper>
       <main
         ref={mainRef}
         className={cx(

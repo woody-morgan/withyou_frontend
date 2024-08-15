@@ -1,5 +1,5 @@
-import { InputBox } from '@src/components/atom';
 import SignupStartSection from '@src/components/template/SignupPage/SignupStartSection';
+import { InputBox } from '@src/components/ui/atom';
 import { useValidateInput } from '@src/hooks';
 import { commonRegex } from '@src/utils/regexUtil';
 import React from 'react';
