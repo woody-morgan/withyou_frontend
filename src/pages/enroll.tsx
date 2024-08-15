@@ -21,13 +21,11 @@ const EnrollPage = () => {
   const familyRoleListMemo = useMemo(() => familyRoleList, []);
 
   const [imageFiles, setImageFiles] = useState<File[]>([]);
-
   const [name, nameIsValid, nameError, handleNameChange] = useValidateInput(
     '',
     commonRegex.name.regex,
     commonRegex.name.desc
   );
-
   const [role, setRole] = useState('');
 
   const handleBackward = () => {
@@ -42,6 +40,7 @@ const EnrollPage = () => {
 
   return (
     <PageLayout
+      fixedHeight
       className="bg-white"
       headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
     >
