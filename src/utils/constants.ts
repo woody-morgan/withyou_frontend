@@ -1,3 +1,5 @@
+export type btnRounded = 'primary' | 'keyboard'
+
 export type btnSizes = 'large' | 'medium' | 'small' | 'xsmall'
 export type inputBoxSizes = 'large' | 'medium' | 'small'
 

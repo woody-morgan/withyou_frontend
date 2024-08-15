@@ -1,73 +1,46 @@
 import { PageSEO } from '@src/components/analytics/SEO'
-import { SVGTypes } from '@src/components/atom/Icon/Icon'
+import { ImageWrapper } from '@src/components/atom'
 import { PageLayout } from '@src/components/layout'
-import { IconButton } from '@src/components/molecule'
-import { apiGetTokenByKakaoLogin } from '@src/core/api/apiAuth'
+import { SignInForm } from '@src/components/molecule'
 import { envConfig } from '@src/core/config/envConfig'
 import siteMetadata from '@src/core/config/siteMetadata'
+import { withStoreSSR } from '@src/hocnf'
+import { useRootDispatch } from '@src/hooks'
+import { hideBottomNav } from '@src/store/modules/layout'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import React, { useMemo } from 'react'
+import React from 'react'
 
 // Todo: go back to request url
-export const getServerSideProps = (ctx: any) => {
-  console.log(ctx)
-  return {
-    props: {},
+export const getServerSideProps = withStoreSSR((store) => {
+  return async (ctx) => {
+    const { dispatch } = store
+    dispatch(hideBottomNav())
+    return {
+      props: {},
+    }
   }
-}
+})
 
 const LoginPage: NextPage = () => {
   const router = useRouter()
-
-  const socialButtonName: SVGTypes[] = useMemo(() => ['google', 'apple', 'kakao'], [])
-
-  const handleButtonClick = async ({ name }) => {
-    if (name === 'kakao') {
-      if (!Kakao.isInitialized()) {
-        Kakao.init(envConfig.kakaoClientId)
-      }
-      Kakao.Auth.login({
-        success: async function (authObj) {
-          const { access_token } = authObj
-          try {
-            // Todo: setting userinfo on redux store
-            const userData = await apiGetTokenByKakaoLogin({ accessToken: access_token })
-            await router.push('/')
-          } catch (e) {
-            console.log(e)
-          }
-        },
-        fail: function (err) {
-          // Todo: error handling
-          console.log(err)
-        },
-      })
-    }
-  }
+  const dispatch = useRootDispatch()
 
   return (
-    <PageLayout fixedHeight>
+    <PageLayout fullWidth fixedHeight headerContent={<></>}>
       <PageSEO title={siteMetadata.title + ' Login Page'} description={'login page'} />
-      <div className="w-full h-full flex flex-col justify-center space-y-20">
-        <div className="text-center space-y-1">
-          <h1>Login</h1>
-          <p>
-            Join <strong>{envConfig.appName}</strong>
-          </p>
+      <div className="w-full h-full flex flex-col justify-between pt-28 px-side-padding">
+        <div className="text-left">
+          <h1 className="font-PyeongChangPeace-Bold text-wy-blue-500">{envConfig.appName}</h1>
+          <h2>
+            <div>함께 만드는</div>
+            <div>우리 아이 추억</div>
+          </h2>
         </div>
-        <div className="inline-flex justify-center w-80 m-center flex-wrap basis-1/9">
-          {socialButtonName.map((name) => (
-            <IconButton
-              size={40}
-              name={name}
-              className="m-4 p-4 border-2 rounded-xl border-primary-700"
-              key={`social-login-button-${name}`}
-              onClick={() => handleButtonClick({ name })}
-            />
-          ))}
-        </div>
-        <div />
+        <SignInForm router={router} dispatch={dispatch} />
+      </div>
+      <div className="absolute -z-10 top-0 left-0 w-full h-full">
+        <ImageWrapper src="/static/login_bg.png" layout="fill" priority />
       </div>
     </PageLayout>
   )

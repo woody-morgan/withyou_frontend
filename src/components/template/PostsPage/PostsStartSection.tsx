@@ -10,12 +10,6 @@ const PostsStartSection = () => {
           <h3 className="text-white">Create A Note</h3>
         </Button>
       </Link>
-
-      <Link href={'/login'}>
-        <Button styles="link" size="large" fullWidth>
-          <h3 className="text-white">Login</h3>
-        </Button>
-      </Link>
     </div>
   )
 }

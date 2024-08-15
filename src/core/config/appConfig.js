@@ -1,11 +1,11 @@
 const appConfig = {
-  notchColor: '#f8eee2',
+  notchColor: '#ffffff',
   headerHeight: '3rem',
   headerHeightInt: 48,
   bottomNavigationHeight: '4rem',
   bottomNavigationHeightInt: 80,
-  sidePadding: '0.75rem',
-  backgroundColor: '#fff8e5',
+  sidePadding: '1.5rem',
+  backgroundColor: '#ffffff',
   mobileAppMaxWidth: '720px',
 }
 
