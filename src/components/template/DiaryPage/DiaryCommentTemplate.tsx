@@ -48,7 +48,7 @@ const DiaryCommentTemplate: FunctionComponent<Props> = ({ diaryId, initialCommen
 
   const DiaryComments = useMemo(() => {
     const RenderComments = () => (
-      <div className={cx('bg-primary-bg', 'px-side-padding', twcDivide)}>
+      <div className={cx('bg-primary-bg', 'px-side-padding pb-2', twcDivide)}>
         {commentList.length > 0 &&
           commentList.map((comment, idx) => (
             <div key={`diary-comment-${idx}`} className="py-4 space-y-2">
