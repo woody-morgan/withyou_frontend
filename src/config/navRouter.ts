@@ -13,18 +13,23 @@ export const navRouter: NavRouterType[] = [
     icon: 'house',
   },
   {
-    path: '/menu',
-    name: 'Drink Menu',
-    icon: 'house',
+    path: '/camera',
+    name: 'Camera',
+    icon: 'camera',
   },
   {
-    path: '/order',
-    name: 'Your Order',
-    icon: 'house',
+    path: '/create',
+    name: 'write',
+    icon: 'plusCircle',
   },
   {
-    path: '/favorite',
-    name: 'Favorites',
-    icon: 'house',
+    path: '/album',
+    name: 'Album',
+    icon: 'album',
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    icon: 'profile',
   },
 ]

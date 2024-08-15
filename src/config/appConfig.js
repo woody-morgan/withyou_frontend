@@ -1,6 +1,6 @@
 const appConfig = {
   notchColor: '#f8eee2',
-  headerHeight: '4rem',
+  headerHeight: '3rem',
   bottomNavigationHeight: '5rem',
   sidePadding: '1rem',
   backgroundColor: '#fff8e5',
