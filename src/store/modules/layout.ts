@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { LayoutInfoType } from '@src/core/types/layout-type';
 
 export const layoutInitialState: LayoutInfoType = {
-  isShowBottomNav: true,
+  isShowBottomNav: false,
   pageTransitionDir: 'forward',
 };
 
