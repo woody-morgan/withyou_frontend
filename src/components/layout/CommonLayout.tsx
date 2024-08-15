@@ -7,7 +7,10 @@ const CommonLayout: FC<{
 }> = ({ children }) => {
   return (
     //  overflow hidden to prevent text on background on transition
-    <div id="common-layout" className="overflow-hidden w-full max-w-mobile-app m-center">
+    <div
+      id="common-layout"
+      className="overflow-hidden w-full bg-[#F6F9FB] max-w-mobile-app m-center"
+    >
       <Navigation />
       <Fragment>{children}</Fragment>
     </div>

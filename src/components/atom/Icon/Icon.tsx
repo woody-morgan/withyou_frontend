@@ -10,13 +10,17 @@ import { IoEllipsisVertical, IoPeopleOutline } from 'react-icons/io5';
 import AlbumSvg from './assets/Album';
 import AlbumSelectedSvg from './assets/AlbumSelected';
 import AppleLogo from './assets/AppleLogo';
+import CommentSvg from './assets/Comment';
 import GoogleLogo from './assets/GoogleLogo';
 import KakaoLogo from './assets/KakaoLogo';
 import ProfileSvg from './assets/Profile';
 import ProfileSelectedSvg from './assets/ProfileSelected';
+import ShareSvg from './assets/Share';
 import StarSvg from './assets/Star';
 
 export type SVGTypes =
+  | 'comment'
+  | 'share'
   | 'album'
   | 'album-selected'
   | 'profile'
@@ -45,6 +49,8 @@ export type IconProps = {
 };
 
 const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
+  comment: CommentSvg,
+  share: ShareSvg,
   album: AlbumSvg,
   'album-selected': AlbumSelectedSvg,
   profile: ProfileSvg,
