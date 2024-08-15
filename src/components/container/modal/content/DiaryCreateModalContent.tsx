@@ -5,7 +5,7 @@ import { Button, IconButton } from '@src/components/ui/atom';
 import DropZone from '@src/components/ui/organism/Dropzone';
 import { apiCreateDiary } from '@src/core/api/diary/apiDiary';
 import { ModalContentType } from '@src/core/types/modal-type';
-import { ToastError, ToastInfo } from '@src/utils/toast';
+import { ToastInfo } from '@src/utils/toast';
 import { twcDivide } from '@src/utils/twcUtil';
 import cx from 'classnames';
 import React, { FunctionComponent, useRef, useState } from 'react';
@@ -72,7 +72,6 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({}) => {
       });
       closeModalCB();
     } catch (e) {
-      ToastError('포스트를 생성할 수 없습니다. 다시 시도해주세요.');
     } finally {
       isUploading.current = false;
     }

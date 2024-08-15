@@ -53,6 +53,8 @@ export const getServerSideProps = withAuthSSR(async (ctx) => {
   }
 });
 
+// Todo: render comments section property on server side rendering too
+
 const PostPage: NextPage<DetailDiaryPageProps> = ({
   diaryId,
   initialDiaryInfo,
