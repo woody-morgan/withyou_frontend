@@ -1,11 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 // generate custom color using https://tailwindcolorgenerator.com/
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const siteMetadata = require('./src/config/siteMetadata')
 
 module.exports = {
   mod: 'jit',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      margin: {
+        center: '0 auto',
+      },
+      spacing: {
+        'gb-header': siteMetadata.headerHeight,
+        'bt-nav': siteMetadata.bottomNavigationHeight,
+        'side-padding': siteMetadata.sidePadding,
+      },
       colors: {
         primary: {
           300: '#fffff6',

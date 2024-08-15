@@ -1,8 +1,14 @@
-export default function Home() {
+import { NextPage } from 'next'
+import { PageLayout } from '@src/components/layout'
+
+const HomePage: NextPage<{
+  setHeaderFixed: (headerFixed: boolean) => void
+}> = ({ setHeaderFixed }) => {
   return (
-    <div>
-      <main className="min-h-screen">abc</main>
-      <div>is tailwind working</div>
-    </div>
+    <PageLayout>
+      <div>is tailwindcss working?</div>
+    </PageLayout>
   )
 }
+
+export default HomePage
