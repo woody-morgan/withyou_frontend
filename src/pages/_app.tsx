@@ -5,7 +5,6 @@ import { ModalContainer } from '@src/components/container';
 import { CommonLayout } from '@src/components/layout';
 import { envConfig } from '@src/core/config/envConfig';
 import siteMetadata from '@src/core/config/siteMetadata';
-import { wrapper } from '@src/store';
 import { getAuthToken } from '@src/utils/authUtil';
 import axios from 'axios';
 import { NextPage } from 'next';
@@ -14,6 +13,7 @@ import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import qs from 'qs';
 import { ToastContainer } from 'react-toastify';
+import { RecoilRoot } from 'recoil';
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = envConfig.apiUrl;
@@ -34,14 +34,16 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
       </Head>
       <Analytics />
       <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-        <CommonLayout>
-          <Component {...pageProps} key={router.route} />
-        </CommonLayout>
-        <ModalContainer />
+        <RecoilRoot>
+          <CommonLayout>
+            <Component {...pageProps} key={router.route} />
+          </CommonLayout>
+          <ModalContainer />
+        </RecoilRoot>
         <ToastContainer />
       </ThemeProvider>
     </>
   );
 };
 
-export default wrapper.withRedux(App);
+export default App;

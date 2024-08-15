@@ -1,3 +1,4 @@
+import { addPosts } from '@src/atom/posts';
 import { PageSEO } from '@src/components/analytics/SEO';
 import { FloatingButton, FullWidthOverflowWrapper } from '@src/components/atom';
 import { PageLayout } from '@src/components/layout';
@@ -5,20 +6,14 @@ import HomeMainSection from '@src/components/template/HomePage/HomeMainSection';
 import MainPostsSection from '@src/components/template/HomePage/MainPostsSection';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { samplePostData } from '@src/core/data/sample-post-data';
-import { useRootDispatch, useRootState } from '@src/hooks';
-import { addPosts } from '@src/store/modules/posts';
 import React, { useEffect } from 'react';
-
-// Todo: enable ssr
-// export const getServerSideProps = withAuthSSR();
+import { useRecoilState } from 'recoil';
 
 const HomePage = () => {
-  const dispatch = useRootDispatch();
-  const postsState = useRootState((state) => state.posts);
+  const [posts, setPosts] = useRecoilState(addPosts);
 
-  // Todo: fetch data from server
   useEffect(() => {
-    dispatch(addPosts({ posts: samplePostData }));
+    setPosts({ posts: samplePostData });
   }, []);
 
   return (
@@ -28,11 +23,7 @@ const HomePage = () => {
         description={'유아 로그를 시작해보세요'}
       />
       <FullWidthOverflowWrapper>
-        {postsState.posts.length > 0 ? (
-          <MainPostsSection posts={postsState.posts} />
-        ) : (
-          <HomeMainSection dispatch={dispatch} />
-        )}
+        {posts.posts.length > 0 ? <MainPostsSection posts={posts.posts} /> : <HomeMainSection />}
       </FullWidthOverflowWrapper>
       <FloatingButton />
     </PageLayout>

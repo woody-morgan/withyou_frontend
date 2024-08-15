@@ -1,11 +1,11 @@
+import { openPostCreateModal } from '@src/atom/modal';
 import { ButtonWithIcon, ImageWrapper } from '@src/components/atom';
-import { RootDispatchType } from '@src/store/modules';
-import { openPostCreateModal } from '@src/store/modules/modal';
-import React, { FunctionComponent, memo } from 'react';
+import React, { memo } from 'react';
+import { useSetRecoilState } from 'recoil';
 
-const HomeMainSection: FunctionComponent<{
-  dispatch: RootDispatchType;
-}> = ({ dispatch }) => {
+const HomeMainSection = () => {
+  const openPostCreateModalCB = useSetRecoilState(openPostCreateModal);
+
   return (
     <div className="w-full h-full space-y-2 flex flex-col justify-center items-center text-center">
       <div className="relative w-80 md:w-80">
@@ -30,7 +30,7 @@ const HomeMainSection: FunctionComponent<{
           styles="wy-blue"
           size="large"
           onClick={() => {
-            dispatch(openPostCreateModal({ fullScreen: true }));
+            openPostCreateModalCB({ fullScreen: true });
           }}
         >
           기록 시작하기

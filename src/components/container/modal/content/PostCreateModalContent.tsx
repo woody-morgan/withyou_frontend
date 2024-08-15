@@ -1,17 +1,15 @@
+import { closeModal } from '@src/atom/modal';
 import { Button, IconButton, ToggleButton } from '@src/components/atom';
 import DropZone from '@src/components/atom/Dropzone';
 import { ModalContentType } from '@src/core/types/modal-type';
-import { useRootDispatch } from '@src/hooks';
-import { RootDispatchType } from '@src/store/modules';
-import { closeModal } from '@src/store/modules/modal';
-import { addPost } from '@src/store/modules/posts';
 import { twcDivide } from '@src/utils/twcUtil';
 import cx from 'classnames';
 import React, { FunctionComponent, useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 const PostCreateModalContentHeader: FunctionComponent<{
-  dispatch: RootDispatchType;
-}> = ({ dispatch }) => {
+  onClose: () => void;
+}> = ({ onClose }) => {
   return (
     <div
       className={cx(
@@ -20,14 +18,7 @@ const PostCreateModalContentHeader: FunctionComponent<{
         'bg-primary-bg text-black'
       )}
     >
-      <IconButton
-        type="button"
-        name="close"
-        size={28}
-        onClick={() => {
-          dispatch(closeModal());
-        }}
-      />
+      <IconButton type="button" name="close" size={28} onClick={onClose} />
       <h2>새 로그</h2>
       <Button type="submit" styles="transparent" className="text-wy-blue-500 py-0 px-0">
         완료
@@ -37,7 +28,7 @@ const PostCreateModalContentHeader: FunctionComponent<{
 };
 
 const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option }) => {
-  const dispatch = useRootDispatch();
+  const closeModalCB = useSetRecoilState(closeModal);
   const [imageFiles, setImageFiles] = useState([]);
   const [description, setDescription] = useState('');
 
@@ -48,21 +39,21 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
       return;
     }
     const images = imageFiles.map((file) => URL.createObjectURL(file));
-    dispatch(
-      addPost({
-        author: '힘찬엄마',
-        author_profile_image: '/static/sample_profile.png',
-        text: description,
-        images: images,
-      })
-    );
-    dispatch(closeModal());
+    // dispatch(
+    //   addPost({
+    //     author: '힘찬엄마',
+    //     author_profile_image: '/static/sample_profile.png',
+    //     text: description,
+    //     images: images,
+    //   })
+    // );
+    closeModalCB();
   };
 
   return (
     <div className="w-full flex flex-col">
       <form onSubmit={handleSubmit}>
-        <PostCreateModalContentHeader dispatch={dispatch} />
+        <PostCreateModalContentHeader onClose={() => closeModalCB()} />
         <div className={cx('pt-4 children:py-5', twcDivide)}>
           <div className="flex space-x-2 justify-center">
             <div className="relative flex-shrink-0 w-20 h-20">

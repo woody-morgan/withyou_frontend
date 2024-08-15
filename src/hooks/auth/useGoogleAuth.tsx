@@ -1,12 +1,7 @@
 import { GoogleAuthHookType } from '@src/core/types/auth-type';
 import { useLazyScript } from '@src/hooks';
 
-export default function useGoogleAuth({
-  router,
-  dispatch,
-  onSuccess,
-  onFailure,
-}: GoogleAuthHookType) {
+export default function useGoogleAuth({ router, onSuccess, onFailure }: GoogleAuthHookType) {
   const [isLoaded] = useLazyScript('');
 
   const processGoogleLogin = async () => {

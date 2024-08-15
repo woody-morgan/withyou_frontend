@@ -1,6 +1,6 @@
 import { SignInResult, ValidateResult } from '@src/core/types/auth-type';
 import { CommonApiError, isAxiosError } from '@src/core/types/axios-error';
-import { setClientAuthToken } from '@src/utils/authUtil';
+import { setAuthToken } from '@src/utils/authUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
 import axios from 'axios';
 
@@ -19,7 +19,7 @@ export const apiKakaoSignIn = async ({ accessToken }: { accessToken: string }) =
     const { data } = await axios.post<SignInResult>('/auth/kakao/callback', {
       accessToken,
     });
-    setClientAuthToken(data.accessToken);
+    setAuthToken(data.accessToken);
   } catch (err) {
     if (isAxiosError<CommonApiError>(err)) {
       const { message, error } = err.response.data;

@@ -1,4 +1,3 @@
-import { RootDispatchType } from '@src/store/modules';
 import { NextRouter } from 'next/router';
 
 export type CommonUserAuthInfoType = {
@@ -27,7 +26,6 @@ export type UserAuthInfoType = CommonUserAuthInfoType & {
 
 export type SocialAuthHookType = {
   router: NextRouter;
-  dispatch: RootDispatchType;
   onSuccess?: () => void;
 };
 

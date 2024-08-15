@@ -1,12 +1,7 @@
 import { AppleAuthHookType } from '@src/core/types/auth-type';
 import { useLazyScript } from '@src/hooks';
 
-export default function useAppleAuth({
-  router,
-  dispatch,
-  onSuccess,
-  onFailure,
-}: AppleAuthHookType) {
+export default function useAppleAuth({ router, onSuccess, onFailure }: AppleAuthHookType) {
   const [isLoaded] = useLazyScript('');
 
   const processAppleLogin = async () => {

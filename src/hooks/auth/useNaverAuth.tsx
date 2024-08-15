@@ -1,12 +1,7 @@
 import { NaverAuthHookType } from '@src/core/types/auth-type';
 import { useLazyScript } from '@src/hooks';
 
-export default function useNaverAuth({
-  router,
-  dispatch,
-  onSuccess,
-  onFailure,
-}: NaverAuthHookType) {
+export default function useNaverAuth({ router, onSuccess, onFailure }: NaverAuthHookType) {
   const [isLoaded] = useLazyScript('');
 
   const processNaverLogin = async () => {

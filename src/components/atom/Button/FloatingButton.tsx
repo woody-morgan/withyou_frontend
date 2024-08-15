@@ -2,8 +2,6 @@ import { FloatingButtonVariant } from '@src/animations/button';
 import { overLayVariants } from '@src/animations/common';
 import { Icon, IconButton } from '@src/components/atom';
 import { SVGTypes } from '@src/components/atom/Icon/Icon';
-import { useRootDispatch } from '@src/hooks';
-import { openPostCreateModal } from '@src/store/modules/modal';
 import { toBeImplement } from '@src/utils/implUtil';
 import cx from 'classnames';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
@@ -48,7 +46,6 @@ const FloatingSmallButtonWrapper: FC<{
 );
 
 const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bottomRight' }) => {
-  const dispatch = useRootDispatch();
   const [active, setActive] = useState(false);
 
   const handleToggle = () => {
@@ -57,7 +54,7 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
 
   const handlePostCreate = () => {
     setActive(false);
-    dispatch(openPostCreateModal({ fullScreen: true }));
+    // dispatch(openPostCreateModal({ fullScreen: true }));
   };
 
   return (
