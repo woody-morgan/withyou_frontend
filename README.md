@@ -11,9 +11,11 @@ WithoutYou 프론트앤드 레포지토리
 ```js
 const appConfig = {
   notchColor: '#f8eee2',
-  headerHeight: '4rem',
+  headerHeight: '3rem',
   bottomNavigationHeight: '5rem',
   sidePadding: '1rem',
+  backgroundColor: '#fff8e5',
+  mobileAppMaxWidth: '768px',
 }
 ```
 
@@ -31,21 +33,16 @@ const appConfig = {
 
 ## Husky Hook 설정 방법
 
-```bash
-npx husky install ".husky/husky-config"
-```
-
 ### precommit hook 설정
 
 ```bash
-// 만약 .husky/husky-config 폴더가 없다면 아래 명령어를 터미널에 입력
-npx husky add .husky/husky-config/pre-commit "yarn build"
+1. ./husky/pre-commit.sh에 필요한 커맨드 추가
 ```
 
 ### prepush hook 설정
 
 ```bash
-npx husky add .husky/husky-config/pre-push "yarn build"
+1. ./husky/pre-push.sh에 필요한 커맨드 추가
 ```
 
 ### 현재 husky hook 상태

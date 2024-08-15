@@ -24,9 +24,7 @@ const PageLayout: FC<{
   headerTransparent = false,
   headerBackgroundColor,
   headerContent = (
-    <div className="uppercase text-center w-full text-2xl font-bold">
-      {process.env.NEXT_PUBLIC_APP_NAME}
-    </div>
+    <h2 className="uppercase text-center w-full">{process.env.NEXT_PUBLIC_APP_NAME}</h2>
   ),
 }) => {
   const mainRef = useRef<HTMLDivElement>(null)
@@ -35,13 +33,16 @@ const PageLayout: FC<{
     if (fixedHeight) {
       mainRef.current.style.setProperty(
         'height',
-        `calc(${window.innerHeight}px - ${appConfig.headerHeight} - ${appConfig.bottomNavigationHeight})`
+        `calc(${window.innerHeight}px - ${appConfig.headerHeight})`
       )
     } else {
       mainRef.current.style.setProperty('height', 'h-full')
     }
-  }, 100)
+  }, 0)
 
+  // do not remove pb-bt-nav on motion.main
+  // it is for showing content on the top of bottom nav
+  // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
     <>
       <Header
@@ -59,7 +60,7 @@ const PageLayout: FC<{
           exit="exit"
           transition={{ type: 'linear' }}
           className={cx(
-            'm-center w-full',
+            'relative m-center w-full h-screen pb-bt-nav',
             fullWidth ? null : `max-w-mobile-app`,
             fixedHeight ? 'overflow-hidden' : 'min-h-screen'
           )}

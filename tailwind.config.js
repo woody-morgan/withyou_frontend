@@ -22,6 +22,7 @@ module.exports = {
       maxWidth: {
         'mobile-app': appConfig.mobileAppMaxWidth,
       },
+
       colors: {
         'primary-bg': appConfig.backgroundColor,
         primary: {
@@ -58,23 +59,6 @@ module.exports = {
           900: '#0096d4',
         },
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            h1: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-            },
-            h2: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-            },
-            h3: {
-              fontWeight: '600',
-            },
-          },
-        },
-      }),
     },
   },
   plugins: [],

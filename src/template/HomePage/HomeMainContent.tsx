@@ -3,14 +3,18 @@ import { ImageWrapper } from '@src/components/common'
 
 const HomeMainContent = () => {
   return (
-    <div className="w-full h-full space-y-2 flex flex-col justify-center text-center">
-      <div className="h-auto">
-        <ImageWrapper src="/static/notebook.png" width="400px" height="300px" alt="notebook" />
+    <div className="w-full h-full space-y-2 flex flex-col justify-center items-center text-center">
+      <div className="w-40 md:w-60">
+        <ImageWrapper
+          src="/static/notebook.png"
+          layout="responsive"
+          width="400px"
+          height="300px"
+          alt="notebook"
+        />
       </div>
-      <div className="text-3xl font-bold">{"World's Best Baby Logger"}</div>
-      <div className="text-md">
-        {"With you is world's best baby growth logging app for parents, family, relatives"}
-      </div>
+      <h1>{"World's Best Baby Logger"}</h1>
+      <p>{"With you is world's best baby growth logging app for parents, family, relatives"}</p>
       <div className="flex justify-center space-x-1">
         {Array(3)
           .fill(0)

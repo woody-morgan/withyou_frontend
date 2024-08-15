@@ -12,7 +12,7 @@ const Navigation: FC<{
     <div className="relative">
       <div
         className={cx(
-          'z-20 w-full max-w-mobile-app h-bt-nav bottom-0 ',
+          'z-20 w-full max-w-mobile-app h-bt-nav bottom-0',
           'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',
@@ -35,8 +35,6 @@ const Navigation: FC<{
           )
         })}
       </div>
-      {/* to give padding for bottom sheet */}
-      <div className="h-bt-nav" />
     </div>
   )
 }
