@@ -1,13 +1,14 @@
+import { useRouter } from 'next/router'
 import React, { FC, useEffect, useRef } from 'react'
+import useWindowResize from '@src/hooks/useWindowResize'
+import { useRootDispatch, useRootState } from '@src/hooks'
+
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import { pageVars } from '@src/animations/page'
-import appConfig from '@src/config/appConfig'
-import useWindowResize from '@src/hooks/useWindowResize'
-import Header from '@src/components/layout/PageLayout/Header'
-import { useRootDispatch, useRootState } from '@src/hooks'
 import { addHistory } from '@src/store/modules/history'
-import { useRouter } from 'next/router'
+
+import Header from './PageLayout/Header'
 
 const PageLayout: FC<{
   children: React.ReactNode
@@ -35,12 +36,10 @@ const PageLayout: FC<{
   const mainRef = useRef<HTMLDivElement>(null)
   const history = useRootState((state) => state.history)
 
+  // to recalculate height when mobile browser search bar appeared and disappeared
   useWindowResize(() => {
     if (fixedHeight) {
-      mainRef.current.style.setProperty(
-        'height',
-        `calc(${window.innerHeight}px - ${appConfig.headerHeight})`
-      )
+      mainRef.current.style.setProperty('height', `${window.innerHeight}px`)
     } else {
       mainRef.current.style.setProperty('height', 'h-full')
     }
@@ -51,13 +50,18 @@ const PageLayout: FC<{
     dispatch(addHistory({ history: router.asPath, transDirection: 'forward' }))
   }, [])
 
-  // do not remove pb-bt-nav on motion.main
+  // pageDirection is used to determine the direction of the page transition
+  const pageDirectionCustom = history.transDirection === 'forward' ? 1 : -1
+
+  // do not remove pt-gb-header pb-bt-nav on motion.main
   // it is for showing content on the top of bottom nav
   // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
     <>
       <Header
         fixed={headerFixed}
+        custom={pageDirectionCustom}
+        variants={disableTransition ? {} : pageVars}
         transparent={headerTransparent}
         className={cx(headerBackgroundColor)}
         content={headerContent}
@@ -66,13 +70,13 @@ const PageLayout: FC<{
         <motion.main
           ref={mainRef}
           variants={disableTransition ? {} : pageVars}
-          custom={history.transDirection === 'forward' ? 1 : -1}
+          custom={pageDirectionCustom}
           initial="hidden"
           animate="enter"
           exit="exit"
           transition={{ type: 'linear' }}
           className={cx(
-            'relative m-center w-full h-screen pb-bt-nav',
+            'relative m-center w-full h-screen pt-gb-header pb-bt-nav',
             fullWidth ? null : `max-w-mobile-app px-side-padding`,
             fixedHeight ? 'overflow-hidden' : 'min-h-screen'
           )}
