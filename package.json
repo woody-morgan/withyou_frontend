@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "dev": "next dev",
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "dev:secure": "cross-env ENABLE_HTTPS=true node server.js",
     "build": "next build",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build",
