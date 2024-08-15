@@ -3,7 +3,7 @@ import { ImageWrapper } from '@src/components/common'
 
 const ProfileIntroSection = () => {
   return (
-    <div className="w-[200px] h-[280px] flex flex-col m-center">
+    <div className="w-[200px] h-[280px] flex flex-col m-center select-none">
       <div className="relative w-full h-full rounded-full bg-primary-700">
         <ImageWrapper
           src="/static/sample_profile.png"
