@@ -28,13 +28,8 @@ const PostCreateModalContentHeader: FunctionComponent<{
         }}
       />
       <h2>새 로그</h2>
-      <Button
-        type="submit"
-        size="xsmall"
-        styles="transparent"
-        className="text-wy-blue-500 py-0 px-0"
-      >
-        <h2>완료</h2>
+      <Button type="submit" styles="transparent" className="text-wy-blue-500 py-0 px-0">
+        완료
       </Button>
     </div>
   );
@@ -48,7 +43,6 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(authState);
     if (imageFiles.length === 0) {
       alert('이미지를 업로드해주세요');
       return;
@@ -74,7 +68,7 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
               <DropZone imageFiles={imageFiles} setImageFiles={setImageFiles} />
             </div>
             <textarea
-              className="w-full h-20 border-none outline-none resize-none"
+              className="w-full h-20 border-none outline-none resize-none bg-white"
               placeholder="이 사진에 대해 설명해주세요"
               maxLength={200}
               value={description}
