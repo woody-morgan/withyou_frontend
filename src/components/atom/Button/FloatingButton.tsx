@@ -4,6 +4,7 @@ import { Icon, IconButton } from '@src/components/atom';
 import { SVGTypes } from '@src/components/atom/Icon/Icon';
 import { useRootDispatch } from '@src/hooks';
 import { openPostCreateModal } from '@src/store/modules/modal';
+import { toBeImplement } from '@src/utils/implUtil';
 import cx from 'classnames';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import React, { FC, FunctionComponent, useState } from 'react';
@@ -92,6 +93,14 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
                 onClick={handlePostCreate}
               >
                 글쓰기
+              </FloatingSmallButtonWrapper>
+              <FloatingSmallButtonWrapper
+                custom={4.5}
+                iconName="album-selected"
+                variants={FloatingButtonVariant}
+                onClick={toBeImplement}
+              >
+                앨범
               </FloatingSmallButtonWrapper>
             </>
           )}

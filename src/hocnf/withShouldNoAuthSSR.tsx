@@ -15,17 +15,10 @@ const withShouldNoAuthSSR = () => {
       }
       try {
         const result = await apiValidate();
+        const { user } = result;
         store.dispatch(
           setUserInfo({
-            id: result.id,
-            familyId: result.familyId,
-            gender: result.gender,
-            nickname: result.nickname,
-            role: result.role,
-            roles: result.roles,
-            thumbnail: result.thumbnail,
-            vendor: result.vendor,
-            isNew: result.isNew,
+            user,
           })
         );
         store.dispatch(showBottomNav());
