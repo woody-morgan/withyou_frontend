@@ -1,12 +1,12 @@
 import { apiValidate } from '@src/core/api/apiAuth';
 import { clearAuthToken } from '@src/utils/authUtil';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export default function useValidateUser() {
   const router = useRouter();
 
-  const validateUser = useCallback(async () => {
+  const validateUser = async () => {
     try {
       const {
         user: { isNew },
@@ -18,9 +18,9 @@ export default function useValidateUser() {
       clearAuthToken();
       router.push('/login');
     }
-  }, [router]);
+  };
 
   useEffect(() => {
     validateUser();
-  }, [validateUser]);
+  });
 }

@@ -1,6 +1,6 @@
 import { SignInResult, ValidateResult } from '@src/core/types/auth-type';
 import { CommonApiError, isAxiosError } from '@src/core/types/axios-error';
-import { setAuthToken } from '@src/utils/authUtil';
+import { clearAuthToken, setAuthToken } from '@src/utils/authUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
 import Cookies from 'js-cookie';
 
@@ -13,6 +13,7 @@ export const apiValidate = async () => {
   } catch (err) {
     if (Cookies.get('jwt')) {
       ToastError('error occured during validation process');
+      clearAuthToken();
     }
     throw err;
   }

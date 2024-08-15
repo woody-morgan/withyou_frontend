@@ -42,7 +42,7 @@ const EnrollPage = () => {
   };
 
   const isValidSubmit = (): boolean => {
-    if (!nameIsValid || !role || imageFiles.length == 0) return false;
+    if (!nameIsValid || !role) return false;
     return true;
   };
 
@@ -100,31 +100,33 @@ const EnrollPage = () => {
             classNames="border-none bg-gray-50"
             onSelect={(e) => setRole(e.target.value)}
           />
+
           <div className="w-full relative">
-            <span className="absolute top-0 left-16">
+            {familyCode.isValid ? (
+              <InputBox
+                type="id"
+                label="가족코드"
+                fullWidth
+                value={familyCode.value}
+                disabled={!familyCode.isValid}
+                name="familyCode"
+                classNames="border-none bg-gray-50"
+                onChange={handleFamilyCodeChange}
+              />
+            ) : (
               <Button
                 styles="wy-blue"
-                size="xsmall"
-                onClick={() =>
+                fullWidth
+                onClick={() => {
                   setFamilyCode((prev) => ({
-                    value: prev.isValid ? '' : prev.value,
-                    isValid: !prev.isValid,
-                  }))
-                }
+                    ...prev,
+                    isValid: true,
+                  }));
+                }}
               >
-                {familyCode.isValid ? '입력 취소' : '코드 입력'}
+                <h3>가족코드 입력</h3>
               </Button>
-            </span>
-            <InputBox
-              type="id"
-              label="가족코드"
-              fullWidth
-              value={familyCode.value}
-              disabled={!familyCode.isValid}
-              name="familyCode"
-              classNames="border-none bg-gray-50"
-              onChange={handleFamilyCodeChange}
-            />
+            )}
           </div>
         </div>
       </FullWidthOverflowScrollWrapper>

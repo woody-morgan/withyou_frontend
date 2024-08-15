@@ -66,7 +66,9 @@ const InputBox: FunctionComponent<{
           {...props}
         />
       </div>
-      {error && <p className="text-xs md:text-sm text-red-400">{errorMessage}</p>}
+      <div className="h-4">
+        {error && <p className="text-xs md:text-sm text-red-400">{errorMessage}</p>}
+      </div>
     </div>
   );
 };
