@@ -18,7 +18,7 @@ export const navRouter: NavRouterType[] = [
     icon: 'camera',
   },
   {
-    path: '/create',
+    path: '/posts',
     name: 'write',
     icon: 'plusCircle',
   },

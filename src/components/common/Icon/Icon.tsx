@@ -4,6 +4,9 @@ import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 import { IoAlbumsOutline } from 'react-icons/io5'
 import { RiKakaoTalkFill } from 'react-icons/ri'
+import { FaSearch } from 'react-icons/fa'
+import { BiVideo } from 'react-icons/bi'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 export type SVGTypes =
   | 'house'
@@ -12,6 +15,9 @@ export type SVGTypes =
   | 'profile'
   | 'album'
   | 'camera'
+  | 'video'
+  | 'hamburger'
+  | 'search'
   | 'google'
   | 'apple'
   | 'kakao'
@@ -29,6 +35,9 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   profile: CgProfile,
   album: IoAlbumsOutline,
   camera: BsCamera,
+  video: BiVideo,
+  hamburger: GiHamburgerMenu,
+  search: FaSearch,
   google: BsGoogle,
   apple: BsApple,
   kakao: RiKakaoTalkFill,

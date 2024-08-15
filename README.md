@@ -49,3 +49,11 @@ const appConfig = {
 
 1. commit 시 build 테스트 통과 여부 확인
 2. commit 시 package.json 에 설정된 lint-staged 명령어 셋 통과 여부 확인
+
+### 현재 개발 상태
+
+#### 활성화된 라우터
+
+```js
+const routes = ['/', '/posts', '/signup', '/login']
+```
