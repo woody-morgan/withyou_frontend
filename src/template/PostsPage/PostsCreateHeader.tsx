@@ -1,5 +1,5 @@
-import React, { FC, memo } from 'react'
 import { IconButton } from '@src/components/common'
+import React, { FC, memo } from 'react'
 
 const PostsCommonHeader: FC<{
   onBack: () => void

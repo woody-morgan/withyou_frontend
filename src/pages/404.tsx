@@ -1,7 +1,7 @@
-import React from 'react'
-import { PageLayout } from '@src/components/layout'
 import { Button } from '@src/components/common'
+import { PageLayout } from '@src/components/layout'
 import Link from 'next/link'
+import React from 'react'
 
 const FourZeroFourPage = () => {
   return (

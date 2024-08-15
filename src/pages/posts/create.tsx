@@ -1,11 +1,10 @@
-import React from 'react'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
-import siteMetadata from '@src/config/siteMetadata'
-
-import PostsCreateHeader from '@src/template/PostsPage/PostsCreateHeader'
 import { NoteEditor } from '@src/components/common'
+import { PageLayout } from '@src/components/layout'
+import siteMetadata from '@src/config/siteMetadata'
 import useBackward from '@src/hooks/useBackward'
+import PostsCreateHeader from '@src/template/PostsPage/PostsCreateHeader'
+import React from 'react'
 
 const PostsCreatePage = () => {
   const handleBackward = useBackward('/posts')

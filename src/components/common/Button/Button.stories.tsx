@@ -1,8 +1,8 @@
-import React from 'react'
+import { btnStyles } from '@src/utils/constants'
 import { ComponentMeta } from '@storybook/react'
+import React from 'react'
 
 import Button from './Button'
-import { btnStyles } from '@src/utils/constants'
 
 export default {
   title: 'Components/Button',

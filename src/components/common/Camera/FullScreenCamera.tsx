@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
 import { useDimension } from '@src/hooks'
+import React, { FC } from 'react'
 import { WebcamProps } from 'react-webcam'
+
 import Camera from './Camera'
 
 type FullScreenCameraProps = WebcamProps & {

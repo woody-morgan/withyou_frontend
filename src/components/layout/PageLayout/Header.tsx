@@ -1,6 +1,6 @@
-import React, { forwardRef, MutableRefObject } from 'react'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
+import React, { forwardRef, MutableRefObject } from 'react'
 
 type Props = {
   className?: string

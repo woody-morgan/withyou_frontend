@@ -1,10 +1,10 @@
-import React from 'react'
-import { NextPage } from 'next'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
+import { PageLayout } from '@src/components/layout'
 import siteMetadata from '@src/config/siteMetadata'
 import ProfileIntroSection from '@src/template/ProfilePage/ProfileIntroSection'
 import ProfileOptionItemsSection from '@src/template/ProfilePage/ProfileOptionItemsSection'
+import { NextPage } from 'next'
+import React from 'react'
 
 const ProfilePage: NextPage = () => {
   return (

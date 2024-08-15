@@ -1,5 +1,6 @@
 import { motion, MotionProps } from 'framer-motion'
 import React, { FC } from 'react'
+
 import Icon, { SVGTypes } from './Icon'
 
 interface IconButtonProps extends MotionProps {

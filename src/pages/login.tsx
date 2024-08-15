@@ -1,11 +1,10 @@
-import React, { useMemo } from 'react'
-import { NextPage } from 'next'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
-import siteMetadata from '@src/config/siteMetadata'
-
 import { IconButton } from '@src/components/common'
 import { SVGTypes } from '@src/components/common/Icon/Icon'
+import { PageLayout } from '@src/components/layout'
+import siteMetadata from '@src/config/siteMetadata'
+import { NextPage } from 'next'
+import React, { useMemo } from 'react'
 
 const LoginPage: NextPage = () => {
   const socialButtonName: Partial<SVGTypes[]> = useMemo(() => ['google', 'apple', 'kakao'], [])

@@ -1,13 +1,14 @@
 import '@src/styles/globals.css'
+
+import Analytics from '@src/components/analytics'
+import { CommonLayout } from '@src/components/layout'
+import { wrapper } from '@src/store'
+import axios from 'axios'
+import { AnimatePresence } from 'framer-motion'
 import { NextPage } from 'next'
 import { AppProps } from 'next/app'
-import { CommonLayout } from '@src/components/layout'
-import axios from 'axios'
-import qs from 'qs'
-import { AnimatePresence } from 'framer-motion'
-import { wrapper } from '@src/store'
 import Head from 'next/head'
-import Analytics from '@src/components/analytics'
+import qs from 'qs'
 
 axios.defaults.withCredentials = process.env.NODE_ENV === 'production'
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL

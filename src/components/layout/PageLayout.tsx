@@ -1,14 +1,13 @@
-import React, { FC, useEffect, useMemo, useRef } from 'react'
-import useWindowResize from '@src/hooks/useWindowResize'
+import { pageVars } from '@src/animations/page'
 import { useHandleOnRoutingStart, useRootDispatch, useRootState } from '@src/hooks'
-
+import useWindowResize from '@src/hooks/useWindowResize'
+import { addHistory, modTransDirection } from '@src/store/modules/history'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
-import { pageVars } from '@src/animations/page'
+import { useRouter } from 'next/router'
+import React, { FC, useEffect, useMemo, useRef } from 'react'
 
 import Header from './PageLayout/Header'
-import { addHistory, modTransDirection } from '@src/store/modules/history'
-import { useRouter } from 'next/router'
 
 const PageLayout: FC<{
   children: React.ReactNode
@@ -66,7 +65,7 @@ const PageLayout: FC<{
   // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
     <motion.div
-      className="relative h-full"
+      className="relative"
       variants={disableTransition ? {} : pageVars}
       custom={pageDirectionCustom}
       initial="hidden"
@@ -83,9 +82,9 @@ const PageLayout: FC<{
       <main
         ref={mainRef}
         className={cx(
-          'relative m-center w-full h-screen pt-gb-header pb-bt-nav',
+          'relative m-center w-full pt-gb-header pb-bt-nav',
           fullWidth ? null : `max-w-mobile-app px-side-padding`,
-          fixedHeight ? 'overflow-hidden' : 'min-h-screen'
+          fixedHeight ? 'overflow-hidden h-screen' : 'min-h-screen'
         )}
       >
         {children}

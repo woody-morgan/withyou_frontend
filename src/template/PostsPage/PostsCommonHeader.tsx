@@ -1,5 +1,5 @@
-import React from 'react'
 import { IconButton } from '@src/components/common'
+import React from 'react'
 
 const PostsCommonHeader = () => {
   return (

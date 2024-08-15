@@ -1,10 +1,9 @@
 import { AnyAction, CombinedState, combineReducers } from '@reduxjs/toolkit'
+import { UserAuthInfoType } from '@src/core/types/auth-type'
 import { HYDRATE } from 'next-redux-wrapper'
 
-import history, { HistoryInitialType } from './history'
-
 import auth from './auth'
-import { UserAuthInfoType } from '@src/core/types/auth-type'
+import history, { HistoryInitialType } from './history'
 
 export type RootStateType = CombinedState<{ history: HistoryInitialType; auth: UserAuthInfoType }>
 export type RootDispatchType = ReturnType<typeof reducer>['dispatch']

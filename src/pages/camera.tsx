@@ -1,9 +1,9 @@
-import React from 'react'
-import { NextPage } from 'next'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
-import siteMetadata from '@src/config/siteMetadata'
 import { FullScreenCamera } from '@src/components/common'
+import { PageLayout } from '@src/components/layout'
+import siteMetadata from '@src/config/siteMetadata'
+import { NextPage } from 'next'
+import React from 'react'
 
 const CameraPage: NextPage = () => {
   return (

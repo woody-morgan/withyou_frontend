@@ -1,6 +1,6 @@
+import { useRootDispatch, useRootState } from '@src/hooks'
 import { popHistory } from '@src/store/modules/history'
 import { useRouter } from 'next/router'
-import { useRootDispatch, useRootState } from '@src/hooks'
 
 export default function useBackward(to: string) {
   const router = useRouter()

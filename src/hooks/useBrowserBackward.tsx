@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
 import useBackward from '@src/hooks/useBackward'
+import React, { useEffect } from 'react'
 
 /**
  * @warn callback will be called before backward hook is called

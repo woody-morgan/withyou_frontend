@@ -1,6 +1,6 @@
+import siteMetadata from '@src/config/siteMetadata'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import siteMetadata from '@src/config/siteMetadata'
 
 interface CommonSEOProps {
   title: string

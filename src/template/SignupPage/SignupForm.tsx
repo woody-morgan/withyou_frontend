@@ -1,8 +1,8 @@
-import React from 'react'
 import { InputBox } from '@src/components/common'
-import SignupStartSection from '@src/template/SignupPage/SignupStartSection'
 import { useValidateInput } from '@src/hooks'
+import SignupStartSection from '@src/template/SignupPage/SignupStartSection'
 import { commonRegex } from '@src/utils/regexUtil'
+import React from 'react'
 
 const SignupForm = () => {
   const [name, nameIsValid, nameError, handleNameChange] = useValidateInput(

@@ -1,11 +1,10 @@
-import { NextPage } from 'next'
+import { PageSEO } from '@src/components/analytics/SEO'
 import { PageLayout } from '@src/components/layout'
 import siteMetadata from '@src/config/siteMetadata'
-import { PageSEO } from '@src/components/analytics/SEO'
-
-import cx from 'classnames'
 import HomeMainContent from '@src/template/HomePage/HomeMainContent'
 import HomeStartSection from '@src/template/HomePage/HomeStartSection'
+import cx from 'classnames'
+import { NextPage } from 'next'
 
 const HomePage: NextPage = () => {
   return (

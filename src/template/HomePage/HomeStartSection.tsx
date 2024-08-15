@@ -1,6 +1,6 @@
-import React from 'react'
 import { Button } from '@src/components/common'
 import Link from 'next/link'
+import React from 'react'
 
 const HomeStartSection = () => {
   return (

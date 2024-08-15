@@ -1,6 +1,6 @@
-import React, { ChangeEventHandler, FC, memo } from 'react'
-import cx from 'classnames'
 import { inputBoxSizes } from '@src/utils/constants'
+import cx from 'classnames'
+import React, { ChangeEventHandler, FC, memo } from 'react'
 
 const sizeSelector: { [keys in inputBoxSizes] } = {
   small: 'h-12',

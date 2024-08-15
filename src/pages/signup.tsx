@@ -1,10 +1,10 @@
-import React from 'react'
-import { NextPage } from 'next'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
+import { PageLayout } from '@src/components/layout'
 import siteMetadata from '@src/config/siteMetadata'
-import SignupLetters from '@src/template/SignupPage/SignupLetters'
 import SignupForm from '@src/template/SignupPage/SignupForm'
+import SignupLetters from '@src/template/SignupPage/SignupLetters'
+import { NextPage } from 'next'
+import React from 'react'
 
 const SignupPage: NextPage = () => {
   return (

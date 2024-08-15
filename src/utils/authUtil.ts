@@ -1,6 +1,6 @@
 // check cookies, axios header
-import Cookies from 'js-cookie'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 export const setAuthToken = (token: string) => {
   Cookies.set('jwt', token)
