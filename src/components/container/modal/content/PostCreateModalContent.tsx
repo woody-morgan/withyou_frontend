@@ -1,6 +1,6 @@
 import { closeModal } from '@src/atom/modal';
 import { addPosts } from '@src/atom/posts';
-import { Button, IconButton, ToggleButton } from '@src/components/ui/atom';
+import { Button, IconButton } from '@src/components/ui/atom';
 import DropZone from '@src/components/ui/organism/Dropzone';
 import { ModalContentType } from '@src/core/types/modal-type';
 import { twcDivide } from '@src/utils/twcUtil';
@@ -21,7 +21,7 @@ const PostCreateModalContentHeader: FunctionComponent<{
     >
       <IconButton type="button" name="close" size={28} onClick={onClose} />
       <h2>새 로그</h2>
-      <Button type="submit" styles="transparent" className="text-wy-blue-500 py-0 px-0">
+      <Button type="submit" size="none" styles="transparent" className="text-wy-blue-500 text-lg">
         완료
       </Button>
     </div>
@@ -55,12 +55,12 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
   };
 
   return (
-    <div className="w-full flex flex-col">
-      <form onSubmit={handleSubmit}>
+    <div className="w-full h-full flex flex-col">
+      <form onSubmit={handleSubmit} className="h-full">
         <PostCreateModalContentHeader onClose={() => closeModalCB()} />
-        <div className={cx('pt-4 children:py-5', twcDivide)}>
-          <div className="flex space-x-2 justify-center">
-            <div className="relative flex-shrink-0 w-20 h-20">
+        <div className={cx('h-full pt-4 children:py-5', twcDivide)}>
+          <div className="h-full flex flex-col space-x-2">
+            <div className="relative flex-shrink-0 w-full h-1/3">
               <DropZone imageFiles={imageFiles} setImageFiles={setImageFiles} />
             </div>
             <textarea
@@ -73,7 +73,7 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
               }}
             />
           </div>
-          <div className="flex w-full justify-between">
+          {/* <div className="flex w-full justify-between">
             <p>오픈 여부</p>
             <ToggleButton />
           </div>
@@ -84,7 +84,7 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
           <div className="flex w-full justify-between">
             <p>태그 입력</p>
             <IconButton name="rightArrow" size={24} className="text-gray-200" />
-          </div>
+          </div> */}
         </div>
       </form>
     </div>

@@ -27,6 +27,7 @@ const selectSize: { [keys in btnSizes]: string } = {
   medium: 'px-10 text-lg h-12',
   small: 'px-8 h-8',
   xsmall: 'px-6 h-6',
+  none: '',
 };
 
 const selectStyle: { [keys in btnStyles]: string } = {

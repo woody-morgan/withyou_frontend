@@ -3,7 +3,7 @@ import { SelectOption } from '@src/components/ui/atom/Input/SelectBox';
 export type commonSizes = 'large' | 'medium' | 'small' | 'xsmall';
 
 export type btnRounded = 'primary' | 'keyboard';
-export type btnSizes = commonSizes;
+export type btnSizes = commonSizes | 'none';
 export type inputBoxSizes = commonSizes;
 export type selectBoxSizes = commonSizes;
 
