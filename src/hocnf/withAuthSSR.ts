@@ -21,6 +21,7 @@ const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps): GetServerSide
         } catch (error) {
           // should clear jwt token on client
           store.dispatch(clearUserInfo())
+          const { resolvedUrl } = ctx
           return {
             props: {},
             redirect: {

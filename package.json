@@ -59,6 +59,7 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@types/js-cookie": "^3.0.2",
+    "@types/kakao-js-sdk": "^1.39.1",
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",
     "@typescript-eslint/eslint-plugin": "^5.30.5",

@@ -3,9 +3,12 @@ import { PageLayout } from '@src/components/layout'
 import AlbumCommonHeader from '@src/components/template/AlbumPage/AlbumCommonHeader'
 import siteMetadata from '@src/core/config/siteMetadata'
 import { photoGalleryData } from '@src/core/data/photo-gallery-data'
+import { withAuthSSR } from '@src/hocnf'
 import { NextPage } from 'next'
 import React, { useEffect } from 'react'
 import Gallery from 'react-photo-gallery'
+
+export const getServerSideProps = withAuthSSR()
 
 const AlbumPage: NextPage = () => {
   const [mounted, setMounted] = React.useState(false)

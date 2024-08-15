@@ -1,5 +1,6 @@
 import siteMetadata from '@src/core/config/appConfig'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 import React from 'react'
 
 export default class MyDocument extends Document {
@@ -24,6 +25,10 @@ export default class MyDocument extends Document {
           {/* <!-- iOS Safari --> */}
           <meta content={notchColor} name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
+          <Script
+            src="https://developers.kakao.com/sdk/js/kakao.min.js"
+            strategy="beforeInteractive"
+          />
         </Head>
         <body className="z-0 bg-primary-400 text-black antialiased">
           <Main />
