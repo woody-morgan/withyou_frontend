@@ -1,5 +1,5 @@
 import { Icon } from '@src/components/ui/atom';
-import CommonProfile from '@src/components/ui/atom/CommonProfile';
+import PostCardHeader from '@src/components/ui/atom/Header/PostCardHeader';
 import PostCardWrapper, {
   CommonPostCardWrapperProps,
 } from '@src/components/ui/molecule/PostCard/Wrapper/PostCardWrapper';
@@ -13,7 +13,7 @@ const MainPostCardWrapper: FunctionComponent<CommonPostCardWrapperProps> = ({
 
   return (
     <PostCardWrapper>
-      <CommonProfile profileImage={author_profile_image} profileName={author} timeStamp="오늘" />
+      <PostCardHeader profileImage={author_profile_image} profileName={author} timeStamp="오늘" />
       {children}
       <div className="flex space-x-2 py-2">
         <div className="flex text-gray-500">

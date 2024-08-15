@@ -7,7 +7,7 @@ import { useValidateInput } from '@src/hooks';
 import { familyRoleList } from '@src/utils/constants';
 import { commonRegex } from '@src/utils/regexUtil';
 import { useRouter } from 'next/router';
-import React, { useMemo, useState } from 'react';
+import React, { Fragment, useMemo, useState } from 'react';
 
 const EnrollPage = () => {
   const router = useRouter();
@@ -27,19 +27,19 @@ const EnrollPage = () => {
     router.back();
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    if (!nameIsValid || !role) return;
     // Todo: api call
     router.push('/');
   };
 
   return (
-    <PageLayout
-      className="bg-white"
-      headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
-    >
-      <FullWidthOverflowWrapper>
-        <form onSubmit={handleSubmit}>
+    <Fragment>
+      <PageLayout
+        className="bg-white"
+        headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
+      >
+        <FullWidthOverflowWrapper>
           <div className="w-full flex flex-col justify-between items-center pt-8 space-y-4">
             <ImageWithEditButton
               imageFiles={imageFiles}
@@ -68,20 +68,20 @@ const EnrollPage = () => {
               onSelect={(e) => setRole(e.target.value)}
             />
           </div>
-          <div className="fixed bottom-0 w-full max-w-mobile-app">
-            <Button
-              type="submit"
-              disabled={!nameIsValid || !role}
-              styles="wy-blue"
-              fullWidth
-              roundness="keyboard"
-            >
-              시작하기
-            </Button>
-          </div>
-        </form>
-      </FullWidthOverflowWrapper>
-    </PageLayout>
+        </FullWidthOverflowWrapper>
+      </PageLayout>
+      <div className="fixed bottom-0 w-full max-w-mobile-app">
+        <Button
+          disabled={!nameIsValid || !role}
+          styles="wy-blue"
+          fullWidth
+          roundness="keyboard"
+          onClick={handleSubmit}
+        >
+          시작하기
+        </Button>
+      </div>
+    </Fragment>
   );
 };
 

@@ -1,3 +1,4 @@
+import SettingSVG from '@src/components/ui/atom/Icon/assets/Setting';
 import React, { FC } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { BiVideo } from 'react-icons/bi';
@@ -22,6 +23,7 @@ import StarSvg from './assets/Star';
 import UploadSVG from './assets/Upload';
 
 export type SVGTypes =
+  | 'setting'
   | 'upload'
   | 'close'
   | 'comment'
@@ -54,6 +56,7 @@ export type IconProps = {
 };
 
 const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
+  setting: SettingSVG,
   upload: UploadSVG,
   close: CgClose,
   comment: CommentSvg,

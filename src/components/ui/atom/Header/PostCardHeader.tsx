@@ -1,4 +1,4 @@
-import { ImageWrapper } from '@src/components/ui/atom/index';
+import { ImageWrapper } from '@src/components/ui/atom';
 import React, { FunctionComponent } from 'react';
 
 export type CommonProfileProps = {
@@ -7,7 +7,7 @@ export type CommonProfileProps = {
   timeStamp: string;
 };
 
-const CommonProfile: FunctionComponent<CommonProfileProps> = ({
+const PostCardHeader: FunctionComponent<CommonProfileProps> = ({
   profileImage,
   profileName,
   timeStamp,
@@ -25,4 +25,4 @@ const CommonProfile: FunctionComponent<CommonProfileProps> = ({
   );
 };
 
-export default CommonProfile;
+export default PostCardHeader;
