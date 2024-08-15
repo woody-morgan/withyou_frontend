@@ -13,8 +13,11 @@ const nextConfig = {
     includePaths: [path.join(__dirname, './src/styles')],
   },
   env: {
+    BASE_APP_URL: process.env.BASE_APP_URL,
     BASE_API_URL: process.env.BASE_API_URL,
     APP_NAME: process.env.APP_NAME,
+    KAKAO_LOGIN_KEY: process.env.KAKAO_LOGIN_KEY,
+    KAKAO_LOGIN_REDIRECT_URI: process.env.KAKAO_LOGIN_REDIRECT_URI,
     KAKAO_LOGIN_URI: process.env.KAKAO_LOGIN_URI,
   },
   images: {

@@ -1,8 +1,6 @@
 export type UserAuthInfoType = {
-  id: string
-  name: string
+  username: string
   email: string
-  phone: string
-  profileImage: string
+  profile_image: string
   isLogin: boolean
 }
