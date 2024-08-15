@@ -1,5 +1,6 @@
 import { SignInResult, ValidateResult } from '@src/core/types/auth-type';
 import { CommonApiError, isAxiosError } from '@src/core/types/axios-error';
+import { setAuthToken } from '@src/utils/authUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
 import Cookies from 'js-cookie';
 
@@ -19,10 +20,13 @@ export const apiValidate = async () => {
 
 export const apiLocalSignIn = async (email: string, password: string) => {
   try {
-    await customAxios().post<SignInResult>('/auth/local/login', {
+    const {
+      data: { jwtToken },
+    } = await customAxios().post<SignInResult>('/auth/local/login', {
       email,
       password,
     });
+    setAuthToken(jwtToken);
   } catch (err) {
     if (isAxiosError<CommonApiError>(err)) {
       const { message, error } = err.response.data;
@@ -37,10 +41,13 @@ export const apiLocalSignIn = async (email: string, password: string) => {
 
 export const apiLocalSignUp = async (email: string, password: string) => {
   try {
-    await customAxios().post<SignInResult>('/auth/local/register', {
+    const {
+      data: { jwtToken },
+    } = await customAxios().post<SignInResult>('/auth/local/register', {
       email,
       password,
     });
+    setAuthToken(jwtToken);
   } catch (err) {
     if (isAxiosError<CommonApiError>(err)) {
       const { message, error } = err.response.data;
