@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import React, { FC, Fragment, memo } from 'react'
 import Header from '@src/components/layout/PageLayout/Header'
 import cx from 'classnames'
 import Navigation from '@src/components/layout/PageLayout/Navigation'
@@ -18,4 +18,4 @@ const CommonLayout: FC<{
   )
 }
 
-export default CommonLayout
+export default memo(CommonLayout)

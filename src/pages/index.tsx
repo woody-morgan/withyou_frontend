@@ -5,7 +5,7 @@ const HomePage: NextPage<{
   setHeaderFixed: (headerFixed: boolean) => void
 }> = ({ setHeaderFixed }) => {
   return (
-    <PageLayout>
+    <PageLayout fixedHeight>
       <div>is tailwindcss working?</div>
     </PageLayout>
   )
