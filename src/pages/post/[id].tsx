@@ -1,6 +1,6 @@
 import { PageLayout } from '@src/components/layout';
-import DetailPostCard from '@src/components/molecule/Card/DetailPostCard';
 import CommonBackwardHeader from '@src/components/molecule/PageHeader/CommonBackwardHeader';
+import DetailPostCard from '@src/components/molecule/PostCard/DetailPostCard';
 import PostCommentTemplate from '@src/components/template/PostPage/PostCommentTemplate';
 import { samplePostData } from '@src/core/data/sample-post-data';
 import { withAuthCSR } from '@src/hocnf';

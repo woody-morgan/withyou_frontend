@@ -2,7 +2,7 @@ import { Icon } from '@src/components/atom';
 import CommonProfile from '@src/components/atom/CommonProfile';
 import PostCardWrapper, {
   CommonPostCardWrapperProps,
-} from '@src/components/molecule/Card/Wrapper/PostCardWrapper';
+} from '@src/components/molecule/PostCard/Wrapper/PostCardWrapper';
 import React, { FunctionComponent } from 'react';
 
 const MainPostCardWrapper: FunctionComponent<CommonPostCardWrapperProps> = ({

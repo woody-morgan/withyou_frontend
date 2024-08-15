@@ -1,5 +1,5 @@
 import { ImageWrapper } from '@src/components/atom';
-import MainPostCardWrapper from '@src/components/molecule/Card/Wrapper/MainPostCardWrapper';
+import MainPostCardWrapper from '@src/components/molecule/PostCard/Wrapper/MainPostCardWrapper';
 import { PostInfoType } from '@src/core/types/posts-type';
 import React, { FC } from 'react';
 
@@ -12,16 +12,7 @@ const DetailPostCard: FC<{
       <div className="w-full">
         <p className="hide-text-overflow">{text}</p>
       </div>
-      {typeof images === 'string' ? (
-        <div className="relative w-full h-48">
-          <ImageWrapper
-            src={images}
-            className="rounded-xl pointer-events-none"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      ) : (
+      {images &&
         images.map((image, index) => {
           return (
             <div key={`detail-post-image-${index}`} className="relative w-full h-48">
@@ -33,8 +24,7 @@ const DetailPostCard: FC<{
               />
             </div>
           );
-        })
-      )}
+        })}
     </MainPostCardWrapper>
   );
 };

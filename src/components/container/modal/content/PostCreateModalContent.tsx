@@ -1,7 +1,7 @@
 import { Button, IconButton, ToggleButton } from '@src/components/atom';
 import DropZone from '@src/components/atom/Dropzone';
 import { ModalContentType } from '@src/core/types/modal-type';
-import { useRootDispatch, useRootState } from '@src/hooks';
+import { useRootDispatch } from '@src/hooks';
 import { RootDispatchType } from '@src/store/modules';
 import { closeModal } from '@src/store/modules/modal';
 import { addPost } from '@src/store/modules/posts';
@@ -38,7 +38,6 @@ const PostCreateModalContentHeader: FunctionComponent<{
 
 const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option }) => {
   const dispatch = useRootDispatch();
-  const authState = useRootState((state) => state.auth);
   const [imageFiles, setImageFiles] = useState([]);
   const [description, setDescription] = useState('');
 
@@ -48,12 +47,13 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
       alert('이미지를 업로드해주세요');
       return;
     }
+    const images = imageFiles.map((file) => URL.createObjectURL(file));
     dispatch(
       addPost({
         author: '힘찬엄마',
         author_profile_image: '/static/sample_profile.png',
         text: description,
-        images: URL.createObjectURL(imageFiles[0]),
+        images: images,
       })
     );
     dispatch(closeModal());

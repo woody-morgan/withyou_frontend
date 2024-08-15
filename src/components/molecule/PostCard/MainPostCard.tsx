@@ -1,5 +1,5 @@
-import MainPostCardWrapper from '@src/components/molecule/Card/Wrapper/MainPostCardWrapper';
-import PostImageWrapper from '@src/components/molecule/Posts/PostImageWrapper';
+import MainPostCardWrapper from '@src/components/molecule/PostCard/Wrapper/MainPostCardWrapper';
+import PostImageWrapper from '@src/components/molecule/PostCard/Wrapper/PostImageWrapper';
 import { PostInfoType } from '@src/core/types/posts-type';
 import Link from 'next/link';
 import React, { FC } from 'react';
