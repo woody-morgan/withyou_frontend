@@ -142,6 +142,7 @@ html * ::-webkit-scrollbar {
 /* for transition */
 body {
   transition: all 0.4s linear;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
