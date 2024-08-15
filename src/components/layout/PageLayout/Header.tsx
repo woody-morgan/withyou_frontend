@@ -1,26 +1,22 @@
 import React, { forwardRef, MutableRefObject } from 'react'
 import cx from 'classnames'
-import { motion, Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 type Props = {
   className?: string
-  custom?: number
-  variants?: Variants
   fixed?: boolean
   transparent?: boolean
   content: React.ReactNode
 }
 
 const Header = (
-  { className, custom, variants, fixed = false, transparent = false, content }: Props,
+  { className, fixed = false, transparent = false, content }: Props,
   ref: MutableRefObject<HTMLDivElement>
 ) => {
   return (
     <header className="relative">
       <motion.div
         ref={ref}
-        custom={custom}
-        variants={variants}
         initial="hidden"
         animate="enter"
         exit="exit"
@@ -30,7 +26,7 @@ const Header = (
           'flex justify-between items-center align-middle',
           'font-bold',
           false ? 'fixed' : 'absolute',
-          transparent ? 'bg-transparent' : 'bg-primary-500',
+          transparent && 'bg-transparent',
           className
         )}
       >

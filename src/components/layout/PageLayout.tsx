@@ -57,34 +57,32 @@ const PageLayout: FC<{
   // it is for showing content on the top of bottom nav
   // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
-    <>
+    <motion.div
+      className="relative h-full"
+      variants={disableTransition ? {} : pageVars}
+      custom={pageDirectionCustom}
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      transition={{ type: 'linear' }}
+    >
       <Header
         fixed={headerFixed}
-        custom={pageDirectionCustom}
-        variants={disableTransition ? {} : pageVars}
         transparent={headerTransparent}
-        className={cx(headerBackgroundColor)}
+        className={headerBackgroundColor}
         content={headerContent}
       />
-      <div className="relative bg-primary-500 h-full">
-        <motion.main
-          ref={mainRef}
-          variants={disableTransition ? {} : pageVars}
-          custom={pageDirectionCustom}
-          initial="hidden"
-          animate="enter"
-          exit="exit"
-          transition={{ type: 'linear' }}
-          className={cx(
-            'relative m-center w-full h-screen pt-gb-header pb-bt-nav',
-            fullWidth ? null : `max-w-mobile-app px-side-padding`,
-            fixedHeight ? 'overflow-hidden' : 'min-h-screen'
-          )}
-        >
-          {children}
-        </motion.main>
-      </div>
-    </>
+      <main
+        ref={mainRef}
+        className={cx(
+          'relative m-center w-full h-screen pt-gb-header pb-bt-nav',
+          fullWidth ? null : `max-w-mobile-app px-side-padding`,
+          fixedHeight ? 'overflow-hidden' : 'min-h-screen'
+        )}
+      >
+        {children}
+      </main>
+    </motion.div>
   )
 }
 
