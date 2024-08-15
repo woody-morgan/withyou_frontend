@@ -22,7 +22,7 @@ const selectSize: { [keys in btnSizes]: string } = {
 }
 
 const selectStyle: { [keys in btnStyles]: string } = {
-  primary: 'bg-primary-500 hover:bg-primary-700 focus:bg-slate-600',
+  primary: 'bg-primary hover:bg-primary-700 focus:bg-slate-600',
   secondary: 'bg-secondary-500 hover:bg-secondary-700 focus:bg-slate-200',
   tertiary: 'bg-slate-100 hover:bg-slate-200 focus:bg-slate-200',
   link: 'bg-link-500 hover:bg-link-700 hover:text-link-400 focus:text-link-300',

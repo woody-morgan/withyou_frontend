@@ -15,7 +15,12 @@
     "lint-fix-prod": "cross-env NODE_ENV=production eslint --fix"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint-fix"
+    ],
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write ."
+    ]
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.2.0",
