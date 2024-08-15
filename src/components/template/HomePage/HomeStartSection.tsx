@@ -1,4 +1,4 @@
-import { Button } from '@src/components/common'
+import { Button } from '@src/components/atom'
 import Link from 'next/link'
 import React from 'react'
 

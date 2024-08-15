@@ -1,6 +1,6 @@
-import { InputBox } from '@src/components/common'
+import { InputBox } from '@src/components/atom'
+import SignupStartSection from '@src/components/template/SignupPage/SignupStartSection'
 import { useValidateInput } from '@src/hooks'
-import SignupStartSection from '@src/template/SignupPage/SignupStartSection'
 import { commonRegex } from '@src/utils/regexUtil'
 import React from 'react'
 

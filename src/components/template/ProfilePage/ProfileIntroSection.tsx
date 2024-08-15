@@ -1,4 +1,4 @@
-import { ImageWrapper } from '@src/components/common'
+import { ImageWrapper } from '@src/components/atom'
 import React from 'react'
 
 const ProfileIntroSection = () => {

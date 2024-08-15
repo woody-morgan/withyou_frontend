@@ -1,5 +1,5 @@
-import { IconButton } from '@src/components/common'
-import { navRouter } from '@src/config/navRouter'
+import { IconButton } from '@src/components/molecule'
+import { navRouter } from '@src/core/config/navRouter'
 import { useRootState } from '@src/hooks'
 import cx from 'classnames'
 import { motion } from 'framer-motion'

@@ -1,9 +1,9 @@
 import { PageSEO } from '@src/components/analytics/SEO'
 import { PageLayout } from '@src/components/layout'
-import siteMetadata from '@src/config/siteMetadata'
-import PostsCommonHeader from '@src/template/PostsPage/PostsCommonHeader'
-import PostsMainSection from '@src/template/PostsPage/PostsMainSection'
-import PostsStartSection from '@src/template/PostsPage/PostsStartSection'
+import PostsCommonHeader from '@src/components/template/PostsPage/PostsCommonHeader'
+import PostsMainSection from '@src/components/template/PostsPage/PostsMainSection'
+import PostsStartSection from '@src/components/template/PostsPage/PostsStartSection'
+import siteMetadata from '@src/core/config/siteMetadata'
 import cx from 'classnames'
 import React from 'react'
 

@@ -6,7 +6,7 @@ const appConfig = {
   bottomNavigationHeightInt: 80,
   sidePadding: '0.75rem',
   backgroundColor: '#fff8e5',
-  mobileAppMaxWidth: '768px',
+  mobileAppMaxWidth: '720px',
 }
 
 module.exports = appConfig

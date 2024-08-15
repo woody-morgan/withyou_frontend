@@ -1,10 +1,11 @@
-import { ImageWrapper } from '@src/components/common'
+import { ImageWrapper } from '@src/components/atom'
+import { envConfig } from '@src/core/config/envConfig'
 import React from 'react'
 
 const HomeMainContent = () => {
   return (
     <div className="w-full h-full space-y-2 flex flex-col justify-center items-center text-center">
-      <div className="w-40 md:w-60">
+      <div className="w-20 md:font-sm">
         <ImageWrapper
           src="/static/notebook.png"
           layout="responsive"
@@ -16,7 +17,7 @@ const HomeMainContent = () => {
       </div>
       <h1>{"World's Best Baby Logger"}</h1>
       <p>
-        <strong>{process.env.NEXT_PUBLIC_APP_NAME}</strong>
+        <strong>{envConfig.appName}</strong>
         {" is world's best baby growth logging app for parents family, relatives"}
       </p>
       <div className="flex justify-center space-x-1">

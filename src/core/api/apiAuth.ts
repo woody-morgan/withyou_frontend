@@ -12,8 +12,16 @@ export const apiValidate = async () => {
   throw new Error('Invalid token')
 
   try {
-    await axios.get('/api/auth/validate')
+    await axios.get('/auth/validate')
   } catch {
     throw new Error('Invalid token')
+  }
+}
+
+export const apiKakaoLogin = async () => {
+  try {
+    await axios.get('/auth/kakao/login')
+  } catch (err) {
+    alert(err.message)
   }
 }

@@ -1,4 +1,4 @@
-import siteMetadata from '@src/config/siteMetadata'
+import siteMetadata from '@src/core/config/siteMetadata'
 
 import GA from './GoogleAnalytics'
 

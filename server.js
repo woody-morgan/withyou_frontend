@@ -2,7 +2,7 @@
 const http = require('http')
 const https = require('https')
 const next = require('next')
-const port = parseInt(process.env.PORT, 10) || 3000
+const port = parseInt(process.env.PORT, 10) || 3030
 const dev = process.env.NODE_ENV !== 'production'
 const enableHttps = process.env.ENABLE_HTTPS === 'true'
 const app = next({ dev })

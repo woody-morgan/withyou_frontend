@@ -1,4 +1,4 @@
-import siteMetadata from '@src/config/siteMetadata'
+import siteMetadata from '@src/core/config/siteMetadata'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 

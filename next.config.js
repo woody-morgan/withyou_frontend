@@ -12,6 +12,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, './src/styles')],
   },
+  env: {
+    APP_NAME: process.env.APP_NAME,
+    BASE_API_URL: process.env.BASE_API_URL,
+  },
   images: {
     domains: ['unsplash.com'],
     deviceSizes: [640, 768, 1080, 1200, 1920, 2048, 3840],

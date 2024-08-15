@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 // generate custom color using https://tailwindcolorgenerator.com/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const appConfig = require('./src/config/appConfig')
+const appConfig = require('./src/core/config/appConfig')
 
 module.exports = {
   mod: 'jit',
+  darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
+      sm: '640px',
       md: appConfig.mobileAppMaxWidth,
     },
     extend: {

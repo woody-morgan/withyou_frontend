@@ -1,3 +1,4 @@
+import { envConfig } from '@src/core/config/envConfig'
 import { useRootDispatch } from '@src/hooks'
 import { hideBottomNav, showBottomNav } from '@src/store/modules/layout'
 import cx from 'classnames'
@@ -67,7 +68,7 @@ const NoteEditor = () => {
         onBlur={handleOnBlur}
       />
       <div className="absolute -z-0 translate-center-xy">
-        <h2 className="text-gray-400/50 select-none">{process.env.NEXT_PUBLIC_APP_NAME}</h2>
+        <h2 className="text-gray-400/50 select-none">{envConfig.appName}</h2>
       </div>
     </div>
   )

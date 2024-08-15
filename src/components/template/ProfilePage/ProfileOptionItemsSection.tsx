@@ -1,5 +1,5 @@
 import { buttonSettings } from '@src/animations/common'
-import { Icon } from '@src/components/common'
+import { Icon } from '@src/components/atom'
 import { profileOptionItemData, ProfileOptionItemType } from '@src/core/data/profile-data'
 import cx from 'classnames'
 import { motion } from 'framer-motion'

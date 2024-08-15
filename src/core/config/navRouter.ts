@@ -1,4 +1,4 @@
-import { SVGTypes } from '@src/components/common/Icon/Icon'
+import { SVGTypes } from '@src/components/atom/Icon/Icon'
 
 export type NavRouterType = {
   path: string
@@ -8,24 +8,19 @@ export type NavRouterType = {
 
 export const navRouter: NavRouterType[] = [
   {
-    path: '/',
+    path: '/posts',
     name: 'Home',
     icon: 'house',
-  },
-  {
-    path: '/community',
-    name: 'Commu',
-    icon: 'people',
-  },
-  {
-    path: '/posts',
-    name: 'write',
-    icon: 'plusCircle',
   },
   {
     path: '/album',
     name: 'Album',
     icon: 'album',
+  },
+  {
+    path: '/parenting',
+    name: 'Parenting',
+    icon: 'babyCarriage',
   },
   {
     path: '/profile',

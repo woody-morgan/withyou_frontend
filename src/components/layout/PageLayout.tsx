@@ -1,4 +1,5 @@
 import { pageVars } from '@src/animations/page'
+import { envConfig } from '@src/core/config/envConfig'
 import { useBrowserBackward, useRootDispatch, useRootState } from '@src/hooks'
 import useWindowResize from '@src/hooks/useWindowResize'
 import { pageTransitionForward } from '@src/store/modules/layout'
@@ -25,9 +26,7 @@ const PageLayout: FC<{
   headerFixed = false,
   headerTransparent = false,
   headerBackgroundColor,
-  headerContent = (
-    <h2 className="uppercase text-center w-full">{process.env.NEXT_PUBLIC_APP_NAME}</h2>
-  ),
+  headerContent = <h2 className="uppercase text-center w-full">{envConfig.appName}</h2>,
 }) => {
   const mainRef = useRef<HTMLDivElement>(null)
   const dispatch = useRootDispatch()

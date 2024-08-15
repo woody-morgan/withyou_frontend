@@ -3,7 +3,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { BiVideo } from 'react-icons/bi'
 import { BsApple, BsCamera, BsGoogle, BsHouseDoor, BsPlus } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
-import { FaSearch } from 'react-icons/fa'
+import { FaBabyCarriage, FaSearch } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { IoAlbumsOutline, IoEllipsisVertical, IoPeopleOutline } from 'react-icons/io5'
@@ -22,6 +22,7 @@ export type SVGTypes =
   | 'leftArrow'
   | 'rightArrow'
   | 'ellipsisVertical'
+  | 'babyCarriage'
   | 'people'
   | 'google'
   | 'apple'
@@ -46,6 +47,7 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   leftArrow: IoIosArrowBack,
   rightArrow: IoIosArrowForward,
   ellipsisVertical: IoEllipsisVertical,
+  babyCarriage: FaBabyCarriage,
   people: IoPeopleOutline,
   google: BsGoogle,
   apple: BsApple,
@@ -54,7 +56,7 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
 
 const Icon: FC<IconProps> = ({ name, ...props }) => {
   const IconComponent = _Selector[name]
-  return <IconComponent name={name} {...props} />
+  return <IconComponent className="pointer-events-none" name={name} {...props} />
 }
 
 export default memo(Icon)
