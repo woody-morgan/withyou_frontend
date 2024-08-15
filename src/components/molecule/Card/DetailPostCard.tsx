@@ -1,4 +1,5 @@
-import { ImageWrapper, PostCardWrapper } from '@src/components/atom';
+import { ImageWrapper } from '@src/components/atom';
+import MainPostCardWrapper from '@src/components/molecule/Card/Wrapper/MainPostCardWrapper';
 import { PostInfoType } from '@src/core/types/posts-type';
 import React, { FC } from 'react';
 
@@ -7,7 +8,7 @@ const DetailPostCard: FC<{
 }> = ({ postInfo }) => {
   const { text, images } = postInfo;
   return (
-    <PostCardWrapper postInfo={postInfo}>
+    <MainPostCardWrapper postInfo={postInfo}>
       <div className="w-full">
         <p className="hide-text-overflow">{text}</p>
       </div>
@@ -34,7 +35,7 @@ const DetailPostCard: FC<{
           );
         })
       )}
-    </PostCardWrapper>
+    </MainPostCardWrapper>
   );
 };
 

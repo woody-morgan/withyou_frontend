@@ -8,9 +8,6 @@ export { default as Icon } from './Icon/Icon';
 export { default as IconButton } from './Icon/IconButton';
 export { default as InputBox } from './InputBox';
 
-// Card
-export { default as PostCardWrapper } from './Card/PostCardWrapper';
-
 // wrapper components
 export { default as ImageWrapper } from './ImageWrapper';
 
@@ -22,4 +19,5 @@ export { default as Camera } from './Camera/Camera';
 export { default as FullScreenCamera } from './Camera/FullScreenCamera';
 
 // ETC
+export { default as FullWidthOverflowWrapper } from './FullWidthOverflowWrapper';
 export { default as Portal } from './Portal';

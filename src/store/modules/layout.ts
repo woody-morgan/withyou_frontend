@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { LayoutInfoType } from '@src/core/types/layout-type';
 
+// Todo: set isShowBottomNav false
 export const layoutInitialState: LayoutInfoType = {
-  isShowBottomNav: false,
+  isShowBottomNav: true,
   pageTransitionDir: 'forward',
 };
 
