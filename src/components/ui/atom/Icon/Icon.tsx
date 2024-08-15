@@ -18,6 +18,7 @@ import AlbumSvg from './assets/Album';
 import AlbumSelectedSvg from './assets/AlbumSelected';
 import AppleLogo from './assets/AppleLogo';
 import CommentSvg from './assets/Comment';
+import DefaultProfileSVG from './assets/DefaultProfile';
 import EllipticVerticalSvg from './assets/EllipticVertical';
 import GoogleLogo from './assets/GoogleLogo';
 import KakaoLogo from './assets/KakaoLogo';
@@ -28,6 +29,7 @@ import StarSvg from './assets/Star';
 import UploadSVG from './assets/Upload';
 
 export type SVGTypes =
+  | 'defaultProfile'
   | 'setting'
   | 'upload'
   | 'close'
@@ -63,6 +65,7 @@ export type IconProps = {
 };
 
 const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
+  defaultProfile: DefaultProfileSVG,
   setting: SettingSVG,
   upload: UploadSVG,
   close: CgClose,

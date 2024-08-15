@@ -27,7 +27,7 @@ const LoginPage: NextPage = () => {
         <SignInForm router={router} />
       </div>
       <div className="absolute -z-10 top-0 left-0 w-full h-full">
-        <ImageWrapper src="/static/login_bg.png" layout="fill" priority />
+        <ImageWrapper src="/static/login_bg.jpg" layout="fill" />
       </div>
     </PageLayout>
   );
