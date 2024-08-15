@@ -6,13 +6,23 @@ import ProfileIntroSection from '@src/components/template/ProfilePage/ProfileInt
 import ProfilePostsSection from '@src/components/template/ProfilePage/ProfilePostsSection';
 import { FullWidthOverflowScrollWrapper, IconButton } from '@src/components/ui/atom';
 import siteMetadata from '@src/core/config/siteMetadata';
+import { CommonUserAuthInfoType } from '@src/core/types/auth-type';
 import { NextPage } from 'next';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 
-export const getServerSideProps = withAuthSSR();
+export const getServerSideProps = withAuthSSR(async (ctx) => {
+  const { user } = ctx.credInfo;
+  return {
+    props: {
+      user,
+    },
+  };
+});
 
-const ProfilePage: NextPage = () => {
+const ProfilePage: NextPage<{
+  user: CommonUserAuthInfoType['user'];
+}> = ({ user }) => {
   const { posts } = useRecoilValue(addPosts);
 
   return (
@@ -29,7 +39,7 @@ const ProfilePage: NextPage = () => {
     >
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
       <FullWidthOverflowScrollWrapper>
-        <ProfileIntroSection />
+        <ProfileIntroSection userInfo={user} />
         <ProfilePostsSection posts={posts} />
       </FullWidthOverflowScrollWrapper>
     </PageLayout>

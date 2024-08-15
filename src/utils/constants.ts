@@ -20,6 +20,8 @@ export type btnStyles =
   | 'wy-yellow'
   | 'transparent';
 
+export type inputBoxStyles = 'primary' | 'secondary' | 'tertiary' | 'transparent';
+
 export const familyRoleList: SelectOption[] = [
   { value: '엄마', label: '엄마' },
   {

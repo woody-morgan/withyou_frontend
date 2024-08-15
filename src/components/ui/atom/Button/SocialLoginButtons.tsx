@@ -14,7 +14,7 @@ import React, { FunctionComponent } from 'react';
 const SocialLoginButtonWrapper: FunctionComponent<{
   isLoaded: boolean;
   name: SVGTypes;
-  vendorText: '카카오' | '구글' | '애플';
+  vendorText: '이메일' | '카카오' | '구글' | '애플';
   className?: string;
   onClick: () => void;
 }> = ({ isLoaded, vendorText, name, className, onClick }) => (
@@ -73,3 +73,15 @@ export const AppleLoginButton: FunctionComponent<AppleAuthHookType> = ({ ...prop
     />
   );
 };
+
+export const EmailLoginButton: FunctionComponent<{
+  onClick: () => void;
+}> = ({ onClick }) => (
+  <SocialLoginButtonWrapper
+    className="bg-blue-500/80 text-white"
+    isLoaded={true}
+    name="email"
+    vendorText="이메일"
+    onClick={onClick}
+  />
+);

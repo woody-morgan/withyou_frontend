@@ -2,6 +2,7 @@ import { closeModal } from '@src/atom/modal';
 import { addPosts } from '@src/atom/posts';
 import { Button, IconButton } from '@src/components/ui/atom';
 import DropZone from '@src/components/ui/organism/Dropzone';
+import { apiCreateDiary } from '@src/core/api/apiDiary';
 import { ModalContentType } from '@src/core/types/modal-type';
 import { twcDivide } from '@src/utils/twcUtil';
 import cx from 'classnames';
@@ -28,7 +29,7 @@ const PostCreateModalContentHeader: FunctionComponent<{
   );
 };
 
-const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option }) => {
+const PostCreateModalContent: FunctionComponent<ModalContentType> = ({}) => {
   const closeModalCB = useSetRecoilState(closeModal);
   const [imageFiles, setImageFiles] = useState([]);
   const [description, setDescription] = useState('');
@@ -41,6 +42,7 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
       return;
     }
     const images = imageFiles.map((file) => URL.createObjectURL(file));
+    // Todo call apiCreateDiary
     addPostsCB({
       posts: [
         {
@@ -73,18 +75,6 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
               }}
             />
           </div>
-          {/* <div className="flex w-full justify-between">
-            <p>오픈 여부</p>
-            <ToggleButton />
-          </div>
-          <div className="flex w-full justify-between">
-            <p>오픈 기간</p>
-            <IconButton name="rightArrow" size={24} className="text-gray-200" />
-          </div>
-          <div className="flex w-full justify-between">
-            <p>태그 입력</p>
-            <IconButton name="rightArrow" size={24} className="text-gray-200" />
-          </div> */}
         </div>
       </form>
     </div>

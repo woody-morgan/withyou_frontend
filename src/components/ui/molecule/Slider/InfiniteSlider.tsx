@@ -10,7 +10,6 @@ const InfiniteSlider: FunctionComponent<{
   enableDot?: boolean;
 }> = ({ enableInfinite, enableDot }) => {
   const controls = useAnimation();
-  const infiniteSliderRef = useRef<HTMLDivElement>(null);
   const sliderItemnRefs = useRef<HTMLDivElement[]>([]);
   const [selectedPage, setSelectedPage] = useState(0);
 
@@ -45,7 +44,6 @@ const InfiniteSlider: FunctionComponent<{
           }}
           transition={{ duration: 0.5, stiffness: 100 }}
           animate={controls}
-          ref={infiniteSliderRef}
           drag="x"
           dragConstraints={{
             left: -sliderItemnRefs.current[0]?.offsetWidth * selectedPage,

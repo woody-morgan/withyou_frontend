@@ -1,4 +1,4 @@
-import { inputBoxSizes } from '@src/utils/constants';
+import { inputBoxSizes, inputBoxStyles } from '@src/utils/constants';
 import cx from 'classnames';
 import React, { ChangeEventHandler, FunctionComponent, memo } from 'react';
 
@@ -9,6 +9,13 @@ const sizeSelector: { [keys in inputBoxSizes] } = {
   large: 'h-16',
 };
 
+const styleSelector: { [keys in inputBoxStyles] } = {
+  primary: 'bg-primary-bg text-black',
+  secondary: 'bg-secondary-bg text-black',
+  tertiary: 'bg-tertiary-bg text-black',
+  transparent: 'bg-transparent text-black',
+};
+
 const InputBox: FunctionComponent<{
   disabled?: boolean;
   type: 'id' | 'email' | 'password';
@@ -16,6 +23,7 @@ const InputBox: FunctionComponent<{
   label: string;
   value: string | number;
   size?: inputBoxSizes;
+  style?: inputBoxStyles;
   placeholder?: string;
   readOnly?: boolean;
   error?: boolean;
@@ -28,6 +36,7 @@ const InputBox: FunctionComponent<{
   name,
   label,
   size = 'medium',
+  style = 'primary',
   error,
   errorMessage = 'wrong input',
   fullWidth = false,
@@ -47,8 +56,9 @@ const InputBox: FunctionComponent<{
           className={cx(
             'p-2 w-full h-full',
             sizeSelector[size],
-            'border-2 rounded-xl',
-            error ? 'border-red-400' : 'border-primary-600',
+            styleSelector[style],
+            style === 'transparent' ? 'border-b border-gray-300' : 'border-2 rounded-xl',
+            error ? 'border-red-500' : '',
             'focus:outline-none',
             'disabled:bg-gray-500',
             classNames

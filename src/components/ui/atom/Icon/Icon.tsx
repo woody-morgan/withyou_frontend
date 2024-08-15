@@ -6,6 +6,7 @@ import { BsCameraFill, BsHouseDoor, BsPlus } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { FaBabyCarriage, FaSearch } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { HiOutlineMail } from 'react-icons/hi';
 import {
   IoIosArrowBack,
   IoIosArrowForward,
@@ -56,7 +57,8 @@ export type SVGTypes =
   | 'people'
   | 'google'
   | 'apple'
-  | 'kakao';
+  | 'kakao'
+  | 'email';
 
 export type IconProps = {
   name: SVGTypes;
@@ -93,6 +95,7 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   google: GoogleLogo,
   apple: AppleLogo,
   kakao: KakaoLogo,
+  email: HiOutlineMail,
 };
 
 const Icon: FC<IconProps> = ({ name, ...props }) => {
