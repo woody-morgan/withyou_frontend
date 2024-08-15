@@ -5,11 +5,11 @@ import CommonBackwardHeader from '@src/components/ui/atom/Header/CommonBackwardH
 import DetailDiaryCard from '@src/components/ui/molecule/DiaryCard/DetailDiaryCard';
 import { apiGetDiaryById } from '@src/core/api/diary/apiDiary';
 import { apiGetCommentsById } from '@src/core/api/diary/apiDiaryComment';
-import { ApiGetDiaryComments } from '@src/core/api/types/api-diary-comment-interface';
-import { ApiGetDiary } from '@src/core/api/types/api-diary-interface';
+import { ApiGetDiaryComments, IComment } from '@src/core/api/types/api-diary-comment-interface';
+import { ApiCommonDiaryProps, ApiGetDiary } from '@src/core/api/types/api-diary-interface';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 
 interface DetailDiaryPageProps {
   diaryId: number;
@@ -62,15 +62,22 @@ const PostPage: NextPage<DetailDiaryPageProps> = ({
 }) => {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
-  const [diaryInfo, setDiaryInfo] = useState(initialDiaryInfo);
-  const [commentsInfo, setCommentsInfo] = useState(initialCommentsInfo);
+  const [diaryInfo, setDiaryInfo] = useState<ApiCommonDiaryProps>(null);
+  const [commentsInfo, setCommentsInfo] = useState<IComment[]>([]);
 
   const handleBackward = () => {
     router.back();
   };
 
+  const handleCommentCreated = useCallback((newComments: IComment[]) => {
+    setCommentsInfo(newComments);
+  }, []);
+
   useEffect(() => {
     setMounted(true);
+    setDiaryInfo(initialDiaryInfo);
+    setCommentsInfo(initialCommentsInfo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -86,14 +93,18 @@ const PostPage: NextPage<DetailDiaryPageProps> = ({
             <div className="h-auto">
               <DetailDiaryCard diaryInfo={diaryInfo} />
             </div>
-            <PostCommentTemplate diaryId={diaryId} initialCommentsInfo={commentsInfo} />
+            <PostCommentTemplate
+              diaryId={diaryId}
+              comments={commentsInfo}
+              onCommentCreated={handleCommentCreated}
+            />
           </Fragment>
         ) : (
           <Fragment>
             <div className="h-auto">
               <DetailDiaryCard diaryInfo={initialDiaryInfo} />
             </div>
-            <PostCommentTemplate diaryId={diaryId} initialCommentsInfo={initialCommentsInfo} />
+            <PostCommentTemplate diaryId={diaryId} comments={initialCommentsInfo} />
           </Fragment>
         )}
       </div>
