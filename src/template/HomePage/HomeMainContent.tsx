@@ -11,6 +11,7 @@ const HomeMainContent = () => {
           width="400px"
           height="300px"
           alt="notebook"
+          priority
         />
       </div>
       <h1>{"World's Best Baby Logger"}</h1>

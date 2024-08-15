@@ -35,7 +35,7 @@ const NoteEditor = () => {
     <div className="relative w-full h-full space-y-2">
       <input
         ref={titleRef}
-        className={cx('w-full', 'bg-transparent', 'no-border-outline', 'h1')}
+        className={cx('w-full h-8', 'bg-transparent', 'no-border-outline', 'h1')}
         value={title}
         placeholder="Title"
         onChange={(e) => setTitle(e.target.value)}
@@ -43,7 +43,13 @@ const NoteEditor = () => {
       />
       <textarea
         ref={textAreaRef}
-        className={cx('z-10', 'w-full h-full', 'bg-transparent', 'no-border-outline')}
+        className={cx(
+          'z-10 relative',
+          'w-full h-full pb-8',
+          'bg-transparent',
+          'no-border-outline',
+          'overflow-scroll'
+        )}
         value={note}
         placeholder={'Write your note here'}
         onChange={(e) => setNote(e.target.value)}

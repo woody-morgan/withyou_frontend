@@ -29,7 +29,7 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
       </Head>
       <Analytics />
       <CommonLayout>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence initial={false} exitBeforeEnter>
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
       </CommonLayout>

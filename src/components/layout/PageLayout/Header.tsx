@@ -1,5 +1,6 @@
 import React, { forwardRef, MutableRefObject } from 'react'
 import cx from 'classnames'
+import { motion } from 'framer-motion'
 
 type Props = {
   className?: string
@@ -14,22 +15,23 @@ const Header = (
 ) => {
   return (
     <header className="relative">
-      <div
+      <motion.div
         ref={ref}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
         className={cx(
           'z-20 w-full max-w-mobile-app h-gb-header top-0',
           'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',
-          fixed ? 'fixed' : 'absolute',
-          transparent ? 'bg-transparent' : 'bg-primary-500',
+          false ? 'fixed' : 'absolute',
+          transparent && 'bg-transparent',
           className
         )}
       >
         {content}
-      </div>
-      {/* to give padding for header */}
-      <div className="h-gb-header" />
+      </motion.div>
     </header>
   )
 }

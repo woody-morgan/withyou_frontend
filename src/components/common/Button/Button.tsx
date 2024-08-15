@@ -8,7 +8,7 @@ interface ButtonShape {
   type?: 'button' | 'submit' | 'reset'
   size?: btnSizes
   styles?: btnStyles
-  removeHover?: boolean
+  activeHover?: boolean
   disabled?: boolean
   fullWidth?: boolean
   children?: React.ReactNode
@@ -38,7 +38,7 @@ const Button = (
     type = 'button',
     size = 'medium',
     styles = 'primary',
-    removeHover = false,
+    activeHover = false,
     disabled = false,
     fullWidth = false,
     children,
@@ -49,7 +49,7 @@ const Button = (
 ) => {
   return (
     <motion.button
-      {...(!disabled && !removeHover && buttonSettings)}
+      {...(!disabled && activeHover && buttonSettings)}
       ref={ref}
       type={type}
       className={cx(

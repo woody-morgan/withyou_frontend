@@ -11,7 +11,7 @@ export type HistoryInitialType = {
   transDirection: PageTransType
 }
 
-const initialState = {
+export const initialState = {
   history: [],
   transDirection: 'forward',
 }
