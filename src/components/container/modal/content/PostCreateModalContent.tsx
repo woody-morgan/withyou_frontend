@@ -1,5 +1,5 @@
 import { closeModal } from '@src/atom/modal';
-import { addPosts } from '@src/atom/posts';
+import { addPostsReverse } from '@src/atom/posts';
 import { Button, IconButton } from '@src/components/ui/atom';
 import DropZone from '@src/components/ui/organism/Dropzone';
 import { apiCreateDiary } from '@src/core/api/apiDiary';
@@ -31,10 +31,10 @@ const PostCreateModalContentHeader: FunctionComponent<{
 };
 
 const PostCreateModalContent: FunctionComponent<ModalContentType> = ({}) => {
+  const addPostsCB = useSetRecoilState(addPostsReverse);
   const closeModalCB = useSetRecoilState(closeModal);
   const [imageFiles, setImageFiles] = useState([]);
   const [content, setContent] = useState('');
-  const addPostsCB = useSetRecoilState(addPosts);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

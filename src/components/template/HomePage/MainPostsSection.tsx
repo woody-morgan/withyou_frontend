@@ -1,6 +1,6 @@
 import { IntersectWrapper } from '@src/components/ui/atom';
 import { MainPostCard, ReviewCard } from '@src/components/ui/molecule';
-import PostsSectionWrapper from '@src/components/ui/molecule/PostsSectionWrapper';
+import PostsSectionWrapper from '@src/components/ui/molecule/DiariesSectionWrapper';
 import { ApiCommonDiaryProps } from '@src/core/api/interface/api-diary-interface';
 import React, { Fragment, FunctionComponent } from 'react';
 

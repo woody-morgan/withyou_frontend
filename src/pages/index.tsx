@@ -5,7 +5,7 @@ import { PageLayout } from '@src/components/layout';
 import HomeMainSection from '@src/components/template/HomePage/HomeMainSection';
 import MainPostsSection from '@src/components/template/HomePage/MainPostsSection';
 import { FloatingButton, FullWidthOverflowScrollWrapper } from '@src/components/ui/atom';
-import { apiGetMyDiariesInfinite } from '@src/core/api/apiDiary';
+import { apiGetFamilyDiariesInfinite } from '@src/core/api/apiDiary';
 import { ApiGetDiariesInfinite } from '@src/core/api/interface/api-diary-interface';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { NextPage } from 'next';
@@ -17,7 +17,7 @@ interface HomePageProps {
 }
 
 export const getServerSideProps = withAuthSSR(async () => {
-  const diaryInfo = await apiGetMyDiariesInfinite({
+  const diaryInfo = await apiGetFamilyDiariesInfinite({
     nextId: null,
     take: 5,
   });
@@ -45,7 +45,7 @@ const HomePage: NextPage<HomePageProps> = ({ initialDiaryInfo }) => {
 
   const handleLoadMore = useCallback(async () => {
     if (isLast.current) return;
-    const diaryInfo = await apiGetMyDiariesInfinite({
+    const diaryInfo = await apiGetFamilyDiariesInfinite({
       nextId: nextId.current,
       take: 5,
     });

@@ -31,4 +31,21 @@ const addPosts = selector<DiaryAtom>({
   },
 });
 
-export { addPosts, postsStateAtom };
+const addPostsReverse = selector<DiaryAtom>({
+  key: 'postsStateAtom/addPostReverse',
+  get: ({ get }) => {
+    return get(postsStateAtom);
+  },
+  set: ({ get, set }, newValue) => {
+    if (newValue instanceof DefaultValue) {
+      set(postsStateAtom, defaultState);
+    } else {
+      const nextPosts = [...newValue.posts, ...get(postsStateAtom).posts];
+      set(postsStateAtom, {
+        posts: nextPosts,
+      });
+    }
+  },
+});
+
+export { addPosts, addPostsReverse, postsStateAtom };
