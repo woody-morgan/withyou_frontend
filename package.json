@@ -33,6 +33,7 @@
     "cross-env": "^7.0.3",
     "framer-motion": "^6.4.1",
     "immer": "^9.0.15",
+    "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",
     "next": "12.2.0",
     "next-redux-wrapper": "^7.0.5",

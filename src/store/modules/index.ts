@@ -3,7 +3,12 @@ import { HYDRATE } from 'next-redux-wrapper'
 
 import history, { HistoryInitialType } from './history'
 
-const reducer = (state: CombinedState<{ history: HistoryInitialType }>, action: AnyAction) => {
+import auth from './auth'
+import { UserAuthInfoType } from '@src/core/types/auth-type'
+
+export type RootStateType = CombinedState<{ history: HistoryInitialType; auth: UserAuthInfoType }>
+
+const reducer = (state: RootStateType, action: AnyAction) => {
   // connect ssr with csr
   if (action.type === HYDRATE) {
     return {
@@ -13,6 +18,7 @@ const reducer = (state: CombinedState<{ history: HistoryInitialType }>, action: 
   }
   return combineReducers({
     history,
+    auth,
   })(state, action)
 }
 
