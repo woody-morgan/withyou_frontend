@@ -1,16 +1,20 @@
-import { PostsInfoType } from '@src/core/types/posts-type';
+import { ApiCommonDiaryProps } from '@src/core/api/interface/api-diary-interface';
 import { atom, DefaultValue, selector } from 'recoil';
 
-const defaultState: PostsInfoType = {
+interface DiaryAtom {
+  posts: ApiCommonDiaryProps[];
+}
+
+const defaultState: DiaryAtom = {
   posts: [],
 };
 
-const postsStateAtom = atom<PostsInfoType>({
+const postsStateAtom = atom<DiaryAtom>({
   key: 'postsStateAtom',
   default: defaultState,
 });
 
-const addPosts = selector<PostsInfoType>({
+const addPosts = selector<DiaryAtom>({
   key: 'postsStateAtom/addPosts',
   get: ({ get }) => {
     return get(postsStateAtom);
@@ -19,7 +23,6 @@ const addPosts = selector<PostsInfoType>({
     if (newValue instanceof DefaultValue) {
       set(postsStateAtom, defaultState);
     } else {
-      // Todo: should check immutability
       const nextPosts = [...get(postsStateAtom).posts, ...newValue.posts];
       set(postsStateAtom, {
         posts: nextPosts,

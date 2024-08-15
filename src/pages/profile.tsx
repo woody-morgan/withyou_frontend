@@ -8,7 +8,7 @@ import { FullWidthOverflowScrollWrapper, IconButton } from '@src/components/ui/a
 import siteMetadata from '@src/core/config/siteMetadata';
 import { CommonUserAuthInfoType } from '@src/core/types/auth-type';
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 export const getServerSideProps = withAuthSSR(async (ctx) => {
@@ -23,7 +23,7 @@ export const getServerSideProps = withAuthSSR(async (ctx) => {
 const ProfilePage: NextPage<{
   user: CommonUserAuthInfoType['user'];
 }> = ({ user }) => {
-  const { posts } = useRecoilValue(addPosts);
+  const [familyPosts] = useState([]);
 
   return (
     <PageLayout
@@ -40,7 +40,7 @@ const ProfilePage: NextPage<{
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
       <FullWidthOverflowScrollWrapper>
         <ProfileIntroSection userInfo={user} />
-        <ProfilePostsSection posts={posts} />
+        <ProfilePostsSection posts={familyPosts} />
       </FullWidthOverflowScrollWrapper>
     </PageLayout>
   );

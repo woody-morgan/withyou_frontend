@@ -1,10 +1,12 @@
 import { ImageWrapper } from '@src/components/ui/atom';
 import ProfilePostCard from '@src/components/ui/molecule/PostCard/ProfilePostCard';
 import PostsSectionWrapper from '@src/components/ui/molecule/PostsSectionWrapper';
-import { PostsInfoType } from '@src/core/types/posts-type';
+import { ApiCommonDiaryProps } from '@src/core/api/interface/api-diary-interface';
 import React, { Fragment, FunctionComponent } from 'react';
 
-const ProfilePostsSection: FunctionComponent<PostsInfoType> = ({ posts }) => {
+const ProfilePostsSection: FunctionComponent<{
+  posts: ApiCommonDiaryProps[];
+}> = ({ posts }) => {
   return (
     <Fragment>
       {posts.length > 0 ? (
