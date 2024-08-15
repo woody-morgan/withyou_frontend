@@ -1,1 +1,1 @@
-export type PageTransType = 'forward' | 'back'
+export type PageTransType = 'forward' | 'backward'

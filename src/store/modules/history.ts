@@ -7,12 +7,12 @@ export type HistoryInputType = {
 }
 
 export type HistoryInitialType = {
-  history: string[]
+  logs: string[]
   transDirection: PageTransType
 }
 
 export const initialState = {
-  history: [],
+  logs: [],
   transDirection: 'forward',
 }
 
@@ -23,29 +23,32 @@ const historySlice = createSlice({
   reducers: {
     addHistory: (state, action: PayloadAction<HistoryInputType>) => {
       state.transDirection = action.payload.transDirection || state.transDirection
-      if (state.history.length == 0) {
-        state.history.push(action.payload.history)
+      if (state.logs.length == 0) {
+        state.logs.push(action.payload.history)
         return
       }
-      if (state.history[state.history.length - 1] !== action.payload.history) {
-        state.history.push(action.payload.history)
+      if (state.logs[state.logs.length - 1] !== action.payload.history) {
+        state.logs.push(action.payload.history)
         return
       }
     },
     // when pop action conducted, it is going to the previous page
     popHistory: (state) => {
-      if (state.history[state.history.length - 1] === undefined) {
+      state.transDirection = 'back'
+      if (state.logs.length == 0) {
         return
       }
-      state.history.pop()
-      state.transDirection = 'back'
+      state.logs.pop()
     },
     clearHistory: (state) => {
-      state.history = []
+      state.logs = []
+    },
+    modTransDirection: (state, action: PayloadAction<PageTransType>) => {
+      state.transDirection = action.payload
     },
   },
 })
 
-export const { addHistory, popHistory, clearHistory } = historySlice.actions
+export const { addHistory, popHistory, clearHistory, modTransDirection } = historySlice.actions
 
 export default historySlice.reducer

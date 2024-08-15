@@ -2,19 +2,21 @@ import { popHistory } from '@src/store/modules/history'
 import { useRouter } from 'next/router'
 import { useRootDispatch, useRootState } from '@src/hooks'
 
-export default function useBackward() {
+export default function useBackward(to: string) {
   const router = useRouter()
   const history = useRootState((state) => state.history)
   const dispatch = useRootDispatch()
 
+  // last history is last page
   const handleBackward = async () => {
-    if (history.length > 1) {
-      const prevHistory = history[history.length - 2]
+    if (history.logs.length > 0) {
+      const prevHistory = history.logs[history.logs.length - 1]
       await dispatch(popHistory())
       await router.push(prevHistory)
     } else {
+      console.log(history.logs)
       await dispatch(popHistory())
-      await router.push('/posts')
+      await router.push(to)
     }
   }
 

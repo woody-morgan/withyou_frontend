@@ -20,7 +20,7 @@ const FullScreenCamera: FC<Partial<FullScreenCameraProps>> = ({
         width={width}
         videoConstraints={{
           facingMode: facingMode,
-          aspectRatio: height > width ? width / height : height / width,
+          aspectRatio: height <= width ? width / height : height / width,
         }}
         {...props}
       />

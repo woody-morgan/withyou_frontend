@@ -18,6 +18,9 @@ axios.defaults.paramsSerializer = (params) => {
 const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
   // const [isLoading, setIsLoading] = useState(true)
 
+  //  to execute backward animation when user pressed browser back button
+  // useBrowserBackward()
+
   return (
     <>
       <Head>

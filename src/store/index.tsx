@@ -7,7 +7,13 @@ import reducer from './modules'
 const makeStore = () =>
   configureStore({
     reducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: (getDefaultMiddleware) => {
+      if (process.env.NODE_ENV !== 'production') {
+        return getDefaultMiddleware().concat(logger)
+      } else {
+        return getDefaultMiddleware()
+      }
+    },
     devTools: process.env.NODE_ENV !== 'production',
   })
 

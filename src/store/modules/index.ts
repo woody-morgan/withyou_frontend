@@ -7,6 +7,7 @@ import auth from './auth'
 import { UserAuthInfoType } from '@src/core/types/auth-type'
 
 export type RootStateType = CombinedState<{ history: HistoryInitialType; auth: UserAuthInfoType }>
+export type RootDispatchType = ReturnType<typeof reducer>['dispatch']
 
 const reducer = (state: RootStateType, action: AnyAction) => {
   // connect ssr with csr

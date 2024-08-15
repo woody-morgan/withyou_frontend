@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router'
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect, useMemo, useRef } from 'react'
 import useWindowResize from '@src/hooks/useWindowResize'
-import { useRootDispatch, useRootState } from '@src/hooks'
+import { useHandleOnRoutingStart, useRootDispatch, useRootState } from '@src/hooks'
 
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import { pageVars } from '@src/animations/page'
-import { addHistory } from '@src/store/modules/history'
 
 import Header from './PageLayout/Header'
+import { addHistory, modTransDirection } from '@src/store/modules/history'
+import { useRouter } from 'next/router'
 
 const PageLayout: FC<{
   children: React.ReactNode
@@ -32,9 +32,19 @@ const PageLayout: FC<{
   ),
 }) => {
   const router = useRouter()
-  const dispatch = useRootDispatch()
   const mainRef = useRef<HTMLDivElement>(null)
+  const dispatch = useRootDispatch()
   const history = useRootState((state) => state.history)
+
+  // enroll
+  useHandleOnRoutingStart(() => {
+    dispatch(addHistory({ history: router.asPath }))
+  })
+
+  // make transition direction forward when layout component mounted on react-tree
+  useEffect(() => {
+    dispatch(modTransDirection('forward'))
+  }, [])
 
   // to recalculate height when mobile browser search bar appeared and disappeared
   useWindowResize(() => {
@@ -45,13 +55,11 @@ const PageLayout: FC<{
     }
   }, 0)
 
-  // Add History to Global State Manager(Should be forward when page is changed)
-  useEffect(() => {
-    dispatch(addHistory({ history: router.asPath, transDirection: 'forward' }))
-  }, [])
-
   // pageDirection is used to determine the direction of the page transition
-  const pageDirectionCustom = history.transDirection === 'forward' ? 1 : -1
+  const pageDirectionCustom = useMemo(
+    () => (history.transDirection === 'forward' ? 1 : -1),
+    [history.transDirection]
+  )
 
   // do not remove pt-gb-header pb-bt-nav on motion.main
   // it is for showing content on the top of bottom nav

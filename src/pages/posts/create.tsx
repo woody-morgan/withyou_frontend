@@ -8,7 +8,7 @@ import { NoteEditor } from '@src/components/common'
 import useBackward from '@src/hooks/useBackward'
 
 const PostsCreatePage = () => {
-  const handleBackward = useBackward()
+  const handleBackward = useBackward('/posts')
 
   return (
     <PageLayout headerContent={<PostsCreateHeader onBack={handleBackward} />}>
