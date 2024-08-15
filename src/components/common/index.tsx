@@ -5,3 +5,6 @@ export { default as InputBox } from './InputBox'
 
 // wrapper components
 export { default as ImageWrapper } from './ImageWrapper'
+
+// Editor
+export { default as NoteEditor } from './NoteEditor'

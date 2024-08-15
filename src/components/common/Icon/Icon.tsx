@@ -2,7 +2,8 @@ import React, { FC, memo } from 'react'
 import { BsApple, BsCamera, BsGoogle, BsHouseDoor, BsPlus } from 'react-icons/bs'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
-import { IoAlbumsOutline } from 'react-icons/io5'
+import { IoIosArrowBack } from 'react-icons/io'
+import { IoAlbumsOutline, IoEllipsisVertical } from 'react-icons/io5'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { FaSearch } from 'react-icons/fa'
 import { BiVideo } from 'react-icons/bi'
@@ -18,6 +19,8 @@ export type SVGTypes =
   | 'video'
   | 'hamburger'
   | 'search'
+  | 'leftArrow'
+  | 'ellipsisVertical'
   | 'google'
   | 'apple'
   | 'kakao'
@@ -38,6 +41,8 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   video: BiVideo,
   hamburger: GiHamburgerMenu,
   search: FaSearch,
+  leftArrow: IoIosArrowBack,
+  ellipsisVertical: IoEllipsisVertical,
   google: BsGoogle,
   apple: BsApple,
   kakao: RiKakaoTalkFill,

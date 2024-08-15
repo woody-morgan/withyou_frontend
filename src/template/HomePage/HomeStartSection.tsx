@@ -5,7 +5,7 @@ import Link from 'next/link'
 const HomeStartSection = () => {
   return (
     <div className="flex flex-col w-full items-center space-y-4">
-      <Link href={'/create'}>
+      <Link href={'/posts'}>
         <Button styles="secondary" size="large" fullWidth>
           <h3 className="uppercase text-white">get started</h3>
         </Button>
