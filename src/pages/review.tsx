@@ -16,9 +16,9 @@ const ReviewPage = () => {
   // and show it in the slider
 
   return (
-    <PageLayout showNavigation>
+    <PageLayout fixedHeight showNavigation>
       <PageSEO title={siteMetadata.title + ' - Review'} description={'육아 되돌아보기'} />
-      <div className="text-center h-96">
+      <div className="text-center h-full">
         <CustomDatePicker
           onChange={(date) => {
             setStartDate(date);

@@ -36,7 +36,7 @@ const InfiniteSlider: FunctionComponent<{
 
   return (
     <AnimatePresence initial={false} exitBeforeEnter>
-      <motion.div className="cursor-grab select-none overflow-visible flex justify-center">
+      <motion.div className="h-full cursor-grab select-none overflow-visible flex justify-center">
         <motion.div
           variants={{
             next: {
@@ -61,7 +61,7 @@ const InfiniteSlider: FunctionComponent<{
               paginate(-1);
             }
           }}
-          className="flex w-5/6"
+          className="flex w-5/6 h-full"
         >
           {Array(numOfItems)
             .fill(0)
