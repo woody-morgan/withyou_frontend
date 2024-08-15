@@ -17,9 +17,6 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "yarn lint-fix"
-    ],
-    "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write ."
     ]
   },

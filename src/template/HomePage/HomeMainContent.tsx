@@ -14,7 +14,10 @@ const HomeMainContent = () => {
         />
       </div>
       <h1>{"World's Best Baby Logger"}</h1>
-      <p>{"With you is world's best baby growth logging app for parents, family, relatives"}</p>
+      <p>
+        <strong>{process.env.NEXT_PUBLIC_APP_NAME}</strong>
+        {" is world's best baby growth logging app for parents family, relatives"}
+      </p>
       <div className="flex justify-center space-x-1">
         {Array(3)
           .fill(0)
