@@ -8,13 +8,17 @@ interface UploadProfileInfoRequest {
   imageFile: File;
   role: string;
   nickname: string;
+  code: string | null;
 }
 
 export const apiUploadProfileInfo = async ({
   imageFile,
   role,
   nickname,
+  code,
 }: UploadProfileInfoRequest) => {
+  // if code is null, it means that the user should create a new code
+  const createFamily = code ? false : true;
   try {
     const { fileName } = await apiGetPresignedUrl(imageFile);
     await axios.post('/user/profile/upload', {
@@ -22,6 +26,8 @@ export const apiUploadProfileInfo = async ({
       role,
       nickname,
       gender: '',
+      code,
+      createFamily,
     });
   } catch (err) {
     if (isAxiosError<CommonApiError>(err)) {

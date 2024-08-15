@@ -65,13 +65,13 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       ref={ref}
       type={type}
       className={cx(
+        className,
         selectSize[size],
         selectStyle[styles],
         selectRounded[roundness],
         'transition-colors bg-slate focus:shadow-outline duration-150',
         disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
-        fullWidth ? 'w-full' : '',
-        className
+        fullWidth ? 'w-full' : ''
       )}
       onClick={onClick}
     >

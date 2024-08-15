@@ -1,6 +1,6 @@
 import { inputBoxSizes } from '@src/utils/constants';
 import cx from 'classnames';
-import React, { ChangeEventHandler, FC, memo } from 'react';
+import React, { ChangeEventHandler, FunctionComponent, memo } from 'react';
 
 const sizeSelector: { [keys in inputBoxSizes] } = {
   xsmall: 'h-6 text-xs',
@@ -9,7 +9,8 @@ const sizeSelector: { [keys in inputBoxSizes] } = {
   large: 'h-16',
 };
 
-const InputBox: FC<{
+const InputBox: FunctionComponent<{
+  disabled?: boolean;
   type: 'id' | 'email' | 'password';
   name: string;
   label: string;
@@ -23,6 +24,7 @@ const InputBox: FC<{
   classNames?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }> = ({
+  disabled = false,
   name,
   label,
   size = 'medium',
@@ -39,6 +41,7 @@ const InputBox: FC<{
           <p className="text-xs font-bold md:text-base">{label}</p>
         </label>
         <input
+          disabled={disabled}
           id={name}
           name={name}
           className={cx(
@@ -47,6 +50,7 @@ const InputBox: FC<{
             'border-2 rounded-xl',
             error ? 'border-red-400' : 'border-primary-600',
             'focus:outline-none',
+            'disabled:bg-gray-500',
             classNames
           )}
           {...props}

@@ -27,8 +27,15 @@ const EnrollPage = () => {
     commonRegex.name.regex,
     commonRegex.name.desc
   );
-  const [familyCode, setFamilyCode] = useState<string>('');
   const [role, setRole] = useState('');
+
+  const [familyCode, setFamilyCode] = useState<{
+    value: string;
+    isValid: boolean;
+  }>({
+    value: '',
+    isValid: false,
+  });
 
   const handleBackward = () => {
     router.back();
@@ -41,14 +48,22 @@ const EnrollPage = () => {
 
   const handleSubmit = async () => {
     if (isValidSubmit()) {
-      await apiUploadProfileInfo({ imageFile: imageFiles[0], nickname: name, role });
+      await apiUploadProfileInfo({
+        imageFile: imageFiles[0],
+        nickname: name,
+        role,
+        code: familyCode.value,
+      });
       router.push('/');
     }
   };
 
-  const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+  const handleFamilyCodeChange = (e: SyntheticEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
-    setFamilyCode(value);
+    setFamilyCode((prev) => ({
+      ...prev,
+      value,
+    }));
   };
 
   return (
@@ -85,15 +100,32 @@ const EnrollPage = () => {
             classNames="border-none bg-gray-50"
             onSelect={(e) => setRole(e.target.value)}
           />
-          <InputBox
-            type="id"
-            label="가족코드"
-            fullWidth
-            value={familyCode}
-            name="familyCode"
-            classNames="border-none bg-gray-50"
-            onChange={handleChange}
-          />
+          <div className="w-full relative">
+            <span className="absolute top-0 left-16">
+              <Button
+                styles="wy-blue"
+                size="xsmall"
+                onClick={() =>
+                  setFamilyCode((prev) => ({
+                    value: prev.isValid ? '' : prev.value,
+                    isValid: !prev.isValid,
+                  }))
+                }
+              >
+                {familyCode.isValid ? '입력 취소' : '코드 입력'}
+              </Button>
+            </span>
+            <InputBox
+              type="id"
+              label="가족코드"
+              fullWidth
+              value={familyCode.value}
+              disabled={!familyCode.isValid}
+              name="familyCode"
+              classNames="border-none bg-gray-50"
+              onChange={handleFamilyCodeChange}
+            />
+          </div>
         </div>
       </FullWidthOverflowScrollWrapper>
       <div className="absolute left-0 bottom-0 w-full max-w-mobile-app">
