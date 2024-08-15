@@ -1,12 +1,15 @@
 import { openEmailSignUpModal } from '@src/atom/modal';
 import { InputBox } from '@src/components/ui/atom';
 import { apiLocalSignIn } from '@src/core/api/apiAuth';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useResetRecoilState, useSetRecoilState } from 'recoil';
 
 import EmailFormButton from './EmailFormButton';
 
 const EmailLoginForm = () => {
+  const router = useRouter();
+  const handleCloseModal = useResetRecoilState(openEmailSignUpModal);
   const handleOpenSignupModal = useSetRecoilState(openEmailSignUpModal);
 
   const [formData, setFormData] = useState({
@@ -24,7 +27,11 @@ const EmailLoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await apiLocalSignIn(formData.email, formData.password);
+    try {
+      await apiLocalSignIn(formData.email, formData.password);
+      handleCloseModal();
+      router.push('/');
+    } catch (err) {}
   };
 
   return (

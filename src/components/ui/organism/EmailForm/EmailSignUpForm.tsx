@@ -5,11 +5,12 @@ import { apiLocalSignUp } from '@src/core/api/apiAuth';
 import { useValidateInput } from '@src/hooks';
 import { commonRegex } from '@src/utils/regexUtil';
 import { useRouter } from 'next/router';
-import React from 'react';
-import { useSetRecoilState } from 'recoil';
+import React, { useState } from 'react';
+import { useResetRecoilState, useSetRecoilState } from 'recoil';
 
 const EmailSignUpForm = () => {
   const router = useRouter();
+  const handleCloseModal = useResetRecoilState(openEmailSignInModal);
   const handleOpenSignInModal = useSetRecoilState(openEmailSignInModal);
 
   const [email, emailIsValid, emailError, handleEmailChange] = useValidateInput(
@@ -24,10 +25,13 @@ const EmailSignUpForm = () => {
     commonRegex.password.desc
   );
 
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await apiLocalSignUp(email, password);
+      handleCloseModal();
       await router.push('/');
     } catch (err) {}
   };
@@ -57,6 +61,20 @@ const EmailSignUpForm = () => {
         errorMessage={pwError}
         fullWidth
         onChange={handlePwChange}
+      />
+      <InputBox
+        type="password"
+        name="repassword"
+        label="비밀번호 확인"
+        size="small"
+        style="transparent"
+        value={passwordConfirm as string}
+        error={passwordConfirm && passwordConfirm !== password}
+        errorMessage={'비밀번호가 일치하지 않습니다.'}
+        fullWidth
+        onChange={(e) => {
+          setPasswordConfirm(e.target.value);
+        }}
       />
       <EmailFormButton
         submitButtonText="회원가입하기"
