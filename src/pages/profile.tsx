@@ -5,7 +5,7 @@ import { PageLayout } from '@src/components/layout';
 import BottomSheetLayout from '@src/components/layout/BottomSheetLayout/BottomSheetLayout';
 import ProfilePageTemplate from '@src/components/template/ProfilePage/ProfilePageTemplate';
 import { Button, IconButton } from '@src/components/ui/atom';
-import { apiGetMyDiariesInfinite } from '@src/core/api/apiDiary';
+import { apiGetMyDiariesInfinite } from '@src/core/api/diary/apiDiary';
 import { ApiGetDiariesInfinite } from '@src/core/api/types/api-diary-interface';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { CommonUserAuthInfoType } from '@src/core/types/auth-type';

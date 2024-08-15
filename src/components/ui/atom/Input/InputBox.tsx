@@ -75,7 +75,7 @@ const InputBox: FunctionComponent<Props> = ({
           )}
           {...props}
         />
-        <div className="border-b-[1px] border-gray-300" />
+        {style === 'transparent' && <div className="border-b-[1px] border-gray-300" />}
       </div>
       <div className="h-2">
         {error && <p className="text-xs md:text-sm text-red-400">{errorMessage}</p>}
