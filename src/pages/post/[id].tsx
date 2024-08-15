@@ -1,9 +1,9 @@
+import { withAuthCSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
-import CommonBackwardHeader from '@src/components/molecule/PageHeader/CommonBackwardHeader';
-import DetailPostCard from '@src/components/molecule/PostCard/DetailPostCard';
 import PostCommentTemplate from '@src/components/template/PostPage/PostCommentTemplate';
+import CommonBackwardHeader from '@src/components/ui/atom/Header/CommonBackwardHeader';
+import DetailPostCard from '@src/components/ui/molecule/PostCard/DetailPostCard';
 import { samplePostData } from '@src/core/data/sample-post-data';
-import { withAuthCSR } from '@src/hocnf';
 import { useRouter } from 'next/router';
 import React from 'react';
 

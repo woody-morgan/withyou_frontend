@@ -1,5 +1,5 @@
-import { MainPostCard, ReviewCard } from '@src/components/molecule';
-import PostsSectionWrapper from '@src/components/molecule/PostsSectionWrapper';
+import { MainPostCard, ReviewCard } from '@src/components/ui/molecule';
+import PostsSectionWrapper from '@src/components/ui/molecule/PostsSectionWrapper';
 import { PostsInfoType } from '@src/core/types/posts-type';
 import React, { Fragment, FunctionComponent } from 'react';
 

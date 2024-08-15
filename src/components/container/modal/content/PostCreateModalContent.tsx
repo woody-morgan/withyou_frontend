@@ -1,6 +1,7 @@
 import { closeModal } from '@src/atom/modal';
-import { Button, IconButton, ToggleButton } from '@src/components/atom';
-import DropZone from '@src/components/atom/Dropzone';
+import { addPosts } from '@src/atom/posts';
+import { Button, IconButton, ToggleButton } from '@src/components/ui/atom';
+import DropZone from '@src/components/ui/organism/Dropzone';
 import { ModalContentType } from '@src/core/types/modal-type';
 import { twcDivide } from '@src/utils/twcUtil';
 import cx from 'classnames';
@@ -31,6 +32,7 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
   const closeModalCB = useSetRecoilState(closeModal);
   const [imageFiles, setImageFiles] = useState([]);
   const [description, setDescription] = useState('');
+  const addPostsCB = useSetRecoilState(addPosts);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,14 +41,16 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
       return;
     }
     const images = imageFiles.map((file) => URL.createObjectURL(file));
-    // dispatch(
-    //   addPost({
-    //     author: '힘찬엄마',
-    //     author_profile_image: '/static/sample_profile.png',
-    //     text: description,
-    //     images: images,
-    //   })
-    // );
+    addPostsCB({
+      posts: [
+        {
+          author: '힘찬엄마',
+          author_profile_image: '/static/sample_profile.png',
+          text: description,
+          images: images,
+        },
+      ],
+    });
     closeModalCB();
   };
 

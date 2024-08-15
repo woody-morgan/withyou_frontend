@@ -1,7 +1,8 @@
 import { PageSEO } from '@src/components/analytics/SEO';
-import { ImageWrapper } from '@src/components/atom';
+import { withShouldNoAuthCSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
-import { SignInForm } from '@src/components/molecule';
+import { ImageWrapper } from '@src/components/ui/atom';
+import { SignInForm } from '@src/components/ui/molecule';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -30,4 +31,4 @@ const LoginPage: NextPage = () => {
   );
 };
 
-export default LoginPage;
+export default withShouldNoAuthCSR(LoginPage);

@@ -4,7 +4,7 @@ export default function useValidateInput(
   initialState: unknown,
   pattern: RegExp,
   errorMessage: string
-): [unknown, boolean, string, (e: React.ChangeEvent<HTMLInputElement>) => void] {
+) {
   const [myState, setMyState] = React.useState(initialState);
   const [error, setError] = React.useState('');
   const [isValid, setIsValid] = React.useState(true);
@@ -17,5 +17,5 @@ export default function useValidateInput(
     setError(isValid ? '' : errorMessage);
   };
 
-  return [myState, isValid, error, handleInputChange];
+  return [myState, isValid, error, handleInputChange] as const;
 }

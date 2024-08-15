@@ -1,5 +1,5 @@
 import { openPostCreateModal } from '@src/atom/modal';
-import { ButtonWithIcon, ImageWrapper } from '@src/components/atom';
+import { ButtonWithIcon, ImageWrapper } from '@src/components/ui/atom';
 import React, { memo } from 'react';
 import { useSetRecoilState } from 'recoil';
 

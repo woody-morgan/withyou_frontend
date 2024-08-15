@@ -1,7 +1,7 @@
 export const commonRegex = {
   name: {
-    regex: /^[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/,
-    desc: 'First and last name are required(2-10 characters, separated by space)',
+    regex: /^[가-힣a-zA-Z0-9]{2,10}$/,
+    desc: '2~10자의 한글 또는 영문 대소문자, 숫자만 사용 가능합니다.',
   },
   email: {
     regex:

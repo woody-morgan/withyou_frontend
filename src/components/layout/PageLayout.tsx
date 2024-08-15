@@ -1,32 +1,31 @@
-import { pageVars } from '@src/animations/page';
-import CommonHeader from '@src/components/molecule/PageHeader/CommonHeader';
+import Navigation from '@src/components/layout/PageLayout/Navigation';
+import CommonHeader from '@src/components/ui/atom/Header/CommonHeader';
 import useWindowResize from '@src/hooks/useWindowResize';
 import cx from 'classnames';
-import { motion } from 'framer-motion';
 import React, { FC, useRef } from 'react';
 
-import Header from './PageLayout/Header';
+import HeaderWrapper from './PageLayout/HeaderWrapper';
 
 const PageLayout: FC<{
   children: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
   fixedHeight?: boolean;
-  disableTransition?: boolean;
   headerFixed?: boolean;
   headerTransparent?: boolean;
   headerBackgroundColor?: string;
   headerContent?: React.ReactNode;
+  showNavigation?: boolean;
 }> = ({
   children,
   className,
   fullWidth = false,
   fixedHeight = false,
-  disableTransition = false,
   headerFixed = false,
   headerTransparent = false,
   headerBackgroundColor,
   headerContent = <CommonHeader />,
+  showNavigation = false,
 }) => {
   const mainRef = useRef<HTMLDivElement>(null);
 
@@ -45,17 +44,14 @@ const PageLayout: FC<{
   // it is for showing content on the top of bottom nav
   // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
-    <motion.div
-      className="relative"
-      variants={disableTransition ? {} : pageVars}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      transition={{ type: 'linear' }}
-    >
-      <Header fixed={headerFixed} transparent={headerTransparent} className={headerBackgroundColor}>
+    <div className="relative">
+      <HeaderWrapper
+        fixed={headerFixed}
+        transparent={headerTransparent}
+        className={headerBackgroundColor}
+      >
         {headerContent}
-      </Header>
+      </HeaderWrapper>
       <main
         ref={mainRef}
         className={cx(
@@ -67,7 +63,8 @@ const PageLayout: FC<{
       >
         {children}
       </main>
-    </motion.div>
+      {showNavigation && <Navigation />}
+    </div>
   );
 };
 

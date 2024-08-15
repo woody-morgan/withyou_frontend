@@ -1,7 +1,7 @@
 import { closeModal, modalStateAtom } from '@src/atom/modal';
-import Portal from '@src/components/atom/Portal';
 import { PostCreateModalContent } from '@src/components/container/modal/content';
 import { ModalLayout } from '@src/components/layout';
+import Portal from '@src/components/ui/atom/Portal';
 import { ModalContentType, ModalType } from '@src/core/types/modal-type';
 import { AnimatePresence } from 'framer-motion';
 import React, { FC } from 'react';

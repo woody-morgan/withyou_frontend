@@ -17,7 +17,7 @@ export type CommonUserAuthInfoType = {
 export type ValidateResult = CommonUserAuthInfoType;
 
 export type SignInResult = {
-  accessToken: string;
+  jwtToken: string;
 };
 
 export type UserAuthInfoType = CommonUserAuthInfoType & {
