@@ -2,6 +2,7 @@ import '@src/styles/globals.css';
 
 import Analytics from '@src/components/analytics';
 import { ModalContainer } from '@src/components/container';
+import { apiValidate } from '@src/core/api/apiAuth';
 import { envConfig } from '@src/core/config/envConfig';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { getAuthToken } from '@src/utils/authUtil';
@@ -16,7 +17,7 @@ import { RecoilRoot } from 'recoil';
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = envConfig.apiUrl;
-axios.defaults.headers.common['Authorization'] = getAuthToken();
+axios.defaults.headers.common['Authorization'] = `Bearer ${getAuthToken()}`;
 axios.defaults.paramsSerializer = (params) => {
   return qs.stringify(params);
 };

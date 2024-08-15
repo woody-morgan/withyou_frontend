@@ -8,6 +8,7 @@ import {
 } from '@src/components/ui/atom';
 import CommonBackwardHeader from '@src/components/ui/atom/Header/CommonBackwardHeader';
 import { ImageWithEditButton } from '@src/components/ui/organism';
+import { apiUploadProfileInfo } from '@src/core/api/apiProfile';
 import { useValidateInput } from '@src/hooks';
 import { familyRoleList } from '@src/utils/constants';
 import { commonRegex } from '@src/utils/regexUtil';
@@ -21,7 +22,7 @@ const EnrollPage = () => {
   const familyRoleListMemo = useMemo(() => familyRoleList, []);
 
   const [imageFiles, setImageFiles] = useState<File[]>([]);
-  const [name, nameIsValid, nameError, handleNameChange] = useValidateInput(
+  const [name, nameIsValid, nameError, handleNameChange] = useValidateInput<string>(
     '',
     commonRegex.name.regex,
     commonRegex.name.desc
@@ -32,10 +33,16 @@ const EnrollPage = () => {
     router.back();
   };
 
-  const handleSubmit = () => {
-    if (!nameIsValid || !role) return;
-    // Todo: api call
-    router.push('/');
+  const isValidSubmit = (): boolean => {
+    if (!nameIsValid || !role || imageFiles.length == 0) return false;
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    if (isValidSubmit()) {
+      await apiUploadProfileInfo({ imageFile: imageFiles[0], nickname: name, role });
+      router.push('/');
+    }
   };
 
   return (
@@ -45,12 +52,12 @@ const EnrollPage = () => {
       headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
     >
       <FullWidthOverflowScrollWrapper>
-        <div className="w-full flex flex-col justify-between items-center pt-8 space-y-4">
+        <div className="flex flex-col justify-between items-center pt-8 space-y-4">
           <ImageWithEditButton
             imageFiles={imageFiles}
             setImageFiles={setImageFiles}
             inputId="profile"
-            src={'/static/sample_profile.png'}
+            src={'/static/default_profile.svg'}
           />
           <InputBox
             type="id"
@@ -76,7 +83,7 @@ const EnrollPage = () => {
       </FullWidthOverflowScrollWrapper>
       <div className="absolute left-0 bottom-0 w-full max-w-mobile-app">
         <Button
-          disabled={!nameIsValid || !role}
+          disabled={!isValidSubmit()}
           styles="wy-blue"
           fullWidth
           roundness="keyboard"
