@@ -39,43 +39,41 @@ const EnrollPage = () => {
   };
 
   return (
-    <Fragment>
-      <PageLayout
-        className="bg-white"
-        headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
-      >
-        <FullWidthOverflowScrollWrapper>
-          <div className="w-full flex flex-col justify-between items-center pt-8 space-y-4">
-            <ImageWithEditButton
-              imageFiles={imageFiles}
-              setImageFiles={setImageFiles}
-              inputId="profile"
-              src={'/static/sample_profile.png'}
-            />
-            <InputBox
-              type="id"
-              label="이름"
-              fullWidth
-              value={name as string}
-              error={!nameIsValid}
-              errorMessage={nameError}
-              name="username"
-              classNames="border-none bg-gray-50"
-              onChange={handleNameChange}
-            />
-            <SelectBox
-              fullWidth
-              label="역할"
-              name="role"
-              defaultValue={'역할'}
-              optionList={familyRoleListMemo}
-              classNames="border-none bg-gray-50"
-              onSelect={(e) => setRole(e.target.value)}
-            />
-          </div>
-        </FullWidthOverflowScrollWrapper>
-      </PageLayout>
-      <div className="fixed bottom-0 w-full max-w-mobile-app">
+    <PageLayout
+      className="bg-white"
+      headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
+    >
+      <FullWidthOverflowScrollWrapper>
+        <div className="w-full flex flex-col justify-between items-center pt-8 space-y-4">
+          <ImageWithEditButton
+            imageFiles={imageFiles}
+            setImageFiles={setImageFiles}
+            inputId="profile"
+            src={'/static/sample_profile.png'}
+          />
+          <InputBox
+            type="id"
+            label="이름"
+            fullWidth
+            value={name as string}
+            error={!nameIsValid}
+            errorMessage={nameError}
+            name="username"
+            classNames="border-none bg-gray-50"
+            onChange={handleNameChange}
+          />
+          <SelectBox
+            fullWidth
+            label="역할"
+            name="role"
+            defaultValue={'역할'}
+            optionList={familyRoleListMemo}
+            classNames="border-none bg-gray-50"
+            onSelect={(e) => setRole(e.target.value)}
+          />
+        </div>
+      </FullWidthOverflowScrollWrapper>
+      <div className="absolute left-0 bottom-0 w-full max-w-mobile-app">
         <Button
           disabled={!nameIsValid || !role}
           styles="wy-blue"
@@ -86,7 +84,7 @@ const EnrollPage = () => {
           시작하기
         </Button>
       </div>
-    </Fragment>
+    </PageLayout>
   );
 };
 
