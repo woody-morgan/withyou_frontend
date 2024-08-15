@@ -4,16 +4,10 @@ import logger from 'redux-logger';
 
 import reducer from './modules';
 
-const makeStore = () =>
+const makeStore = (context) =>
   configureStore({
     reducer,
-    middleware: (getDefaultMiddleware) => {
-      if (process.env.NODE_ENV !== 'production') {
-        return getDefaultMiddleware().concat(logger);
-      } else {
-        return getDefaultMiddleware();
-      }
-    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     devTools: process.env.NODE_ENV !== 'production',
   });
 

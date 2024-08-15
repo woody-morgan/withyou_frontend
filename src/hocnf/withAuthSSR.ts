@@ -12,7 +12,6 @@ const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps): GetServerSide
       const token = ctx.req.cookies.jwt;
       setServerAuthToken(token);
       try {
-        // Todo get user info and set to store
         const result = await apiValidate();
         store.dispatch(
           setUserInfo({

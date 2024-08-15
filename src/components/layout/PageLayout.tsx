@@ -1,5 +1,5 @@
 import { pageVars } from '@src/animations/page';
-import CommonHeader from '@src/components/template/Common/CommonHeader';
+import CommonHeader from '@src/components/molecule/PageHeader/CommonHeader';
 import useWindowResize from '@src/hooks/useWindowResize';
 import cx from 'classnames';
 import { motion } from 'framer-motion';

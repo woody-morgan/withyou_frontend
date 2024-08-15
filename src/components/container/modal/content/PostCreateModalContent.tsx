@@ -5,6 +5,7 @@ import { useRootDispatch, useRootState } from '@src/hooks';
 import { RootDispatchType } from '@src/store/modules';
 import { closeModal } from '@src/store/modules/modal';
 import { addPost } from '@src/store/modules/posts';
+import { twcDivide } from '@src/utils/twcUtil';
 import cx from 'classnames';
 import React, { FunctionComponent, useState } from 'react';
 
@@ -62,7 +63,7 @@ const PostCreateModalContent: FunctionComponent<ModalContentType> = ({ option })
     <div className="w-full flex flex-col">
       <form onSubmit={handleSubmit}>
         <PostCreateModalContentHeader dispatch={dispatch} />
-        <div className="pt-4 divide-y-2 divide-gray-100 children:py-5">
+        <div className={cx('pt-4 children:py-5', twcDivide)}>
           <div className="flex space-x-2 justify-center">
             <div className="relative flex-shrink-0 w-20 h-20">
               <DropZone imageFiles={imageFiles} setImageFiles={setImageFiles} />

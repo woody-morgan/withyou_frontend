@@ -8,6 +8,9 @@ export { default as Icon } from './Icon/Icon';
 export { default as IconButton } from './Icon/IconButton';
 export { default as InputBox } from './InputBox';
 
+// Card
+export { default as PostCardWrapper } from './Card/PostCardWrapper';
+
 // wrapper components
 export { default as ImageWrapper } from './ImageWrapper';
 
