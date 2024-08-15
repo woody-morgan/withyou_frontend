@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { btnSizes, btnStyles } from '@src/utils/constants'
+import { buttonSettings } from '@src/animations/common'
 import cx from 'classnames'
 
 interface ButtonShape {
@@ -48,7 +49,7 @@ const Button = (
 ) => {
   return (
     <motion.button
-      whileHover={disabled || removeHover ? {} : { scale: 1.05 }}
+      {...(!disabled && !removeHover && buttonSettings)}
       ref={ref}
       type={type}
       className={cx(

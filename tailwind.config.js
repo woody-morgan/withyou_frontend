@@ -7,6 +7,9 @@ module.exports = {
   mod: 'jit',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      md: appConfig.mobileAppMaxWidth,
+    },
     extend: {
       margin: {
         center: '0 auto',
@@ -31,13 +34,16 @@ module.exports = {
           900: '#d0c6ba',
         },
         secondary: {
-          300: '#fffff9',
-          400: '#ffffef',
-          500: '#fff8e5',
-          600: '#f5eedb',
-          700: '#ebe4d1',
-          800: '#e1dac7',
-          900: '#d7d0bd',
+          50: '#ff937e',
+          100: '#ff8974',
+          200: '#f77f6a',
+          300: '#ed7560',
+          400: '#e36b56',
+          500: '#d9614c',
+          600: '#cf5742',
+          700: '#c54d38',
+          800: '#bb432e',
+          900: '#b13924',
         },
         link: {
           50: '#35f0ff',

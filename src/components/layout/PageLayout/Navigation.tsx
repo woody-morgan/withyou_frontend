@@ -5,10 +5,9 @@ import { navRouter } from '@src/config/navRouter'
 import Link from 'next/link'
 
 const Navigation: FC<{
-  fixed?: boolean
   transparent?: boolean
   className?: string
-}> = ({ fixed = false, className, transparent = false }) => {
+}> = ({ className, transparent = false }) => {
   return (
     <div className="relative">
       <div
@@ -17,7 +16,7 @@ const Navigation: FC<{
           'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',
-          fixed ? 'fixed' : 'absolute',
+          'fixed',
           transparent ? 'bg-transparent' : 'bg-primary-500',
           className
         )}
@@ -37,7 +36,7 @@ const Navigation: FC<{
         })}
       </div>
       {/* to give padding for bottom sheet */}
-      {fixed && <div className="h-bt-nav" />}
+      <div className="h-bt-nav" />
     </div>
   )
 }

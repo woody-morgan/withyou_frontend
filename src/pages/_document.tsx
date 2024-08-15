@@ -24,7 +24,7 @@ export default class MyDocument extends Document {
           <meta content={notchColor} name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
         </Head>
-        <body className="z-0 bg-primary-bg text-black antialiased">
+        <body className="z-0 md:bg-primary-bg text-black antialiased">
           <Main />
           <div id="modal" />
           <NextScript />

@@ -1,19 +1,17 @@
-import { forwardRef, MutableRefObject, useState } from 'react'
+import React, { forwardRef, MutableRefObject } from 'react'
 import cx from 'classnames'
-import { IconButton } from '@src/components/common'
 
 type Props = {
+  className?: string
   fixed?: boolean
   transparent?: boolean
-  className?: string
+  content: React.ReactNode
 }
 
 const Header = (
-  { fixed = false, transparent = false, className }: Props,
+  { className, fixed = false, transparent = false, content }: Props,
   ref: MutableRefObject<HTMLDivElement>
 ) => {
-  const [show, setShow] = useState(false)
-
   return (
     <header className="relative">
       <div
@@ -28,14 +26,7 @@ const Header = (
           className
         )}
       >
-        <div className="flex space-x-2 items-center">
-          <IconButton
-            name="house"
-            animate={show ? 'open' : 'close'}
-            size={24}
-            onClick={() => setShow((prev) => !prev)}
-          />
-        </div>
+        {content}
       </div>
       {/* to give padding for header */}
       <div className="h-gb-header" />
