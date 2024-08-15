@@ -11,7 +11,7 @@ const HomePage: NextPage = () => {
   return (
     <PageLayout fixedHeight>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className={cx('h-full', 'flex flex-col justify-between items-center')}>
+      <div className={cx('h-full', 'flex flex-col items-center')}>
         <HomeMainContent />
         <HomeStartSection />
       </div>

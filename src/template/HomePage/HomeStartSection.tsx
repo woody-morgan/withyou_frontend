@@ -5,12 +5,12 @@ import Link from 'next/link'
 const HomeStartSection = () => {
   return (
     <div className="flex flex-col w-full items-center space-y-4">
-      <Button className="uppercase text-white font-bold" styles="secondary" size="large" fullWidth>
-        get started
+      <Button styles="secondary" size="large" fullWidth>
+        <h3 className="uppercase text-white">get started</h3>
       </Button>
       <Link href={'/signup'}>
-        <Button className="text-secondary-500 font-bold text-lg" fullWidth size="large">
-          Already have an account?
+        <Button fullWidth size="large">
+          <h3 className="text-secondary-500">Already have an account?</h3>
         </Button>
       </Link>
     </div>
