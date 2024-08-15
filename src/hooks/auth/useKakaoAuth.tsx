@@ -13,21 +13,8 @@ export default function useKakaoAuth({ router, onSuccess, onFailure }: KakaoAuth
     if (!Kakao.isInitialized()) {
       Kakao.init(envConfig.kakaoClientId);
     }
-    Kakao.Auth.login({
-      success: async function (authObj) {
-        const { access_token } = authObj;
-        try {
-          await apiKakaoSignIn({ accessToken: access_token });
-          onSuccess?.();
-          await router.push('/');
-        } catch (e) {
-          onFailure?.(e);
-        }
-      },
-      fail: function (err) {
-        // Todo: error handling
-        onFailure?.(err);
-      },
+    Kakao.Auth.authorize({
+      redirectUri: 'https://backend.with-you.io/auth/kakao/callback',
     });
   };
 
