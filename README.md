@@ -56,5 +56,11 @@ const appConfig = {
 #### 활성화된 라우터
 
 ```js
-const routes = ['/', '/posts', '/signup', '/login']
+const routes = ['/', '/posts', '/signup', '/login', '/profile']
+```
+
+#### 추가해야하는 라우터
+
+```js
+const routes = ['/camera', '...']
 ```
