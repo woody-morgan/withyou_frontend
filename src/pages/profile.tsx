@@ -10,6 +10,7 @@ import { ApiGetDiariesInfinite } from '@src/core/api/types/api-diary-interface';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { CommonUserAuthInfoType } from '@src/core/types/auth-type';
 import useLogout from '@src/hooks/auth/useLogout';
+import { toBeImplement } from '@src/utils/implUtil';
 import { NextPage } from 'next';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -108,7 +109,7 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ user, initialDiaryInfo }) => 
           <Button fullWidth styles="transparent" onClick={handleLogout}>
             로그아웃
           </Button>
-          <Button fullWidth styles="transparent">
+          <Button fullWidth styles="transparent" onClick={toBeImplement}>
             탈퇴하기
           </Button>
           <Button fullWidth styles="transparent" onClick={handleBottomSheetClose}>
