@@ -1,4 +1,4 @@
-const appMetadata = {
+const appConfig = {
   notchColor: '#f8eee2',
   headerHeight: '4rem',
   bottomNavigationHeight: '5rem',
@@ -7,4 +7,4 @@ const appMetadata = {
   mobileAppMaxWidth: '768px',
 }
 
-module.exports = appMetadata
+module.exports = appConfig

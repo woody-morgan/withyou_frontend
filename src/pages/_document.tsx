@@ -1,6 +1,6 @@
 import React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
-import siteMetadata from '@src/config/appMetadata'
+import siteMetadata from '@src/config/appConfig'
 
 export default class MyDocument extends Document {
   render() {
@@ -24,7 +24,7 @@ export default class MyDocument extends Document {
           <meta content={notchColor} name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
         </Head>
-        <body className="bg-primary-bg text-black antialiased">
+        <body className="z-0 bg-primary-bg text-black antialiased">
           <Main />
           <div id="modal" />
           <NextScript />

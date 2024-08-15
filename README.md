@@ -8,18 +8,26 @@ WithoutYou 프론트앤드 레포지토리
 
 ### 사이트 설정
 
-src/config/appMetadata.js에 있는 설정 파일을 수정해주세요.
-
-해당 파일은 tailwindconfig.js, header, bottom navigtaion 등에서 사용됩니다
-
 ```js
-const appMetadata = {
+const appConfig = {
   notchColor: '#f8eee2',
   headerHeight: '4rem',
   bottomNavigationHeight: '5rem',
   sidePadding: '1rem',
 }
 ```
+
+1. src/config/appConfig.js에 있는 설정 파일을 수정해주세요.
+
+- 해당 파일은 tailwindconfig.js, header, bottom navigtaion 등에서 사용됩니다
+
+2. 페이지를 제작할때 최상단 컴포넌트는 PageLayout으로 감싸주세요
+
+- fixedHeight, fullWidth등을 지원하며 fixedHeight의 경우 모바일 브라우저에서도 작동합니다
+
+3. 페이지를 제작할때 PageLayout 컴포넌트를 감싼후 가장 첫번째 children중 하나로 PaseSEO 컴포넌트를 사용해주세요
+
+- Search Engine Optimization을 할때 꼭 필요합니다
 
 ## Husky Hook 설정 방법
 

@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import { pageVars } from '@src/animations/page'
-import appMetaData from '@src/config/appMetadata'
+import appMetaData from '@src/config/appConfig'
 
 const PageLayout: FC<{
   children: React.ReactNode
