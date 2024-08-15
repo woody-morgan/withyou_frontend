@@ -1,18 +1,10 @@
-import React, { FC } from 'react'
+import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper'
+import { SvgComponentType } from '@src/core/types/svg-type'
+import React, { FunctionComponent } from 'react'
 
-const GoogleLogo: FC<{
-  size?: number
-  className?: string
-}> = ({ size = 24, className }) => {
+const GoogleLogo: FunctionComponent<SvgComponentType> = ({ ...props }) => {
   return (
-    <svg
-      className={className}
-      width={size}
-      height={size}
-      viewBox={`0 0 24 24`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <SvgWrapper {...props}>
       <path
         d="M21.575 12.2249C21.575 11.5666 21.5167 10.9416 21.4167 10.3333H12V14.0916H17.3917C17.15 15.3249 16.4417 16.3666 15.3917 17.0749V19.5749H18.6083C20.4917 17.8333 21.575 15.2666 21.575 12.2249Z"
         fill="#4285F4"
@@ -29,7 +21,7 @@ const GoogleLogo: FC<{
         d="M12.0002 5.95833C13.4752 5.95833 14.7919 6.46667 15.8335 7.45834L18.6835 4.60833C16.9585 2.99167 14.7002 2 12.0002 2C8.09186 2 4.71686 4.25 3.0752 7.51667L6.39186 10.0917C7.18353 7.71667 9.39186 5.95833 12.0002 5.95833Z"
         fill="#EA4335"
       />
-    </svg>
+    </SvgWrapper>
   )
 }
 

@@ -14,7 +14,6 @@ const nextConfig = {
   },
   env: {
     BASE_API_URL: process.env.BASE_API_URL,
-    APP_NAME: process.env.APP_NAME,
     KAKAO_CLIENT_ID: process.env.KAKAO_CLIENT_ID,
   },
   images: {

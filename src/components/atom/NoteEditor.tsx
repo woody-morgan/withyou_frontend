@@ -1,4 +1,3 @@
-import { envConfig } from '@src/core/config/envConfig'
 import { useRootDispatch } from '@src/hooks'
 import { hideBottomNav, showBottomNav } from '@src/store/modules/layout'
 import cx from 'classnames'
@@ -40,7 +39,7 @@ const NoteEditor = () => {
   }
 
   return (
-    <div className="w-full h-full space-y-2">
+    <div className="w-full h-full flex flex-col space-y-2">
       <input
         ref={titleRef}
         className={cx('w-full h-8', 'bg-transparent', 'no-border-outline', 'h1')}
@@ -55,7 +54,7 @@ const NoteEditor = () => {
         ref={textAreaRef}
         className={cx(
           'z-10 relative',
-          'w-full min-h-screen pb-8',
+          'w-full h-full',
           'bg-transparent',
           'no-border-outline',
           'overflow-scroll'
@@ -67,9 +66,6 @@ const NoteEditor = () => {
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
       />
-      <div className="absolute -z-0 translate-center-xy">
-        <h2 className="text-gray-400/50 select-none">{envConfig.appName}</h2>
-      </div>
     </div>
   )
 }

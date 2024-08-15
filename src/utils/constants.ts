@@ -11,3 +11,6 @@ export type btnStyles =
   | 'danger'
   | 'success'
   | 'warning'
+  | 'wy-blue'
+  | 'wy-red'
+  | 'wy-yellow'

@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'WithYou',
-  description: 'Write log of your baby activities with your family',
-  siteUrl: 'https://withyou.com',
+  title: '위드유',
+  description: '가족과 함께쓰는 육아로그',
+  siteUrl: 'https://with-you-front-end.vercel.app',
   siteLogo: '/logo.png',
   socialBanner: '/static/banner.jpeg',
   theme: 'system', // system, dark or light

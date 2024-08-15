@@ -1,16 +1,16 @@
 import cx from 'classnames'
-import React, { forwardRef, MutableRefObject } from 'react'
+import React, { forwardRef, ForwardRefRenderFunction } from 'react'
 
-type Props = {
+type HeaderProps = {
   className?: string
   fixed?: boolean
   transparent?: boolean
-  content: React.ReactNode
+  children?: React.ReactNode
 }
 
-const Header = (
-  { className, fixed = false, transparent = false, content }: Props,
-  ref: MutableRefObject<HTMLDivElement>
+const Header: ForwardRefRenderFunction<HTMLDivElement, HeaderProps> = (
+  { className, fixed = false, transparent = false, children },
+  ref
 ) => {
   return (
     <header className="relative">
@@ -26,7 +26,7 @@ const Header = (
           className
         )}
       >
-        {content}
+        {children}
       </div>
     </header>
   )

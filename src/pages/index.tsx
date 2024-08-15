@@ -1,22 +1,21 @@
 import { PageSEO } from '@src/components/analytics/SEO'
+import { FloatingButton } from '@src/components/atom'
 import { PageLayout } from '@src/components/layout'
-import PostsCommonHeader from '@src/components/template/PostsPage/PostsCommonHeader'
-import PostsMainSection from '@src/components/template/PostsPage/PostsMainSection'
-import PostsStartSection from '@src/components/template/PostsPage/PostsStartSection'
+import HomeMainSection from '@src/components/template/HomePage/HomeMainSection'
 import siteMetadata from '@src/core/config/siteMetadata'
-import cx from 'classnames'
 import React from 'react'
 
 // export const getServerSideProps = withAuthSSR()
 
 const HomePage = () => {
   return (
-    <PageLayout fixedHeight headerContent={<PostsCommonHeader />}>
-      <PageSEO title={siteMetadata.title + ' Post page'} description={'create your baby logs'} />
-      <div className={cx('h-full', 'flex flex-col items-center')}>
-        <PostsMainSection />
-        <PostsStartSection />
-      </div>
+    <PageLayout fixedHeight>
+      <PageSEO
+        title={siteMetadata.title + ' 메인 페이지'}
+        description={'유아 로그를 시작해보세요'}
+      />
+      <HomeMainSection />
+      <FloatingButton />
     </PageLayout>
   )
 }

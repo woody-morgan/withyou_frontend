@@ -1,5 +1,5 @@
 import { pageVars } from '@src/animations/page'
-import { envConfig } from '@src/core/config/envConfig'
+import CommonHeader from '@src/components/template/Common/CommonHeader'
 import { useBrowserBackward, useRootDispatch, useRootState } from '@src/hooks'
 import useWindowResize from '@src/hooks/useWindowResize'
 import { pageTransitionForward } from '@src/store/modules/layout'
@@ -26,7 +26,7 @@ const PageLayout: FC<{
   headerFixed = false,
   headerTransparent = false,
   headerBackgroundColor,
-  headerContent = <h2 className="uppercase text-center w-full">{envConfig.appName}</h2>,
+  headerContent = <CommonHeader />,
 }) => {
   const mainRef = useRef<HTMLDivElement>(null)
   const dispatch = useRootDispatch()
@@ -66,12 +66,9 @@ const PageLayout: FC<{
       exit="exit"
       transition={{ type: 'linear' }}
     >
-      <Header
-        fixed={headerFixed}
-        transparent={headerTransparent}
-        className={headerBackgroundColor}
-        content={headerContent}
-      />
+      <Header fixed={headerFixed} transparent={headerTransparent} className={headerBackgroundColor}>
+        {headerContent}
+      </Header>
       <main
         ref={mainRef}
         className={cx(
