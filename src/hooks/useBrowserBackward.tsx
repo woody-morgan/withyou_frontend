@@ -1,25 +1,19 @@
-import useBackward from '@src/hooks/useBackward'
+import { useRootDispatch } from '@src/hooks/useRootState'
+import { pageTransitionBackward } from '@src/store/modules/layout'
+import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 
-/**
- * @warn callback will be called before backward hook is called
- * @warn this hook should be used only once in the app
- * @param cb
- */
-const useBrowserBackward = (cb?: () => void) => {
-  const handleBackward = useBackward('/')
-
-  const handleBackwardClick = async () => {
-    if (cb) {
-      cb()
-    }
-    await handleBackward()
-  }
+const useBrowserBackward = () => {
+  const router = useRouter()
+  const dispatch = useRootDispatch()
 
   useEffect(() => {
-    window.addEventListener('popstate', handleBackwardClick)
+    router.beforePopState(() => {
+      dispatch(pageTransitionBackward())
+      return true
+    })
     return () => {
-      window.removeEventListener('popstate', handleBackwardClick)
+      router.beforePopState(() => true)
     }
   }, [])
 }

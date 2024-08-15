@@ -4,5 +4,3 @@
 npx lint-staged
 
 yarn analyze
-
-git add -A

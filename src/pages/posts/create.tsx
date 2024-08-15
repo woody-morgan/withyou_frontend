@@ -7,7 +7,7 @@ import PostsCreateHeader from '@src/template/PostsPage/PostsCreateHeader'
 import React from 'react'
 
 const PostsCreatePage = () => {
-  const handleBackward = useBackward('/posts')
+  const handleBackward = useBackward()
 
   return (
     <PageLayout headerContent={<PostsCreateHeader onBack={handleBackward} />}>
@@ -15,7 +15,7 @@ const PostsCreatePage = () => {
         title={siteMetadata.title + ' Post Create page'}
         description={'create your baby logs'}
       />
-      <div className="w-full h-full">
+      <div className="h-full">
         <NoteEditor />
       </div>
     </PageLayout>

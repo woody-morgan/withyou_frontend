@@ -1,11 +1,15 @@
 import { AnyAction, CombinedState, combineReducers } from '@reduxjs/toolkit'
 import { UserAuthInfoType } from '@src/core/types/auth-type'
+import { LayoutInfoType } from '@src/core/types/layout-type'
 import { HYDRATE } from 'next-redux-wrapper'
 
 import auth from './auth'
-import history, { HistoryInitialType } from './history'
+import layout from './layout'
 
-export type RootStateType = CombinedState<{ history: HistoryInitialType; auth: UserAuthInfoType }>
+export type RootStateType = CombinedState<{
+  auth: UserAuthInfoType
+  layout: LayoutInfoType
+}>
 export type RootDispatchType = ReturnType<typeof reducer>['dispatch']
 
 const reducer = (state: RootStateType, action: AnyAction) => {
@@ -17,7 +21,7 @@ const reducer = (state: RootStateType, action: AnyAction) => {
     }
   }
   return combineReducers({
-    history,
+    layout,
     auth,
   })(state, action)
 }
