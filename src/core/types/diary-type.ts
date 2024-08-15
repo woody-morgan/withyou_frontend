@@ -1,4 +1,4 @@
-import { ApiCommonDiaryProps } from '@src/core/api/interface/api-diary-interface';
+import { ApiCommonDiaryProps } from '../api/types/api-diary-interface';
 
 export interface DiaryAtom {
   isInit: boolean;

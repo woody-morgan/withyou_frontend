@@ -1,7 +1,7 @@
 import { produce } from 'immer';
 import { atom, DefaultValue, selector } from 'recoil';
 
-import { DiaryAtom } from './types/diary-interface';
+import { DiaryAtom } from '../core/types/diary-type';
 
 const defaultState: DiaryAtom = {
   isInit: false,

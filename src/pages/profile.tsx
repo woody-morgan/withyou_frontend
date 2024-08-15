@@ -2,11 +2,11 @@ import { addFamilyDiaries } from '@src/atom/familyDiary';
 import { PageSEO } from '@src/components/analytics/SEO';
 import { withAuthCSR, withAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
+import ProfileDiariesSection from '@src/components/template/ProfilePage/ProfileDiariesSection';
 import ProfileIntroSection from '@src/components/template/ProfilePage/ProfileIntroSection';
-import ProfilePostsSection from '@src/components/template/ProfilePage/ProfilePostsSection';
 import { FullWidthOverflowScrollWrapper, IconButton } from '@src/components/ui/atom';
 import { apiGetMyDiariesInfinite } from '@src/core/api/apiDiary';
-import { ApiGetDiariesInfinite } from '@src/core/api/interface/api-diary-interface';
+import { ApiGetDiariesInfinite } from '@src/core/api/types/api-diary-interface';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { CommonUserAuthInfoType } from '@src/core/types/auth-type';
 import { NextPage } from 'next';
@@ -84,7 +84,7 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ user, initialDiaryInfo }) => 
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
       <FullWidthOverflowScrollWrapper>
         <ProfileIntroSection userInfo={user} />
-        <ProfilePostsSection
+        <ProfileDiariesSection
           diaries={familyDiariesInfo.diaries}
           onScrollReachBottom={handleLoadMore}
         />
