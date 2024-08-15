@@ -8,7 +8,7 @@ import { apiGetFamilyDiariesInfinite } from '@src/core/api/diary/apiDiary';
 import { ApiGetDiariesInfinite } from '@src/core/api/types/api-diary-interface';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { NextPage } from 'next';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 
 interface HomePageProps {
