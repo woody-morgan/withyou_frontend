@@ -1,33 +1,33 @@
-import { buttonSettings } from '@src/animations/common'
-import { btnRounded, btnSizes, btnStyles } from '@src/utils/constants'
-import cx from 'classnames'
-import { motion } from 'framer-motion'
-import React, { forwardRef, ForwardRefRenderFunction } from 'react'
+import { buttonSettings } from '@src/animations/common';
+import { btnRounded, btnSizes, btnStyles } from '@src/utils/constants';
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 
 export type ButtonProps = {
-  type?: 'button' | 'submit' | 'reset'
-  size?: btnSizes
-  styles?: btnStyles
-  roundness?: btnRounded
-  activeHover?: boolean
-  disabled?: boolean
-  fullWidth?: boolean
-  className?: string
-  children?: React.ReactNode
-  onClick?: () => void
-}
+  type?: 'button' | 'submit' | 'reset';
+  size?: btnSizes;
+  styles?: btnStyles;
+  roundness?: btnRounded;
+  activeHover?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+  onClick?: () => void;
+};
 
 const selectRounded: { [key in btnRounded]: string } = {
   primary: 'rounded-[2.5rem]',
   keyboard: 'rounded-none',
-}
+};
 
 const selectSize: { [keys in btnSizes]: string } = {
   large: 'px-16 text-lg h-16',
   medium: 'px-10 text-lg h-12',
   small: 'px-8 h-8',
   xsmall: 'px-6 h-6',
-}
+};
 
 const selectStyle: { [keys in btnStyles]: string } = {
   primary: 'bg-primary-500 hover:bg-primary-700 focus:bg-primary-900',
@@ -40,7 +40,7 @@ const selectStyle: { [keys in btnStyles]: string } = {
   'wy-blue': 'bg-wy-blue-500 text-white',
   'wy-red': 'bg-wy-red-500 text-white',
   'wy-yellow': 'bg-wy-yellow-500 text-white',
-}
+};
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   {
@@ -75,7 +75,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     >
       {children}
     </motion.button>
-  )
-}
+  );
+};
 
-export default forwardRef(Button)
+export default forwardRef(Button);

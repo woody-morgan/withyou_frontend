@@ -1,9 +1,9 @@
-import { SVGTypes } from '@src/components/atom/Icon/Icon'
+import { SVGTypes } from '@src/components/atom/Icon/Icon';
 
 export type NavRouterType = {
-  path: string
-  icon: SVGTypes
-}
+  path: string;
+  icon: SVGTypes;
+};
 
 export const navRouter: NavRouterType[] = [
   {
@@ -14,4 +14,4 @@ export const navRouter: NavRouterType[] = [
     path: '/profile',
     icon: 'profile',
   },
-]
+];

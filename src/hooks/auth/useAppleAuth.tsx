@@ -1,5 +1,5 @@
-import { AppleAuthHookType } from '@src/core/types/auth-type'
-import { useLazyScript } from '@src/hooks'
+import { AppleAuthHookType } from '@src/core/types/auth-type';
+import { useLazyScript } from '@src/hooks';
 
 export default function useAppleAuth({
   router,
@@ -7,14 +7,14 @@ export default function useAppleAuth({
   onSuccess,
   onFailure,
 }: AppleAuthHookType) {
-  const [isLoaded] = useLazyScript('')
+  const [isLoaded] = useLazyScript('');
 
   const processAppleLogin = async () => {
-    throw new Error('Apple SDK is not loaded')
+    throw new Error('Apple SDK is not loaded');
     if (!isLoaded) {
-      throw new Error('Apple SDK is not loaded')
+      throw new Error('Apple SDK is not loaded');
     }
-  }
+  };
 
-  return [isLoaded, processAppleLogin] as const
+  return [isLoaded, processAppleLogin] as const;
 }

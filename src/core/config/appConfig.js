@@ -7,6 +7,6 @@ const appConfig = {
   sidePadding: '1.5rem',
   backgroundColor: '#ffffff',
   mobileAppMaxWidth: '720px',
-}
+};
 
-module.exports = appConfig
+module.exports = appConfig;

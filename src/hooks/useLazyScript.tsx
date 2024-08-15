@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 export default function useLazyScript(src: string) {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    const script = document.createElement('script')
-    script.src = src
-    script.async = true
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
     script.onload = () => {
-      setIsLoaded(true)
-    }
-    document.body.appendChild(script)
+      setIsLoaded(true);
+    };
+    document.body.appendChild(script);
     return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-  return [isLoaded] as const
+      document.body.removeChild(script);
+    };
+  }, []);
+  return [isLoaded] as const;
 }

@@ -1,6 +1,6 @@
-import { AppleLoginButton, GoogleLoginButton, KakaoLoginButton } from '@src/components/atom'
-import { SocialAuthHookType } from '@src/core/types/auth-type'
-import React, { FC, memo } from 'react'
+import { AppleLoginButton, GoogleLoginButton, KakaoLoginButton } from '@src/components/atom';
+import { SocialAuthHookType } from '@src/core/types/auth-type';
+import React, { FC, memo } from 'react';
 
 const SignInForm: FC<SocialAuthHookType> = ({ ...props }) => {
   return (
@@ -11,7 +11,7 @@ const SignInForm: FC<SocialAuthHookType> = ({ ...props }) => {
         <KakaoLoginButton {...props} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(SignInForm)
+export default memo(SignInForm);

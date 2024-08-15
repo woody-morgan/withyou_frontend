@@ -1,6 +1,6 @@
-import { Button } from '@src/components/atom'
-import Link from 'next/link'
-import React, { memo } from 'react'
+import { Button } from '@src/components/atom';
+import Link from 'next/link';
+import React, { memo } from 'react';
 
 const SignupStartSection = () => {
   return (
@@ -14,7 +14,7 @@ const SignupStartSection = () => {
         </Button>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default memo(SignupStartSection)
+export default memo(SignupStartSection);

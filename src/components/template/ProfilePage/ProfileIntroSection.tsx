@@ -1,5 +1,5 @@
-import { ImageWrapper } from '@src/components/atom'
-import React from 'react'
+import { ImageWrapper } from '@src/components/atom';
+import React from 'react';
 
 const ProfileIntroSection = () => {
   return (
@@ -17,7 +17,7 @@ const ProfileIntroSection = () => {
         <p>Be a fan of Brave Girls</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileIntroSection
+export default ProfileIntroSection;

@@ -1,12 +1,12 @@
-import cx from 'classnames'
-import React, { forwardRef, ForwardRefRenderFunction } from 'react'
+import cx from 'classnames';
+import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 
 type HeaderProps = {
-  className?: string
-  fixed?: boolean
-  transparent?: boolean
-  children?: React.ReactNode
-}
+  className?: string;
+  fixed?: boolean;
+  transparent?: boolean;
+  children?: React.ReactNode;
+};
 
 const Header: ForwardRefRenderFunction<HTMLDivElement, HeaderProps> = (
   { className, fixed = false, transparent = false, children },
@@ -17,7 +17,7 @@ const Header: ForwardRefRenderFunction<HTMLDivElement, HeaderProps> = (
       <div
         ref={ref}
         className={cx(
-          'z-20 w-full max-w-mobile-app h-gb-header top-0',
+          'z-20 w-full max-w-mobile-app h-gb-header top-0 bg-primary-bg',
           'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',
@@ -29,7 +29,7 @@ const Header: ForwardRefRenderFunction<HTMLDivElement, HeaderProps> = (
         {children}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default forwardRef(Header)
+export default forwardRef(Header);

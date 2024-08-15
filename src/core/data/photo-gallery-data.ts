@@ -84,4 +84,4 @@ export const photoGalleryData = [
     width: 4,
     height: 3,
   },
-]
+];

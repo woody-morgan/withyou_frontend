@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import Webcam, { WebcamProps } from 'react-webcam'
+import React, { FC } from 'react';
+import Webcam, { WebcamProps } from 'react-webcam';
 
 // const WebCameraComponent = dynamic(() => import('react-webcam'), {
 //   ssr: false,
@@ -27,7 +27,7 @@ const Camera: FC<Partial<WebcamProps>> = ({
       screenshotFormat={screenshotFormat}
       {...props}
     />
-  )
-}
+  );
+};
 
-export default Camera
+export default Camera;

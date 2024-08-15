@@ -1,5 +1,5 @@
-import siteMetadata from '@src/core/config/siteMetadata'
-import React, { memo } from 'react'
+import siteMetadata from '@src/core/config/siteMetadata';
+import React, { memo } from 'react';
 
 const SignupLetters = () => {
   return (
@@ -10,7 +10,7 @@ const SignupLetters = () => {
         with your family.
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default memo(SignupLetters)
+export default memo(SignupLetters);

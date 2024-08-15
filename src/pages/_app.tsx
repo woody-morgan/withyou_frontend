@@ -1,26 +1,26 @@
-import '@src/styles/globals.css'
+import '@src/styles/globals.css';
 
-import Analytics from '@src/components/analytics'
-import { CommonLayout } from '@src/components/layout'
-import { envConfig } from '@src/core/config/envConfig'
-import siteMetadata from '@src/core/config/siteMetadata'
-import { wrapper } from '@src/store'
-import { getAuthToken } from '@src/utils/authUtil'
-import axios from 'axios'
-import { AnimatePresence } from 'framer-motion'
-import { NextPage } from 'next'
-import { AppProps } from 'next/app'
-import Head from 'next/head'
-import { ThemeProvider } from 'next-themes'
-import qs from 'qs'
-import { ToastContainer } from 'react-toastify'
+import Analytics from '@src/components/analytics';
+import { CommonLayout } from '@src/components/layout';
+import { envConfig } from '@src/core/config/envConfig';
+import siteMetadata from '@src/core/config/siteMetadata';
+import { wrapper } from '@src/store';
+import { getAuthToken } from '@src/utils/authUtil';
+import axios from 'axios';
+import { AnimatePresence } from 'framer-motion';
+import { NextPage } from 'next';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
+import qs from 'qs';
+import { ToastContainer } from 'react-toastify';
 
-axios.defaults.withCredentials = true
-axios.defaults.baseURL = envConfig.apiUrl
-axios.defaults.headers.common['Authorization'] = getAuthToken()
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = envConfig.apiUrl;
+axios.defaults.headers.common['Authorization'] = getAuthToken();
 axios.defaults.paramsSerializer = (params) => {
-  return qs.stringify(params)
-}
+  return qs.stringify(params);
+};
 
 const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
   return (
@@ -42,7 +42,7 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
         <ToastContainer />
       </ThemeProvider>
     </>
-  )
-}
+  );
+};
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(App);

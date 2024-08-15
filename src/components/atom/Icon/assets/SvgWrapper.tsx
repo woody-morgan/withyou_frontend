@@ -1,9 +1,9 @@
-import { SvgComponentType } from '@src/core/types/svg-type'
-import React, { FC } from 'react'
+import { SvgComponentType } from '@src/core/types/svg-type';
+import React, { FC } from 'react';
 
 const SvgWrapper: FC<
   SvgComponentType & {
-    children: React.ReactNode
+    children: React.ReactNode;
   }
 > = ({ size = 24, viewBox = 24, className, children }) => {
   return (
@@ -17,7 +17,7 @@ const SvgWrapper: FC<
     >
       {children}
     </svg>
-  )
-}
+  );
+};
 
-export default SvgWrapper
+export default SvgWrapper;

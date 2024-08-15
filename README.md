@@ -16,7 +16,7 @@ const appConfig = {
   sidePadding: '1rem',
   backgroundColor: '#fff8e5',
   mobileAppMaxWidth: '768px',
-}
+};
 ```
 
 #### 1. src/config/appConfig.js에 있는 설정 파일을 수정해주세요.
@@ -76,11 +76,11 @@ const appConfig = {
 #### 활성화된 라우터
 
 ```js
-const routes = ['/', '/create', '/login', '/profile']
+const routes = ['/', '/create', '/login', '/profile'];
 ```
 
 #### 추가해야하는 라우터
 
 ```js
-const routes = ['...']
+const routes = ['...'];
 ```

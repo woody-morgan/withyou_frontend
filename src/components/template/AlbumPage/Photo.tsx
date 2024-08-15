@@ -1,5 +1,5 @@
-import React from 'react'
-import { RenderImageProps } from 'react-photo-gallery'
+import React from 'react';
+import { RenderImageProps } from 'react-photo-gallery';
 
 export const CustomPhoto = ({
   index,
@@ -11,9 +11,9 @@ export const CustomPhoto = ({
   left,
 }: RenderImageProps) => {
   const handleClick = (e) => {
-    onClick(e, { index })
-  }
-  return <img src={photo.src} key={photo.key} onClick={onClick ? handleClick : null} />
-}
+    onClick(e, { index });
+  };
+  return <img src={photo.src} key={photo.key} onClick={onClick ? handleClick : null} />;
+};
 
-export default CustomPhoto
+export default CustomPhoto;

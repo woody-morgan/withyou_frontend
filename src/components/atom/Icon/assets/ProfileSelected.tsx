@@ -1,6 +1,6 @@
-import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper'
-import { SvgComponentType } from '@src/core/types/svg-type'
-import React, { FunctionComponent } from 'react'
+import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper';
+import { SvgComponentType } from '@src/core/types/svg-type';
+import React, { FunctionComponent } from 'react';
 
 const ProfileSelectedSvg: FunctionComponent<SvgComponentType> = ({ ...props }) => {
   return (
@@ -18,7 +18,7 @@ const ProfileSelectedSvg: FunctionComponent<SvgComponentType> = ({ ...props }) =
         fill="#E2918D"
       />
     </SvgWrapper>
-  )
-}
+  );
+};
 
-export default ProfileSelectedSvg
+export default ProfileSelectedSvg;

@@ -1,10 +1,10 @@
-import { PageSEO } from '@src/components/analytics/SEO'
-import { PageLayout } from '@src/components/layout'
-import SignupForm from '@src/components/template/SignupPage/SignupForm'
-import SignupLetters from '@src/components/template/SignupPage/SignupLetters'
-import siteMetadata from '@src/core/config/siteMetadata'
-import { NextPage } from 'next'
-import React from 'react'
+import { PageSEO } from '@src/components/analytics/SEO';
+import { PageLayout } from '@src/components/layout';
+import SignupForm from '@src/components/template/SignupPage/SignupForm';
+import SignupLetters from '@src/components/template/SignupPage/SignupLetters';
+import siteMetadata from '@src/core/config/siteMetadata';
+import { NextPage } from 'next';
+import React from 'react';
 
 const SignupPage: NextPage = () => {
   return (
@@ -15,7 +15,7 @@ const SignupPage: NextPage = () => {
         <SignupForm />
       </div>
     </PageLayout>
-  )
-}
+  );
+};
 
-export default SignupPage
+export default SignupPage;

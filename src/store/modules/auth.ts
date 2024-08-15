@@ -1,33 +1,39 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserAuthInfoType } from '@src/core/types/auth-type'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { UserAuthInfoType } from '@src/core/types/auth-type';
 
-export const initialState: UserAuthInfoType = {
-  username: null,
-  email: null,
-  profile_image: null,
+export const authInitialState: UserAuthInfoType = {
+  userId: null,
+  userName: null,
+  userProfile: null,
+  userType: null,
+  isNew: null,
   isLogin: false,
-}
+};
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState,
+  initialState: authInitialState,
   reducers: {
     setUserInfo: (state, action: PayloadAction<Omit<UserAuthInfoType, 'isLogin'>>) => {
-      state.username = action.payload.username
-      state.email = action.payload.email
-      state.profile_image = action.payload.profile_image
-      state.isLogin = true
+      state.userId = action.payload.userId;
+      state.userName = action.payload.userName;
+      state.userProfile = action.payload.userProfile;
+      state.userType = action.payload.userType;
+      state.isNew = action.payload.isNew;
+      state.isLogin = true;
     },
     clearUserInfo: (state) => {
-      state.username = null
-      state.email = null
-      state.profile_image = null
-      state.isLogin = false
+      state.userId = null;
+      state.userName = null;
+      state.userProfile = null;
+      state.userType = null;
+      state.isNew = null;
+      state.isLogin = false;
     },
   },
-})
+});
 
 // Create Action
-export const { setUserInfo, clearUserInfo } = authSlice.actions
+export const { setUserInfo, clearUserInfo } = authSlice.actions;
 // Reducer
-export default authSlice.reducer
+export default authSlice.reducer;

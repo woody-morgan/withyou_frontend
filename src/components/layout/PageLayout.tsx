@@ -1,23 +1,23 @@
-import { pageVars } from '@src/animations/page'
-import CommonHeader from '@src/components/template/Common/CommonHeader'
-import { useBrowserBackward, useRootDispatch, useRootState } from '@src/hooks'
-import useWindowResize from '@src/hooks/useWindowResize'
-import { pageTransitionForward } from '@src/store/modules/layout'
-import cx from 'classnames'
-import { motion } from 'framer-motion'
-import React, { FC, useEffect, useMemo, useRef } from 'react'
+import { pageVars } from '@src/animations/page';
+import CommonHeader from '@src/components/template/Common/CommonHeader';
+import { useBrowserBackward, useRootDispatch, useRootState } from '@src/hooks';
+import useWindowResize from '@src/hooks/useWindowResize';
+import { pageTransitionForward } from '@src/store/modules/layout';
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import React, { FC, useEffect, useMemo, useRef } from 'react';
 
-import Header from './PageLayout/Header'
+import Header from './PageLayout/Header';
 
 const PageLayout: FC<{
-  children: React.ReactNode
-  fullWidth?: boolean
-  fixedHeight?: boolean
-  disableTransition?: boolean
-  headerFixed?: boolean
-  headerTransparent?: boolean
-  headerBackgroundColor?: string
-  headerContent?: React.ReactNode
+  children: React.ReactNode;
+  fullWidth?: boolean;
+  fixedHeight?: boolean;
+  disableTransition?: boolean;
+  headerFixed?: boolean;
+  headerTransparent?: boolean;
+  headerBackgroundColor?: string;
+  headerContent?: React.ReactNode;
 }> = ({
   children,
   fullWidth = false,
@@ -28,30 +28,32 @@ const PageLayout: FC<{
   headerBackgroundColor,
   headerContent = <CommonHeader />,
 }) => {
-  const mainRef = useRef<HTMLDivElement>(null)
-  const dispatch = useRootDispatch()
-  const layoutState = useRootState((state) => state.layout)
+  const mainRef = useRef<HTMLDivElement>(null);
+  const dispatch = useRootDispatch();
+  const layoutState = useRootState((state) => state.layout);
 
-  useBrowserBackward()
+  useBrowserBackward();
 
   useEffect(() => {
-    dispatch(pageTransitionForward())
-  }, [])
+    dispatch(pageTransitionForward());
+  }, []);
 
   // to recalculate height when mobile browser search bar appeared and disappeared
   useWindowResize(() => {
     if (fixedHeight) {
-      mainRef.current.style.setProperty('height', `${window.innerHeight}px`)
+      mainRef.current.style.setProperty('height', `${window.innerHeight}px`);
+      document.body.style.overflow = 'hidden';
     } else {
-      mainRef.current.style.setProperty('height', 'h-full')
+      mainRef.current.style.setProperty('height', 'h-full');
+      document.body.style.overflow = 'auto';
     }
-  }, 0)
+  }, 0);
 
   // pageDirection is used to determine the direction of the page transition
   const pageDirectionCustom = useMemo(
     () => (layoutState.pageTransitionDir === 'forward' ? 1 : -1),
     [layoutState.pageTransitionDir]
-  )
+  );
 
   // do not remove pt-gb-header pb-bt-nav on motion.main
   // it is for showing content on the top of bottom nav
@@ -80,7 +82,7 @@ const PageLayout: FC<{
         {children}
       </main>
     </motion.div>
-  )
-}
+  );
+};
 
-export default PageLayout
+export default PageLayout;

@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
 const AlbumCommonHeader = () => {
   return (
@@ -7,7 +7,7 @@ const AlbumCommonHeader = () => {
         <h1>Album</h1>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(AlbumCommonHeader)
+export default memo(AlbumCommonHeader);
