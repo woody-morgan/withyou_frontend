@@ -44,6 +44,7 @@ const HomePage: NextPage<HomePageProps> = ({ initialDiaryInfo }) => {
       isLast.current = diariesInfo.isLast;
       nextId.current = diariesInfo.nextId;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLoadMore = useCallback(async () => {
