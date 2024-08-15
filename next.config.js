@@ -13,7 +13,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, './src/styles')],
   },
   images: {
-    domains: [],
+    domains: ['unsplash.com'],
     deviceSizes: [640, 768, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [],
   },
