@@ -9,9 +9,9 @@ import { useKakaoAuth } from '@src/hooks';
 import useAppleAuth from '@src/hooks/auth/useAppleAuth';
 import useGoogleAuth from '@src/hooks/auth/useGoogleAuth';
 import cx from 'classnames';
-import React, { FC } from 'react';
+import React, { FunctionComponent } from 'react';
 
-const SocialLoginButtonWrapper: FC<{
+const SocialLoginButtonWrapper: FunctionComponent<{
   isLoaded: boolean;
   name: SVGTypes;
   vendorText: '카카오' | '구글' | '애플';
@@ -32,8 +32,8 @@ const SocialLoginButtonWrapper: FC<{
   </span>
 );
 
-export const KakaoLoginButton: FC<KakaoAuthHookType> = ({ ...props }) => {
-  const [isKakaoScriptLoaded, useKakaoLogin] = useKakaoAuth({ ...props });
+export const KakaoLoginButton: FunctionComponent<KakaoAuthHookType> = ({ ...props }) => {
+  const [isKakaoScriptLoaded, useKakaoLogin] = useKakaoAuth();
 
   return (
     <SocialLoginButtonWrapper
@@ -46,7 +46,7 @@ export const KakaoLoginButton: FC<KakaoAuthHookType> = ({ ...props }) => {
   );
 };
 
-export const GoogleLoginButton: FC<GoogleAuthHookType> = ({ ...props }) => {
+export const GoogleLoginButton: FunctionComponent<GoogleAuthHookType> = ({ ...props }) => {
   const [isGoogleScriptLoading, useGoogleLogin] = useGoogleAuth({ ...props });
 
   return (
@@ -60,7 +60,7 @@ export const GoogleLoginButton: FC<GoogleAuthHookType> = ({ ...props }) => {
   );
 };
 
-export const AppleLoginButton: FC<AppleAuthHookType> = ({ ...props }) => {
+export const AppleLoginButton: FunctionComponent<AppleAuthHookType> = ({ ...props }) => {
   const [isAppleScriptLoading, useAppleLogin] = useAppleAuth({ ...props });
 
   return (

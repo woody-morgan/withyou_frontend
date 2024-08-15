@@ -1,6 +1,6 @@
 import { addPosts } from '@src/atom/posts';
 import { PageSEO } from '@src/components/analytics/SEO';
-import { withAuthSSR } from '@src/components/hoc';
+import { withAuthCSR, withAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import ProfileIntroSection from '@src/components/template/ProfilePage/ProfileIntroSection';
 import ProfilePostsSection from '@src/components/template/ProfilePage/ProfilePostsSection';
@@ -36,4 +36,4 @@ const ProfilePage: NextPage = () => {
   );
 };
 
-export default ProfilePage;
+export default withAuthCSR(ProfilePage);

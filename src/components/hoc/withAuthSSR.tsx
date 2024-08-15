@@ -1,10 +1,12 @@
 import { apiValidate } from '@src/core/api/apiAuth';
 import { clearAuthToken, setAuthToken } from '@src/utils/authUtil';
+import axios from 'axios';
 import { GetServerSideProps } from 'next';
 
 const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps) => {
   return async (ctx) => {
     const token = ctx.req.cookies.jwt;
+    console.log(token);
 
     if (!token) {
       clearAuthToken();
@@ -19,10 +21,13 @@ const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps) => {
 
     setAuthToken(token);
 
+    console.log(axios.defaults.headers);
+
     try {
       const {
         user: { isNew },
       } = await apiValidate();
+      console.log('isNew', isNew);
       if (isNew) {
         return {
           props: {},

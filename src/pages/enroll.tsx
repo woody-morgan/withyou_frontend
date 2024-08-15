@@ -1,4 +1,4 @@
-import { withEnrollAuthSSR } from '@src/components/hoc';
+import { withEnrollAuthCSR, withEnrollAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import {
   Button,
@@ -13,7 +13,7 @@ import { useValidateInput } from '@src/hooks';
 import { familyRoleList } from '@src/utils/constants';
 import { commonRegex } from '@src/utils/regexUtil';
 import { useRouter } from 'next/router';
-import React, { useMemo, useState } from 'react';
+import React, { SyntheticEvent, useMemo, useState } from 'react';
 
 export const getServerSideProps = withEnrollAuthSSR();
 
@@ -27,6 +27,7 @@ const EnrollPage = () => {
     commonRegex.name.regex,
     commonRegex.name.desc
   );
+  const [familyCode, setFamilyCode] = useState<string>('');
   const [role, setRole] = useState('');
 
   const handleBackward = () => {
@@ -43,6 +44,11 @@ const EnrollPage = () => {
       await apiUploadProfileInfo({ imageFile: imageFiles[0], nickname: name, role });
       router.push('/');
     }
+  };
+
+  const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget;
+    setFamilyCode(value);
   };
 
   return (
@@ -79,6 +85,15 @@ const EnrollPage = () => {
             classNames="border-none bg-gray-50"
             onSelect={(e) => setRole(e.target.value)}
           />
+          <InputBox
+            type="id"
+            label="가족코드"
+            fullWidth
+            value={familyCode}
+            name="familyCode"
+            classNames="border-none bg-gray-50"
+            onChange={handleChange}
+          />
         </div>
       </FullWidthOverflowScrollWrapper>
       <div className="absolute left-0 bottom-0 w-full max-w-mobile-app">
@@ -96,4 +111,4 @@ const EnrollPage = () => {
   );
 };
 
-export default EnrollPage;
+export default withEnrollAuthCSR(EnrollPage);

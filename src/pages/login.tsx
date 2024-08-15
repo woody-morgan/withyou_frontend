@@ -1,5 +1,5 @@
 import { PageSEO } from '@src/components/analytics/SEO';
-import { withShouldNoAuthSSR } from '@src/components/hoc';
+import { withShouldNoAuthCSR, withShouldNoAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import { ImageWrapper } from '@src/components/ui/atom';
 import { SignInForm } from '@src/components/ui/molecule';
@@ -33,4 +33,4 @@ const LoginPage: NextPage = () => {
   );
 };
 
-export default LoginPage;
+export default withShouldNoAuthCSR(LoginPage);

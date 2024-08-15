@@ -1,5 +1,5 @@
 import { PageSEO } from '@src/components/analytics/SEO';
-import { withAuthSSR } from '@src/components/hoc';
+import { withAuthCSR, withAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import { CustomDatePicker } from '@src/components/ui/atom';
 import { InfiniteSlider } from '@src/components/ui/molecule';
@@ -30,4 +30,4 @@ const ReviewPage = () => {
   );
 };
 
-export default ReviewPage;
+export default withAuthCSR(ReviewPage);
