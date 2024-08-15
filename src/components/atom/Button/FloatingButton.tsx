@@ -1,4 +1,4 @@
-import { FloatingButtonVariantOne } from '@src/animations/button';
+import { FloatingButtonVariant } from '@src/animations/button';
 import { overLayVariants } from '@src/animations/common';
 import { Icon, IconButton } from '@src/components/atom';
 import { SVGTypes } from '@src/components/atom/Icon/Icon';
@@ -30,7 +30,7 @@ const FloatingSmallButtonWrapper: FC<{
     custom={custom}
     variants={variants}
     className={cx(
-      '-z-10 absolute top-[20%] left-[-70%]',
+      '-z-10 absolute top-[-70%] left-[-70%]',
       'flex items-center justify-center',
       'w-28 h-10',
       'rounded-xl border-2 border-solid border-gray-500',
@@ -86,9 +86,9 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
           {active && (
             <>
               <FloatingSmallButtonWrapper
-                custom={0.2}
+                custom={0}
                 iconName="plus"
-                variants={FloatingButtonVariantOne}
+                variants={FloatingButtonVariant}
                 onClick={handlePostCreate}
               >
                 글쓰기
