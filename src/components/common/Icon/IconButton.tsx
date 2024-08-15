@@ -3,16 +3,16 @@ import React, { FC } from 'react'
 import Icon, { SVGTypes } from './Icon'
 
 interface IconButtonProps extends MotionProps {
-  className?: string
+  classNames?: string
   name: SVGTypes
   type?: 'button' | 'submit' | 'reset'
   size?: number
-  onClick: () => void
+  onClick: (e?) => void
 }
 
-const IconButton: FC<IconButtonProps> = ({ type = 'button', onClick, ...props }) => {
+const IconButton: FC<IconButtonProps> = ({ classNames, type = 'button', onClick, ...props }) => {
   return (
-    <motion.button type={type} onClick={onClick}>
+    <motion.button type={type} onClick={onClick} className={classNames}>
       <Icon {...props} />
     </motion.button>
   )
