@@ -15,7 +15,7 @@ const DetailDiaryCard: FunctionComponent<{
     diary: { media },
   } = diaryInfo;
   const {
-    diary: { createdAt },
+    diary: { createdAt, content },
     author: { thumbnail, nickname },
   } = diaryInfo;
   return (
@@ -27,6 +27,7 @@ const DetailDiaryCard: FunctionComponent<{
           date: createdAt,
         })}
       />
+      <p>{content}</p>
       <InfiniteSlider enableDot>
         {media.map((el, idx) => (
           <div key={`detail-diary-slider-item-${idx}`} className="h-[320px]">
