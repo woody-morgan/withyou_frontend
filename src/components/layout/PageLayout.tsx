@@ -1,8 +1,7 @@
-import { pageVars } from '@src/animations/page';
+import Navigation from '@src/components/layout/PageLayout/Navigation';
 import CommonHeader from '@src/components/ui/atom/Header/CommonHeader';
 import useWindowResize from '@src/hooks/useWindowResize';
 import cx from 'classnames';
-import { motion } from 'framer-motion';
 import React, { FC, useRef } from 'react';
 
 import HeaderWrapper from './PageLayout/HeaderWrapper';
@@ -12,21 +11,21 @@ const PageLayout: FC<{
   className?: string;
   fullWidth?: boolean;
   fixedHeight?: boolean;
-  disableTransition?: boolean;
   headerFixed?: boolean;
   headerTransparent?: boolean;
   headerBackgroundColor?: string;
   headerContent?: React.ReactNode;
+  showNavigation?: boolean;
 }> = ({
   children,
   className,
   fullWidth = false,
   fixedHeight = false,
-  disableTransition = false,
   headerFixed = false,
   headerTransparent = false,
   headerBackgroundColor,
   headerContent = <CommonHeader />,
+  showNavigation = false,
 }) => {
   const mainRef = useRef<HTMLDivElement>(null);
 
@@ -45,14 +44,7 @@ const PageLayout: FC<{
   // it is for showing content on the top of bottom nav
   // it should be pb-0 on desktop size because bottom nav will not be shown
   return (
-    <motion.div
-      className="relative"
-      variants={disableTransition ? {} : pageVars}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      transition={{ type: 'linear' }}
-    >
+    <div className="relative">
       <HeaderWrapper
         fixed={headerFixed}
         transparent={headerTransparent}
@@ -71,7 +63,8 @@ const PageLayout: FC<{
       >
         {children}
       </main>
-    </motion.div>
+      {showNavigation && <Navigation />}
+    </div>
   );
 };
 

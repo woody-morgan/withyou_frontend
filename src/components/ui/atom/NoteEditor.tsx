@@ -1,12 +1,11 @@
-import { hideBottomBar, showBottomBar } from '@src/atom/layout';
 import cx from 'classnames';
 import dynamic from 'next/dynamic';
-import React, { useEffect, useRef, useState } from 'react';
-import { useSetRecoilState } from 'recoil';
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
 
-const NoteEditor = () => {
-  const hideBottomBarCB = useSetRecoilState(hideBottomBar);
-  const showBottomBarCB = useSetRecoilState(showBottomBar);
+const NoteEditor: FunctionComponent<{
+  onBlur: () => void;
+  onFocus: () => void;
+}> = ({ onBlur, onFocus }) => {
   const titleRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [title, setTitle] = useState('');
@@ -30,14 +29,6 @@ const NoteEditor = () => {
     }
   };
 
-  const handleOnFocus = () => {
-    hideBottomBarCB();
-  };
-
-  const handleOnBlur = () => {
-    showBottomBarCB();
-  };
-
   return (
     <div className="w-full h-full flex flex-col space-y-2">
       <input
@@ -47,8 +38,8 @@ const NoteEditor = () => {
         placeholder="Title"
         onChange={(e) => setTitle(e.target.value)}
         onKeyDown={handleTitleEnter}
-        onFocus={handleOnFocus}
-        onBlur={handleOnBlur}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       <textarea
         ref={textAreaRef}
@@ -63,8 +54,8 @@ const NoteEditor = () => {
         placeholder={'Write your note here'}
         onChange={(e) => setNote(e.target.value)}
         onKeyDown={handleTextEnter}
-        onFocus={handleOnFocus}
-        onBlur={handleOnBlur}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
     </div>
   );

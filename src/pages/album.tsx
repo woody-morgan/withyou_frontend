@@ -19,7 +19,7 @@ const AlbumPage: NextPage = () => {
 
   //  need to add custom Photo Component to Gallery Component
   return (
-    <PageLayout fixedHeight headerContent={<AlbumCommonHeader />}>
+    <PageLayout showNavigation fixedHeight headerContent={<AlbumCommonHeader />}>
       <PageSEO title={siteMetadata.title + ' Album Page'} description={'album page'} />
       <div className="w-full h-full overflow-scroll py-5">
         {mounted && <Gallery photos={photoGalleryData} />}

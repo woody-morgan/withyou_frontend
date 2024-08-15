@@ -10,12 +10,12 @@ with you 프론트앤드 레포지토리
 
 ```js
 const appConfig = {
-  notchColor: '#f8eee2',
-  headerHeight: '3rem',
-  bottomNavigationHeight: '5rem',
-  sidePadding: '1rem',
-  backgroundColor: '#fff8e5',
-  mobileAppMaxWidth: '768px',
+    notchColor: '#f8eee2',
+    headerHeight: '3rem',
+    bottomNavigationHeight: '5rem',
+    sidePadding: '1rem',
+    backgroundColor: '#fff8e5',
+    mobileAppMaxWidth: '768px',
 };
 ```
 
@@ -34,11 +34,7 @@ const appConfig = {
 
 #### 4. ClientSide Rendering 및 ServerSide Rendering 관련
 
-- Redux Toolkit + next-redux-wrapper 모듈을 통해 서버와 클라이언트간 전역 redux store가 설정되어 있습니다. 따라서 서버에서도 클라이언트에서도 각자 변경한 내용에 대해
-  반영됩니다.
-- 서버사이드에서 redux store 내용이 필요할 경우 src/hocnf 폴더에 있는 withStoreSSR hof를 사용해주세요
-- 서버사이드에서 사용자 Authorization이 필요한 경우 src/hocnf 폴더에 있는 withAuthSSR hof를 사용해주세요
-- 클라이언트에서 사용자 Authorization이 필요한 경우 src/hocnf 폴더에 있는 withAuthCSR hoc를 사용해주세요
+- 사용자 Authorization이 필요한 경우 src/component/hoc 폴더에 있는 withAuthCSR hoc를 사용해주세요
 
 #### 5. 기타 사항
 
@@ -81,11 +77,11 @@ const appConfig = {
 #### 활성화된 라우터
 
 ```js
-const routes = ['/', '/create', '/login', '/profile'];
+const routes = ['/', '/posts/:id', '/enroll', '/login', '/profile'];
 ```
 
 #### 추가해야하는 라우터
 
 ```js
-const routes = ['...'];
+const routes = ['/album', '/review'];
 ```

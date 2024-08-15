@@ -16,7 +16,7 @@ const ProfilePage: NextPage = () => {
   const posts = useRecoilValue(addPosts);
 
   return (
-    <PageLayout fullWidth fixedHeight>
+    <PageLayout showNavigation fullWidth fixedHeight>
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
       <FullWidthOverflowWrapper>
         <ProfileIntroSection />
