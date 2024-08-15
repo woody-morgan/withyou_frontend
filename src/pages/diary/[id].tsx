@@ -75,7 +75,7 @@ const PostPage: NextPage<DetailDiaryPageProps> = ({
         <div className="relative w-full h-[380px]">
           <DetailDiaryCard diaryInfo={initialDiaryInfo} />
         </div>
-        <div className="relative w-full h-[calc(100%-380px)] overflow-y-scroll">
+        <div className="relative w-full h-[calc(100%-400px)] overflow-y-scroll">
           <PostCommentTemplate diaryId={diaryId} initialCommentsInfo={initialCommentsInfo} />
         </div>
       </div>
