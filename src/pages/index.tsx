@@ -19,7 +19,7 @@ const HomePage = () => {
   }, 1000);
 
   return (
-    <PageLayout fullWidth fixedHeight>
+    <PageLayout fullWidth fixedHeight className="bg-gray-50">
       <PageSEO
         title={siteMetadata.title + ' 메인 페이지'}
         description={'유아 로그를 시작해보세요'}

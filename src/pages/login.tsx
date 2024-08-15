@@ -17,7 +17,7 @@ const LoginPage: NextPage = () => {
   const dispatch = useRootDispatch();
 
   return (
-    <PageLayout fullWidth fixedHeight headerContent={<></>}>
+    <PageLayout fullWidth fixedHeight headerTransparent headerContent={<></>}>
       <PageSEO title={siteMetadata.title + ' Login Page'} description={'login page'} />
       <div className="w-full h-full flex flex-col justify-between pt-28 px-side-padding">
         <div className="text-left">

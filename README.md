@@ -36,8 +36,8 @@ const appConfig = {
 
 - Redux Toolkit + next-redux-wrapper 모듈을 통해 서버와 클라이언트간 전역 redux store가 설정되어 있습니다. 따라서 서버에서도 클라이언트에서도 각자 변경한 내용에 대해
   반영됩니다.
-- 서버에서 redux store 내용이 필요할 경우 src/hocnf 폴더에 있는 withStoreSSR hof를 사용해주세요
-- 서버에서 사용자 Authorization이 필요한 경우 src/hocnf 폴더에 있는 withAuthSSR hof를 사용해주세요
+- 서버사이드에서 redux store 내용이 필요할 경우 src/hocnf 폴더에 있는 withStoreSSR hof를 사용해주세요
+- 서버사이드에서 사용자 Authorization이 필요한 경우 src/hocnf 폴더에 있는 withAuthSSR hof를 사용해주세요
 - 클라이언트에서 사용자 Authorization이 필요한 경우 src/hocnf 폴더에 있는 withAuthCSR hoc를 사용해주세요
 
 #### 5. 기타 사항
@@ -66,6 +66,11 @@ const appConfig = {
 2. commit 시 package.json 에 설정된 lint-staged 명령어 셋 통과 여부 확인
 
 ### 현재 개발 상태
+
+#### 알게된 점
+
+1. Tailwind css에서 jit모드로 tailwind variable을 사용하려면 `height-[calc(1rem+theme(space.side-padding))]` 이렇게 써야하며, 중간에 +연산자 사이에
+   띄어쓰기를 하고 싶다면 \_ 로 구분해야한다
 
 #### `발견된 문제점`
 

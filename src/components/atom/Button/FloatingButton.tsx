@@ -15,10 +15,11 @@ export type FloatingButtonProps = {
 };
 
 const positionSelector: { [key in FloatingButtonProps['position']]: string } = {
-  topLeft: 'top-gb-header left-side-padding',
-  topRight: 'top-gb-header right-side-padding',
-  bottomLeft: 'bottom-bt-nav left-side-padding',
-  bottomRight: 'bottom-bt-nav right-side-padding',
+  topLeft: 'top-[calc(1rem+theme(space.gb-header))] left-[calc(1rem+theme(space.side-padding))]',
+  topRight: 'top-[calc(1rem+theme(space.gb-header))] right-[calc(1rem+theme(space.side-padding))]',
+  bottomLeft: 'bottom-[calc(1rem+theme(space.bt-nav))] left-[calc(1rem+theme(space.side-padding))]',
+  bottomRight:
+    'bottom-[calc(1rem+theme(space.bt-nav))] right-[calc(1rem+theme(space.side-padding))]',
 };
 
 const FloatingSmallButtonWrapper: FunctionComponent<{
@@ -48,6 +49,10 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
   const [active, setActive] = useState(false);
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  const handleToggle = () => {
+    setActive((prev) => !prev);
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -56,19 +61,19 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
             initial="enter"
             animate="center"
             exit="exit"
-            className="fixed z-30 top-0 left-0 w-full h-full bg-black/30"
+            className="absolute z-30 top-0 left-0 w-full h-full bg-black/30"
             variants={overLayVariants}
             onClick={() => setActive(false)}
           />
         )}
       </AnimatePresence>
-      <div className={cx('fixed z-40', positionSelector[position])}>
+      <div className={cx('absolute z-40', positionSelector[position])}>
         <div>
           <IconButton
             className="w-16 h-16 rounded-full bg-wy-blue-500"
             name="star"
             size={32}
-            onClick={() => setActive((prev) => !prev)}
+            onClick={handleToggle}
           />
         </div>
         <AnimatePresence exitBeforeEnter>
@@ -78,19 +83,19 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
                 custom={0.2}
                 iconName="house"
                 variants={FloatingButtonVariantOne}
-                onClick={() => setActive((prev) => !prev)}
+                onClick={handleToggle}
               />
               <FloatingSmallButtonWrapper
                 custom={0.3}
                 iconName="search"
                 variants={FloatingButtonVariantTwo}
-                onClick={() => setActive((prev) => !prev)}
+                onClick={handleToggle}
               />
               <FloatingSmallButtonWrapper
                 custom={0.4}
                 iconName="people"
                 variants={FloatingButtonVariantThree}
-                onClick={() => setActive((prev) => !prev)}
+                onClick={handleToggle}
               />
             </>
           )}
