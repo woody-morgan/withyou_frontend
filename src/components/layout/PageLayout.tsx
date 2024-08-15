@@ -11,6 +11,7 @@ import Header from './PageLayout/Header';
 
 const PageLayout: FC<{
   children: React.ReactNode;
+  className?: string;
   fullWidth?: boolean;
   fixedHeight?: boolean;
   disableTransition?: boolean;
@@ -20,6 +21,7 @@ const PageLayout: FC<{
   headerContent?: React.ReactNode;
 }> = ({
   children,
+  className,
   fullWidth = false,
   fixedHeight = false,
   disableTransition = false,
@@ -76,7 +78,8 @@ const PageLayout: FC<{
         className={cx(
           'relative m-center w-full pt-gb-header pb-bt-nav',
           fullWidth ? null : `max-w-mobile-app px-side-padding`,
-          fixedHeight ? 'overflow-hidden h-screen' : 'min-h-screen'
+          fixedHeight ? 'overflow-hidden h-screen' : 'min-h-screen',
+          className
         )}
       >
         {children}

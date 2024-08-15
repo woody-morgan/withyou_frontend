@@ -2,10 +2,14 @@ import { RootDispatchType } from '@src/store/modules';
 import { NextRouter } from 'next/router';
 
 export type CommonUserAuthInfoType = {
-  userId: number;
-  userName: string;
-  userProfile: string;
-  userType: 'kakao' | 'google' | 'apple';
+  id: number;
+  familyId: number | null;
+  gender: 'male' | 'female' | null;
+  nickname: string | null;
+  role: string | null;
+  roles: string[];
+  thumbnail: string | null;
+  vendor: 'kakao' | 'google' | 'apple';
   isNew: boolean;
 };
 
