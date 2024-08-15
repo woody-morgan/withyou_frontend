@@ -40,6 +40,7 @@ const selectStyle: { [keys in btnStyles]: string } = {
   'wy-blue': 'bg-wy-blue-500 text-white',
   'wy-red': 'bg-wy-red-500 text-white',
   'wy-yellow': 'bg-wy-yellow-500 text-white',
+  transparent: 'bg-transparent text-black',
 };
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (

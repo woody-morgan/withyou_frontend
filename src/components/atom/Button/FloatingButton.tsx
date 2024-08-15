@@ -1,56 +1,62 @@
-import {
-  FloatingButtonVariantOne,
-  FloatingButtonVariantThree,
-  FloatingButtonVariantTwo,
-} from '@src/animations/button';
+import { FloatingButtonVariantOne } from '@src/animations/button';
 import { overLayVariants } from '@src/animations/common';
-import { IconButton } from '@src/components/atom';
+import { Icon, IconButton } from '@src/components/atom';
 import { SVGTypes } from '@src/components/atom/Icon/Icon';
+import { useRootDispatch } from '@src/hooks';
+import { openPostCreateModal } from '@src/store/modules/modal';
 import cx from 'classnames';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
-import React, { FunctionComponent, useState } from 'react';
+import React, { FC, FunctionComponent, useState } from 'react';
 
 export type FloatingButtonProps = {
   position?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 };
 
 const positionSelector: { [key in FloatingButtonProps['position']]: string } = {
-  topLeft: 'top-[calc(1rem+theme(space.gb-header))] left-[calc(1rem+theme(space.side-padding))]',
-  topRight: 'top-[calc(1rem+theme(space.gb-header))] right-[calc(1rem+theme(space.side-padding))]',
-  bottomLeft: 'bottom-[calc(1rem+theme(space.bt-nav))] left-[calc(1rem+theme(space.side-padding))]',
-  bottomRight:
-    'bottom-[calc(1rem+theme(space.bt-nav))] right-[calc(1rem+theme(space.side-padding))]',
+  topLeft: 'top-[calc(0.5rem+theme(space.gb-header))] left-[calc(theme(space.side-padding))]',
+  topRight: 'top-[calc(0.5rem+theme(space.gb-header))] right-[calc(theme(space.side-padding))]',
+  bottomLeft: 'bottom-[calc(0.5rem+theme(space.bt-nav))] left-[calc(theme(space.side-padding))]',
+  bottomRight: 'bottom-[calc(0.5rem+theme(space.bt-nav))] right-[calc(theme(space.side-padding))]',
 };
 
-const FloatingSmallButtonWrapper: FunctionComponent<{
+const FloatingSmallButtonWrapper: FC<{
   custom: number;
   variants: Variants;
   iconName: SVGTypes;
+  children?: React.ReactNode;
   onClick: () => void;
-}> = ({ custom, variants, iconName, onClick }) => (
-  <motion.div
+}> = ({ custom, variants, iconName, children, onClick }) => (
+  <motion.button
     custom={custom}
     variants={variants}
-    className="-z-10 absolute top-0 left-0"
+    className={cx(
+      '-z-10 absolute top-[20%] left-[-70%]',
+      'flex items-center justify-center',
+      'w-28 h-10',
+      'rounded-xl border-2 border-solid border-gray-500',
+      'bg-white text-gray-800'
+    )}
     initial="enter"
     animate="center"
     exit="exit"
+    onClick={onClick}
   >
-    <IconButton
-      className="w-10 h-10 p-2 rounded-full bg-white text-gray-800"
-      name={iconName}
-      size={32}
-      onClick={onClick}
-    />
-  </motion.div>
+    <Icon className="text-wy-blue-500" name={iconName} size={28} />
+    <p className="px-2 select-none text-wy-blue-500 font-PyeongChangPeace-Bold">{children}</p>
+  </motion.button>
 );
 
 const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bottomRight' }) => {
+  const dispatch = useRootDispatch();
   const [active, setActive] = useState(false);
-  const divRef = React.useRef<HTMLDivElement>(null);
 
   const handleToggle = () => {
     setActive((prev) => !prev);
+  };
+
+  const handlePostCreate = () => {
+    setActive(false);
+    dispatch(openPostCreateModal({ fullScreen: true }));
   };
 
   return (
@@ -61,7 +67,7 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute z-30 top-0 left-0 w-full h-full bg-black/30"
+            className="absolute z-30 w-full h-full inset-0 bg-black/30"
             variants={overLayVariants}
             onClick={() => setActive(false)}
           />
@@ -81,22 +87,12 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
             <>
               <FloatingSmallButtonWrapper
                 custom={0.2}
-                iconName="house"
+                iconName="plus"
                 variants={FloatingButtonVariantOne}
-                onClick={handleToggle}
-              />
-              <FloatingSmallButtonWrapper
-                custom={0.3}
-                iconName="search"
-                variants={FloatingButtonVariantTwo}
-                onClick={handleToggle}
-              />
-              <FloatingSmallButtonWrapper
-                custom={0.4}
-                iconName="people"
-                variants={FloatingButtonVariantThree}
-                onClick={handleToggle}
-              />
+                onClick={handlePostCreate}
+              >
+                글쓰기
+              </FloatingSmallButtonWrapper>
             </>
           )}
         </AnimatePresence>

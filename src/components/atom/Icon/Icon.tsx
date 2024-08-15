@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { BiVideo } from 'react-icons/bi';
 import { BsCamera, BsHouseDoor, BsPlus } from 'react-icons/bs';
+import { CgClose } from 'react-icons/cg';
 import { FaBabyCarriage, FaSearch } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -19,6 +20,7 @@ import ShareSvg from './assets/Share';
 import StarSvg from './assets/Star';
 
 export type SVGTypes =
+  | 'close'
   | 'comment'
   | 'share'
   | 'album'
@@ -49,6 +51,7 @@ export type IconProps = {
 };
 
 const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
+  close: CgClose,
   comment: CommentSvg,
   share: ShareSvg,
   album: AlbumSvg,

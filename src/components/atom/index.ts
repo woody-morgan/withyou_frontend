@@ -2,6 +2,8 @@ export { default as Button } from './Button/Button';
 export { default as ButtonWithIcon } from './Button/ButtonWithIcon';
 export { default as FloatingButton } from './Button/FloatingButton';
 export * from './Button/SocialLoginButtons';
+export { default as ToggleButton } from './Button/ToggleButton';
+export { default as Dropzone } from './Dropzone';
 export { default as Icon } from './Icon/Icon';
 export { default as IconButton } from './Icon/IconButton';
 export { default as InputBox } from './InputBox';
