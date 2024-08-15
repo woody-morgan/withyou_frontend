@@ -4,8 +4,6 @@ import Navigation from './PageLayout/Navigation'
 
 const CommonLayout: FC<{
   children: React.ReactNode
-  headerTransparent?: boolean
-  headerFixed?: boolean
 }> = ({ children }) => {
   return (
     //  overflow hidden to prevent text on background on transition

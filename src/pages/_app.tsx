@@ -13,8 +13,9 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import qs from 'qs'
+import { ToastContainer } from 'react-toastify'
 
-axios.defaults.withCredentials = process.env.NODE_ENV === 'production'
+axios.defaults.withCredentials = true
 axios.defaults.baseURL = envConfig.apiUrl
 axios.defaults.headers.common['Authorization'] = getAuthToken()
 axios.defaults.paramsSerializer = (params) => {
@@ -38,6 +39,7 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
             <Component {...pageProps} key={router.route} />
           </AnimatePresence>
         </CommonLayout>
+        <ToastContainer />
       </ThemeProvider>
     </>
   )

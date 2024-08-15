@@ -1,4 +1,4 @@
-import { IconButton } from '@src/components/molecule'
+import { IconButton } from '@src/components/atom'
 import React, { FC, memo } from 'react'
 
 const PostsCommonHeader: FC<{

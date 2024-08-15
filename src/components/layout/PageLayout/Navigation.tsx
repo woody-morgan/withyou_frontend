@@ -1,4 +1,4 @@
-import { IconButton } from '@src/components/molecule'
+import { IconButton } from '@src/components/atom'
 import { navRouter } from '@src/core/config/navRouter'
 import { useRootState } from '@src/hooks'
 import cx from 'classnames'
@@ -22,7 +22,7 @@ const Navigation: FC<{
             'flex justify-between items-center align-middle',
             'font-bold',
             'fixed',
-            transparent ? 'bg-transparent' : 'bg-primary-500',
+            transparent ? 'bg-transparent' : 'bg-primary-bg',
             className
           )}
         >

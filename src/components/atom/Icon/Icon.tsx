@@ -1,13 +1,16 @@
-import React, { FC, memo } from 'react'
+import React, { FC } from 'react'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { BiVideo } from 'react-icons/bi'
-import { BsApple, BsCamera, BsGoogle, BsHouseDoor, BsPlus } from 'react-icons/bs'
+import { BsCamera, BsHouseDoor, BsPlus } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { FaBabyCarriage, FaSearch } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { IoAlbumsOutline, IoEllipsisVertical, IoPeopleOutline } from 'react-icons/io5'
-import { RiKakaoTalkFill } from 'react-icons/ri'
+
+import AppleLogo from './assets/AppleLogo'
+import GoogleLogo from './assets/GoogleLogo'
+import KakaoLogo from './assets/KakaoLogo'
 
 export type SVGTypes =
   | 'house'
@@ -49,9 +52,9 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   ellipsisVertical: IoEllipsisVertical,
   babyCarriage: FaBabyCarriage,
   people: IoPeopleOutline,
-  google: BsGoogle,
-  apple: BsApple,
-  kakao: RiKakaoTalkFill,
+  google: GoogleLogo,
+  apple: AppleLogo,
+  kakao: KakaoLogo,
 }
 
 const Icon: FC<IconProps> = ({ name, ...props }) => {
@@ -59,4 +62,4 @@ const Icon: FC<IconProps> = ({ name, ...props }) => {
   return <IconComponent className="pointer-events-none" name={name} {...props} />
 }
 
-export default memo(Icon)
+export default Icon

@@ -1,26 +1,32 @@
 import { buttonSettings } from '@src/animations/common'
-import { btnSizes, btnStyles } from '@src/utils/constants'
+import { btnRounded, btnSizes, btnStyles } from '@src/utils/constants'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import React, { forwardRef } from 'react'
 
-interface ButtonShape {
+type ButtonShape = {
   type?: 'button' | 'submit' | 'reset'
   size?: btnSizes
   styles?: btnStyles
+  roundness?: btnRounded
   activeHover?: boolean
   disabled?: boolean
   fullWidth?: boolean
-  children?: React.ReactNode
   className?: string
+  children?: React.ReactNode
   onClick?: () => void
 }
 
+const selectRounded: { [key in btnRounded]: string } = {
+  primary: 'rounded-[2.5rem]',
+  keyboard: 'rounded-none',
+}
+
 const selectSize: { [keys in btnSizes]: string } = {
-  large: 'px-16 text-lg h-16 rounded-lg',
-  medium: 'px-10 text-lg h-12 rounded-md',
-  small: 'px-8 h-8 rounded-md',
-  xsmall: 'px-6 h-6 rounded-md',
+  large: 'px-16 text-lg h-16',
+  medium: 'px-10 text-lg h-12',
+  small: 'px-8 h-8',
+  xsmall: 'px-6 h-6',
 }
 
 const selectStyle: { [keys in btnStyles]: string } = {
@@ -38,6 +44,7 @@ const Button = (
     type = 'button',
     size = 'medium',
     styles = 'primary',
+    roundness = 'primary',
     activeHover = false,
     disabled = false,
     fullWidth = false,
@@ -55,6 +62,7 @@ const Button = (
       className={cx(
         selectSize[size],
         selectStyle[styles],
+        selectRounded[roundness],
         'transition-colors bg-slate focus:shadow-outline duration-150',
         disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
         fullWidth ? 'w-full' : '',

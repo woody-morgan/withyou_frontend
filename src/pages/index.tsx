@@ -7,6 +7,8 @@ import siteMetadata from '@src/core/config/siteMetadata'
 import cx from 'classnames'
 import React from 'react'
 
+// export const getServerSideProps = withAuthSSR()
+
 const HomePage = () => {
   return (
     <PageLayout fixedHeight headerContent={<PostsCommonHeader />}>

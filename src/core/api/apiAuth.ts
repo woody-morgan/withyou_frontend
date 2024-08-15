@@ -1,39 +1,44 @@
-import { envConfig } from '@src/core/config/envConfig'
-import { getAuthToken, setClientAuthToken } from '@src/utils/authUtil'
+import { CommonApiError, isAxiosError } from '@src/core/types/axios-error'
+import { setClientAuthToken } from '@src/utils/authUtil'
+import { ToastError, ToastWarn } from '@src/utils/toast'
 import axios from 'axios'
-import qs from 'qs'
 
-// Todo communicate with validate api
+export type ValidateResult = {
+  email: string
+  username: string
+  profile_image: string
+  isNew: boolean
+}
+
+export type SignInResult = ValidateResult & {
+  accessToken: string
+}
+
 export const apiValidate = async () => {
-  const token = getAuthToken()
-  if (!token) {
-    throw new Error('No token')
-  }
-
-  // Todo remove this code
-  throw new Error('Invalid token')
-
   try {
-    await axios.get('/auth/validate')
-  } catch {
-    throw new Error('Invalid token')
+    const { data } = await axios.get<ValidateResult>('/auth')
+    return data
+  } catch (err) {
+    ToastError('error occured during validation process')
+    throw err
   }
 }
 
-export const apiGetKakaoToken = async (code: string) => {
-  const payload = qs.stringify({
-    grant_type: 'authorization_code',
-    client_id: envConfig.kakaoLoginKey,
-    redirect_uri: envConfig.kakaoLoginRedirectUri,
-    code,
-  })
+export const apiKakaoSignIn = async ({ accessToken }: { accessToken: string }) => {
   try {
-    const res = await axios.post('https://kauth.kakao.com/oauth/token', payload)
-    const { access_token, refresh_token } = res.data
-    const { data } = await axios.post('/auth/kakao/callback', { access_token, refresh_token })
-    setClientAuthToken(data.access_token)
+    const { data } = await axios.post<SignInResult>('/auth/kakao/callback', {
+      accessToken,
+    })
+    setClientAuthToken(data.accessToken)
     return data
-  } catch (e) {
-    throw e
+  } catch (err) {
+    if (isAxiosError<CommonApiError>(err)) {
+      const { message, error } = err.response.data
+      ToastWarn(message)
+      throw new Error(error)
+    } else {
+      ToastError('error occured during kakao signin process')
+      throw err
+    }
   }
 }
