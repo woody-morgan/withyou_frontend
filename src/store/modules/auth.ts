@@ -2,11 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { UserAuthInfoType } from '@src/core/types/auth-type'
 
 export const initialState: UserAuthInfoType = {
-  id: null,
-  name: null,
+  username: null,
   email: null,
-  phone: null,
-  profileImage: null,
+  profile_image: null,
   isLogin: false,
 }
 
@@ -14,20 +12,16 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setUserInfo: (state, action: PayloadAction<UserAuthInfoType>) => {
-      state.id = action.payload.id
-      state.name = action.payload.name
+    setUserInfo: (state, action: PayloadAction<Omit<UserAuthInfoType, 'isLogin'>>) => {
+      state.username = action.payload.username
       state.email = action.payload.email
-      state.phone = action.payload.phone
-      state.profileImage = action.payload.profileImage
+      state.profile_image = action.payload.profile_image
       state.isLogin = true
     },
     clearUserInfo: (state) => {
-      state.id = null
-      state.name = null
+      state.username = null
       state.email = null
-      state.phone = null
-      state.profileImage = null
+      state.profile_image = null
       state.isLogin = false
     },
   },

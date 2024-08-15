@@ -2,7 +2,7 @@
 import { apiValidate } from '@src/core/api/apiAuth'
 import { wrapper } from '@src/store'
 import { clearUserInfo } from '@src/store/modules/auth'
-import { setAuthToken } from '@src/utils/authUtil'
+import { setServerAuthToken } from '@src/utils/authUtil'
 import { GetServerSideProps } from 'next'
 
 const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps): GetServerSideProps => {
@@ -13,7 +13,7 @@ const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps): GetServerSide
         return await getServerSidePropsFunc?.(ctx)
       } else {
         const token = ctx.req.cookies.jwt
-        setAuthToken(token)
+        setServerAuthToken(token)
         try {
           // Todo get user info and set to store
           await apiValidate()

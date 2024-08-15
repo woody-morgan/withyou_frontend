@@ -1,4 +1,4 @@
-import siteMetadata from '@src/config/appConfig'
+import siteMetadata from '@src/core/config/appConfig'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 
@@ -10,7 +10,8 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            as="style"
+            href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.5/static/pretendard-dynamic-subset.css"
           />
           <link rel="icon" href="/favicon.ico" />
           <meta charSet="utf-8" />
