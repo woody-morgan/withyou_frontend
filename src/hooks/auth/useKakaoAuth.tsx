@@ -24,12 +24,13 @@ export default function useKakaoAuth({
         const { access_token } = authObj;
         try {
           const result = await apiKakaoSignIn({ accessToken: access_token });
-          console.log(result);
           dispatch(
             setUserInfo({
-              email: result.email,
-              username: result.username,
-              profile_image: result.profile_image,
+              userId: result.userId,
+              userName: result.userName,
+              userProfile: result.userProfile,
+              userType: result.userType,
+              isNew: result.isNew,
             })
           );
           onSuccess?.();

@@ -1,10 +1,17 @@
 import { RootDispatchType } from '@src/store/modules';
 import { NextRouter } from 'next/router';
 
-export type UserAuthInfoType = {
-  username: string;
-  email: string;
-  profile_image: string;
+export type CommonUserAuthInfoType = {
+  userId: number;
+  userName: string;
+  userProfile: string;
+  userType: 'kakao' | 'google' | 'apple';
+  isNew: boolean;
+};
+
+export type ValidateResult = CommonUserAuthInfoType;
+
+export type UserAuthInfoType = CommonUserAuthInfoType & {
   isLogin: boolean;
 };
 

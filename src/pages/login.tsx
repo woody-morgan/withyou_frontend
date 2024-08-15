@@ -3,23 +3,14 @@ import { ImageWrapper } from '@src/components/atom';
 import { PageLayout } from '@src/components/layout';
 import { SignInForm } from '@src/components/molecule';
 import siteMetadata from '@src/core/config/siteMetadata';
-import { withStoreSSR } from '@src/hocnf';
+import { withShouldNoAuthSSR } from '@src/hocnf';
 import { useRootDispatch } from '@src/hooks';
-import { hideBottomNav } from '@src/store/modules/layout';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 // Todo: go back to request url
-export const getServerSideProps = withStoreSSR((store) => {
-  return async (ctx) => {
-    const { dispatch } = store;
-    dispatch(hideBottomNav());
-    return {
-      props: {},
-    };
-  };
-});
+export const getServerSideProps = withShouldNoAuthSSR();
 
 const LoginPage: NextPage = () => {
   const router = useRouter();

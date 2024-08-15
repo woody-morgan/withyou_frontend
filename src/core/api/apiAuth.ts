@@ -1,14 +1,8 @@
+import { ValidateResult } from '@src/core/types/auth-type';
 import { CommonApiError, isAxiosError } from '@src/core/types/axios-error';
 import { setClientAuthToken } from '@src/utils/authUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
 import axios from 'axios';
-
-export type ValidateResult = {
-  email: string;
-  username: string;
-  profile_image: string;
-  isNew: boolean;
-};
 
 export type SignInResult = ValidateResult & {
   accessToken: string;
@@ -16,7 +10,7 @@ export type SignInResult = ValidateResult & {
 
 export const apiValidate = async () => {
   try {
-    const { data } = await axios.get<ValidateResult>('/auth');
+    const { data } = await axios.get<ValidateResult>('/auth/validate');
     return data;
   } catch (err) {
     ToastError('error occured during validation process');

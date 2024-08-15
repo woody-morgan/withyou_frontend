@@ -20,9 +20,11 @@ const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps): GetServerSide
           const result = await apiValidate();
           store.dispatch(
             setUserInfo({
-              email: result.email,
-              username: result.username,
-              profile_image: result.profile_image,
+              userId: result.userId,
+              userName: result.userName,
+              userProfile: result.userProfile,
+              userType: result.userType,
+              isNew: result.isNew,
             })
           );
           store.dispatch(showBottomNav());
