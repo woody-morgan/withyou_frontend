@@ -5,10 +5,13 @@ import siteMetadata from '@src/config/siteMetadata'
 
 import PostsCreateHeader from '@src/template/PostsPage/PostsCreateHeader'
 import { NoteEditor } from '@src/components/common'
+import useBackward from '@src/hooks/useBackward'
 
 const PostsCreatePage = () => {
+  const handleBackward = useBackward()
+
   return (
-    <PageLayout headerContent={<PostsCreateHeader />}>
+    <PageLayout headerContent={<PostsCreateHeader onBack={handleBackward} />}>
       <PageSEO
         title={siteMetadata.title + ' Post Create page'}
         description={'create your baby logs'}

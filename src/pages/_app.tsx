@@ -5,6 +5,7 @@ import { CommonLayout } from '@src/components/layout'
 import axios from 'axios'
 import qs from 'qs'
 import { AnimatePresence } from 'framer-motion'
+import { wrapper } from '@src/store'
 
 axios.defaults.withCredentials = process.env.NODE_ENV === 'production'
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
@@ -24,4 +25,4 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
   )
 }
 
-export default App
+export default wrapper.withRedux(App)

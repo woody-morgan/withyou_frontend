@@ -11,6 +11,7 @@ const PostsMainSection = () => {
           width="500px"
           height="400px"
           alt="notebook"
+          priority
         />
       </div>
       <h1>{'Create Your First Note'}</h1>

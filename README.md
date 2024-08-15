@@ -26,6 +26,7 @@ const appConfig = {
 2. 페이지를 제작할때 최상단 컴포넌트는 PageLayout으로 감싸주세요
 
 - fixedHeight, fullWidth등을 지원하며 fixedHeight의 경우 모바일 브라우저에서도 작동합니다
+- `PageLayout`으로 감싸야 Redux에서 사용자의 라우터를 관리할 수 있습니다. 또한 useBackward 훅을 통해서 이전 페이지로 옮길때 자연스러운 전환효과를 줄 수 있습니다.
 
 3. 페이지를 제작할때 PageLayout 컴포넌트를 감싼후 가장 첫번째 children중 하나로 PaseSEO 컴포넌트를 사용해주세요
 
