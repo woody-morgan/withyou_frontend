@@ -15,8 +15,8 @@ const PostCardHeader: FunctionComponent<CommonProfileProps> = ({
 }) => {
   return (
     <div className="flex space-x-2">
-      <div className="relative w-10 h-10 rounded-full">
-        <ImageWrapper src={needDefaultImage(profileImage)} layout="fill" />
+      <div className="relative w-10 h-10">
+        <ImageWrapper className="rounded-full" src={needDefaultImage(profileImage)} layout="fill" />
       </div>
       <div className="flex flex-col">
         <h4>{profileName}</h4>

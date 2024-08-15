@@ -33,32 +33,41 @@ export const getServerSideProps = withAuthSSR(async (ctx) => {
 });
 
 const ProfilePage: NextPage<ProfilePageProps> = ({ user, initialDiaryInfo }) => {
-  const isInit = useRef(false);
-  const nextId = useRef(initialDiaryInfo.nextId);
+  const [familyDiariesInfo, setFamilyDiariesInfo] = useRecoilState(addFamilyDiaries);
   const isLast = useRef(initialDiaryInfo.isLast);
-  const [familyDiaries, setFamilyDiaries] = useRecoilState(addFamilyDiaries);
+  const nextId = useRef(initialDiaryInfo.nextId);
 
   useEffect(() => {
-    if (!isInit.current && familyDiaries.diaries.length === 0) {
-      setFamilyDiaries({
+    if (!familyDiariesInfo.isInit) {
+      setFamilyDiariesInfo({
+        isInit: true,
+        isLast: initialDiaryInfo.isLast,
+        nextId: initialDiaryInfo.nextId,
         diaries: initialDiaryInfo.diaries,
       });
-      isInit.current = true;
+    } else {
+      isLast.current = familyDiariesInfo.isLast;
+      nextId.current = familyDiariesInfo.nextId;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLoadMore = useCallback(async () => {
     if (isLast.current) return;
-    const diaryInfo = await apiGetMyDiariesInfinite({
+
+    const nextDiaryRes = await apiGetMyDiariesInfinite({
       nextId: nextId.current,
       take: 5,
     });
-    nextId.current = diaryInfo.nextId;
-    isLast.current = diaryInfo.isLast;
-    setFamilyDiaries({
-      diaries: diaryInfo.diaries,
+    setFamilyDiariesInfo({
+      isInit: true,
+      isLast: nextDiaryRes.isLast,
+      nextId: nextDiaryRes.nextId,
+      diaries: nextDiaryRes.diaries,
     });
-  }, [setFamilyDiaries]);
+    isLast.current = nextDiaryRes.isLast;
+    nextId.current = nextDiaryRes.nextId;
+  }, [setFamilyDiariesInfo]);
 
   return (
     <PageLayout
@@ -75,7 +84,10 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ user, initialDiaryInfo }) => 
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
       <FullWidthOverflowScrollWrapper>
         <ProfileIntroSection userInfo={user} />
-        <ProfilePostsSection diaries={familyDiaries.diaries} onScrollReachBottom={handleLoadMore} />
+        <ProfilePostsSection
+          diaries={familyDiariesInfo.diaries}
+          onScrollReachBottom={handleLoadMore}
+        />
       </FullWidthOverflowScrollWrapper>
     </PageLayout>
   );

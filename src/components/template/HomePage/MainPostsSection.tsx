@@ -5,20 +5,20 @@ import { ApiCommonDiaryProps } from '@src/core/api/interface/api-diary-interface
 import React, { Fragment, FunctionComponent } from 'react';
 
 interface MainPostsSectionProps {
-  posts: ApiCommonDiaryProps[];
+  diaries: ApiCommonDiaryProps[];
   onScrollReachBottom: () => void;
 }
 
 const MainPostsSection: FunctionComponent<MainPostsSectionProps> = ({
-  posts,
+  diaries,
   onScrollReachBottom,
 }) => {
   return (
     <Fragment>
-      {posts.length > 0 && (
+      {diaries.length > 0 && (
         <Fragment>
           <PostsSectionWrapper>
-            {posts.slice(0).map((post, index) => {
+            {diaries.slice(0).map((post, index) => {
               return (
                 <Fragment key={`main-post-${index}`}>
                   {index !== 0 && index % 7 === 0 && <ReviewCard />}
