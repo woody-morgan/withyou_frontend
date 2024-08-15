@@ -1,42 +1,42 @@
-import { useRootDispatch } from '@src/hooks'
-import { hideBottomNav, showBottomNav } from '@src/store/modules/layout'
-import cx from 'classnames'
-import dynamic from 'next/dynamic'
-import React, { useEffect, useRef, useState } from 'react'
+import { useRootDispatch } from '@src/hooks';
+import { hideBottomNav, showBottomNav } from '@src/store/modules/layout';
+import cx from 'classnames';
+import dynamic from 'next/dynamic';
+import React, { useEffect, useRef, useState } from 'react';
 
 const NoteEditor = () => {
-  const titleRef = useRef<HTMLInputElement>(null)
-  const textAreaRef = useRef<HTMLTextAreaElement>(null)
-  const [title, setTitle] = useState('')
-  const [note, setNote] = useState('')
+  const titleRef = useRef<HTMLInputElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [title, setTitle] = useState('');
+  const [note, setNote] = useState('');
 
-  const dispatch = useRootDispatch()
+  const dispatch = useRootDispatch();
 
   useEffect(() => {
     // use React Query? to get the note
-  }, [])
+  }, []);
 
   const handleTitleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      e.preventDefault()
-      textAreaRef.current?.focus()
+      e.preventDefault();
+      textAreaRef.current?.focus();
     }
-  }
+  };
 
   const handleTextEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Backspace' && e.target.value === '') {
-      e.preventDefault()
-      titleRef.current?.focus()
+      e.preventDefault();
+      titleRef.current?.focus();
     }
-  }
+  };
 
   const handleOnFocus = () => {
-    dispatch(hideBottomNav())
-  }
+    dispatch(hideBottomNav());
+  };
 
   const handleOnBlur = () => {
-    dispatch(showBottomNav())
-  }
+    dispatch(showBottomNav());
+  };
 
   return (
     <div className="w-full h-full flex flex-col space-y-2">
@@ -67,10 +67,10 @@ const NoteEditor = () => {
         onBlur={handleOnBlur}
       />
     </div>
-  )
-}
+  );
+};
 
 // should turn off ssr for text editor
 export default dynamic(() => Promise.resolve(NoteEditor), {
   ssr: false,
-})
+});

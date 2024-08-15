@@ -1,19 +1,19 @@
-import { IconButton } from '@src/components/atom'
-import { SVGTypes } from '@src/components/atom/Icon/Icon'
-import { navRouter } from '@src/core/config/navRouter'
-import { useRootState } from '@src/hooks'
-import cx from 'classnames'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React, { FC } from 'react'
+import { IconButton } from '@src/components/atom';
+import { SVGTypes } from '@src/components/atom/Icon/Icon';
+import { navRouter } from '@src/core/config/navRouter';
+import { useRootState } from '@src/hooks';
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { FC } from 'react';
 
 const Navigation: FC<{
-  transparent?: boolean
-  className?: string
+  transparent?: boolean;
+  className?: string;
 }> = ({ className, transparent = false }) => {
-  const { pathname } = useRouter()
-  const layoutState = useRootState((state) => state.layout)
+  const { pathname } = useRouter();
+  const layoutState = useRootState((state) => state.layout);
 
   return (
     layoutState.isShowBottomNav && (
@@ -43,12 +43,12 @@ const Navigation: FC<{
                   />
                 </div>
               </Link>
-            )
+            );
           })}
         </motion.div>
       </div>
     )
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

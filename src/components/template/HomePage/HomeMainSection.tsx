@@ -1,6 +1,6 @@
-import { ButtonWithIcon, ImageWrapper } from '@src/components/atom'
-import Link from 'next/link'
-import React, { memo } from 'react'
+import { ButtonWithIcon, ImageWrapper } from '@src/components/atom';
+import Link from 'next/link';
+import React, { memo } from 'react';
 
 const HomeMainSection = () => {
   return (
@@ -35,7 +35,7 @@ const HomeMainSection = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(HomeMainSection)
+export default memo(HomeMainSection);

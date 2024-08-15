@@ -1,9 +1,9 @@
-import { PageSEO } from '@src/components/analytics/SEO'
-import { FloatingButton } from '@src/components/atom'
-import { PageLayout } from '@src/components/layout'
-import HomeMainSection from '@src/components/template/HomePage/HomeMainSection'
-import siteMetadata from '@src/core/config/siteMetadata'
-import React from 'react'
+import { PageSEO } from '@src/components/analytics/SEO';
+import { FloatingButton } from '@src/components/atom';
+import { PageLayout } from '@src/components/layout';
+import HomeMainSection from '@src/components/template/HomePage/HomeMainSection';
+import siteMetadata from '@src/core/config/siteMetadata';
+import React from 'react';
 
 // export const getServerSideProps = withAuthSSR()
 
@@ -17,7 +17,7 @@ const HomePage = () => {
       <HomeMainSection />
       <FloatingButton />
     </PageLayout>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

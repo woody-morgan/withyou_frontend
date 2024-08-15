@@ -12,4 +12,4 @@ export const commonRegex = {
     regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
     desc: 'Password must be at least 8 characters, contain at least one lowercase letter, one uppercase letter, one number and one special character',
   },
-}
+};

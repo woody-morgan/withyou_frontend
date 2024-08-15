@@ -1,5 +1,5 @@
-import siteMetadata from '@src/core/config/siteMetadata'
-import Script from 'next/script'
+import siteMetadata from '@src/core/config/siteMetadata';
+import Script from 'next/script';
 
 const GAScript = () => {
   return (
@@ -20,10 +20,10 @@ const GAScript = () => {
         `}
       </Script>
     </>
-  )
-}
+  );
+};
 
-export default GAScript
+export default GAScript;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const logEvent = (action, category, label, value) => {
@@ -31,5 +31,5 @@ export const logEvent = (action, category, label, value) => {
     event_category: category,
     event_label: label,
     value: value,
-  })
-}
+  });
+};

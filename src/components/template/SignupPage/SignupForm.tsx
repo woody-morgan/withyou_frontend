@@ -1,32 +1,32 @@
-import { InputBox } from '@src/components/atom'
-import SignupStartSection from '@src/components/template/SignupPage/SignupStartSection'
-import { useValidateInput } from '@src/hooks'
-import { commonRegex } from '@src/utils/regexUtil'
-import React from 'react'
+import { InputBox } from '@src/components/atom';
+import SignupStartSection from '@src/components/template/SignupPage/SignupStartSection';
+import { useValidateInput } from '@src/hooks';
+import { commonRegex } from '@src/utils/regexUtil';
+import React from 'react';
 
 const SignupForm = () => {
   const [name, nameIsValid, nameError, handleNameChange] = useValidateInput(
     '',
     commonRegex.name.regex,
     commonRegex.name.desc
-  )
+  );
 
   const [email, emailIsValid, emailError, handleEmailChange] = useValidateInput(
     '',
     commonRegex.email.regex,
     commonRegex.email.desc
-  )
+  );
 
   const [password, pwValid, pwError, handlePwChange] = useValidateInput(
     '',
     commonRegex.password.regex,
     commonRegex.password.desc
-  )
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log(name, email, password)
-  }
+    e.preventDefault();
+    console.log(name, email, password);
+  };
 
   return (
     <form className="space-y-3" onSubmit={handleSubmit}>
@@ -65,7 +65,7 @@ const SignupForm = () => {
       />
       <SignupStartSection />
     </form>
-  )
-}
+  );
+};
 
-export default SignupForm
+export default SignupForm;

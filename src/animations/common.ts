@@ -5,7 +5,7 @@ export const buttonSettings = {
   whileTap: {
     scale: 0.95,
   },
-}
+};
 
 export const overLayVariants = {
   enter: {
@@ -17,4 +17,4 @@ export const overLayVariants = {
   exit: {
     opacity: 0,
   },
-}
+};

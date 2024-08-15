@@ -1,5 +1,5 @@
-import { GoogleAuthHookType } from '@src/core/types/auth-type'
-import { useLazyScript } from '@src/hooks'
+import { GoogleAuthHookType } from '@src/core/types/auth-type';
+import { useLazyScript } from '@src/hooks';
 
 export default function useGoogleAuth({
   router,
@@ -7,12 +7,12 @@ export default function useGoogleAuth({
   onSuccess,
   onFailure,
 }: GoogleAuthHookType) {
-  const [isLoaded] = useLazyScript('')
+  const [isLoaded] = useLazyScript('');
 
   const processGoogleLogin = async () => {
-    throw new Error('Google SDK is not loaded')
+    throw new Error('Google SDK is not loaded');
     if (!isLoaded) {
-      throw new Error('Google SDK is not loaded')
+      throw new Error('Google SDK is not loaded');
     }
     // const auth2 = gapi.auth2.getAuthInstance();
     // auth2.signIn().then(async (googleUser) => {
@@ -22,7 +22,7 @@ export default function useGoogleAuth({
     //     console.log(e);
     //   }
     // });
-  }
+  };
 
-  return [isLoaded, processGoogleLogin] as const
+  return [isLoaded, processGoogleLogin] as const;
 }

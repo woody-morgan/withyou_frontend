@@ -1,22 +1,22 @@
-import { overLayVariants } from '@src/animations/common'
-import { IconButton } from '@src/components/atom'
-import cx from 'classnames'
-import { AnimatePresence, motion } from 'framer-motion'
-import React, { FunctionComponent, useState } from 'react'
+import { overLayVariants } from '@src/animations/common';
+import { IconButton } from '@src/components/atom';
+import cx from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { FunctionComponent, useState } from 'react';
 
 export type FloatingButtonProps = {
-  position?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
-}
+  position?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+};
 
 const positionSelector: { [key in FloatingButtonProps['position']]: string } = {
   topLeft: 'top-gb-header left-side-padding',
   topRight: 'top-gb-header right-side-padding',
   bottomLeft: 'bottom-bt-nav left-side-padding',
   bottomRight: 'bottom-bt-nav right-side-padding',
-}
+};
 
 const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bottomRight' }) => {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -39,7 +39,7 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
         />
       </div>
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default FloatingButton
+export default FloatingButton;

@@ -1,13 +1,13 @@
-import { PageSEO } from '@src/components/analytics/SEO'
-import { NoteEditor } from '@src/components/atom'
-import { PageLayout } from '@src/components/layout'
-import PostsCreateHeader from '@src/components/template/PostsPage/PostsCreateHeader'
-import siteMetadata from '@src/core/config/siteMetadata'
-import useBackward from '@src/hooks/useBackward'
-import React from 'react'
+import { PageSEO } from '@src/components/analytics/SEO';
+import { NoteEditor } from '@src/components/atom';
+import { PageLayout } from '@src/components/layout';
+import PostsCreateHeader from '@src/components/template/PostsPage/PostsCreateHeader';
+import siteMetadata from '@src/core/config/siteMetadata';
+import useBackward from '@src/hooks/useBackward';
+import React from 'react';
 
 const PostCreatePage = () => {
-  const handleBackward = useBackward()
+  const handleBackward = useBackward();
 
   return (
     <PageLayout fixedHeight headerContent={<PostsCreateHeader onBack={handleBackward} />}>
@@ -19,7 +19,7 @@ const PostCreatePage = () => {
         <NoteEditor />
       </div>
     </PageLayout>
-  )
-}
+  );
+};
 
-export default PostCreatePage
+export default PostCreatePage;

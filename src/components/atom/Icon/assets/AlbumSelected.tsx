@@ -1,6 +1,6 @@
-import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper'
-import { SvgComponentType } from '@src/core/types/svg-type'
-import React, { FunctionComponent } from 'react'
+import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper';
+import { SvgComponentType } from '@src/core/types/svg-type';
+import React, { FunctionComponent } from 'react';
 
 const AlbumSelectedSvg: FunctionComponent<SvgComponentType> = ({ ...props }) => {
   return (
@@ -11,7 +11,7 @@ const AlbumSelectedSvg: FunctionComponent<SvgComponentType> = ({ ...props }) => 
       <rect y="15" width="5" height="3" rx="1.5" fill="#5A80E5" />
       <rect x="12" y="6" width="5" height="3" rx="1.5" fill="#F4C48A" />
     </SvgWrapper>
-  )
-}
+  );
+};
 
-export default AlbumSelectedSvg
+export default AlbumSelectedSvg;

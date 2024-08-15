@@ -1,10 +1,10 @@
-import { SVGTypes } from '@src/components/atom/Icon/Icon'
+import { SVGTypes } from '@src/components/atom/Icon/Icon';
 
 export type ProfileOptionItemType = {
-  icon: SVGTypes
-  title: string
-  url: string
-}
+  icon: SVGTypes;
+  title: string;
+  url: string;
+};
 
 export const profileOptionItemData: ProfileOptionItemType[] = [
   {
@@ -37,4 +37,4 @@ export const profileOptionItemData: ProfileOptionItemType[] = [
     title: 'Log Out',
     url: '/profile/logout',
   },
-]
+];

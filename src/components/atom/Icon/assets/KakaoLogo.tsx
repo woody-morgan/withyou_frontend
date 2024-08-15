@@ -1,6 +1,6 @@
-import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper'
-import { SvgComponentType } from '@src/core/types/svg-type'
-import React, { FunctionComponent } from 'react'
+import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper';
+import { SvgComponentType } from '@src/core/types/svg-type';
+import React, { FunctionComponent } from 'react';
 
 const KakaoLogo: FunctionComponent<SvgComponentType> = ({ ...props }) => {
   return (
@@ -12,7 +12,7 @@ const KakaoLogo: FunctionComponent<SvgComponentType> = ({ ...props }) => {
         fill="#181600"
       />
     </SvgWrapper>
-  )
-}
+  );
+};
 
-export default KakaoLogo
+export default KakaoLogo;

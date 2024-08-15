@@ -1,8 +1,8 @@
-import { btnStyles } from '@src/utils/constants'
-import { ComponentMeta } from '@storybook/react'
-import React from 'react'
+import { btnStyles } from '@src/utils/constants';
+import { ComponentMeta } from '@storybook/react';
+import React from 'react';
 
-import Button from './Button'
+import Button from './Button';
 
 export default {
   title: 'Components/Button',
@@ -11,7 +11,7 @@ export default {
     backgroundColor: { control: 'color' },
     onClick: { action: 'clicked' },
   },
-} as ComponentMeta<typeof Button>
+} as ComponentMeta<typeof Button>;
 
 const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
   return (
@@ -36,20 +36,20 @@ const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const Chunk = () => {
-  const styles = ['primary', 'secondary', 'tertiary', 'link', 'danger', 'success', 'warning']
+  const styles = ['primary', 'secondary', 'tertiary', 'link', 'danger', 'success', 'warning'];
 
   return (
     <div className="flex flex-col gap-2">
       {styles.map((style, idx) => {
-        return <Template key={`btn-template-${idx}`} title={style} styles={style as btnStyles} />
+        return <Template key={`btn-template-${idx}`} title={style} styles={style as btnStyles} />;
       })}
     </div>
-  )
-}
+  );
+};
 
 export const FullWidth = () => {
   return (
@@ -61,5 +61,5 @@ export const FullWidth = () => {
         <Button fullWidth>Fullwidth</Button>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,9 +1,9 @@
-import { Button, Icon } from '@src/components/atom'
-import { ButtonProps } from '@src/components/atom/Button/Button'
-import { IconProps } from '@src/components/atom/Icon/Icon'
-import { WithChange } from '@src/core/types/util-type'
-import cx from 'classnames'
-import React, { forwardRef, ForwardRefRenderFunction } from 'react'
+import { Button, Icon } from '@src/components/atom';
+import { ButtonProps } from '@src/components/atom/Button/Button';
+import { IconProps } from '@src/components/atom/Icon/Icon';
+import { WithChange } from '@src/core/types/util-type';
+import cx from 'classnames';
+import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 
 const ButtonWithIcon: ForwardRefRenderFunction<
   HTMLButtonElement,
@@ -16,7 +16,7 @@ const ButtonWithIcon: ForwardRefRenderFunction<
         {children}
       </Button>
     </span>
-  )
-}
+  );
+};
 
-export default forwardRef(ButtonWithIcon)
+export default forwardRef(ButtonWithIcon);

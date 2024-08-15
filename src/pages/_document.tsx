@@ -1,11 +1,11 @@
-import appConfig from '@src/core/config/appConfig'
-import { portalType } from '@src/core/types/portal-type'
-import Document, { Head, Html, Main, NextScript } from 'next/document'
-import React from 'react'
+import appConfig from '@src/core/config/appConfig';
+import { portalType } from '@src/core/types/portal-type';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import React from 'react';
 
 export default class MyDocument extends Document {
   render() {
-    const { notchColor } = appConfig
+    const { notchColor } = appConfig;
     return (
       <Html>
         <Head>
@@ -26,11 +26,11 @@ export default class MyDocument extends Document {
         <body className="z-0 bg-primary-bg text-black antialiased">
           <Main />
           {portalType.map((item) => {
-            return <div key={item} id={item} />
+            return <div key={item} id={item} />;
           })}
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

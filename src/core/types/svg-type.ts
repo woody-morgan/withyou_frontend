@@ -1,5 +1,5 @@
 export type SvgComponentType = {
-  size?: number
-  className?: string
-  viewBox?: number
-}
+  size?: number;
+  className?: string;
+  viewBox?: number;
+};

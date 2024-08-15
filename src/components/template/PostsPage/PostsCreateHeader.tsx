@@ -1,8 +1,8 @@
-import { IconButton } from '@src/components/atom'
-import React, { FC, memo } from 'react'
+import { IconButton } from '@src/components/atom';
+import React, { FC, memo } from 'react';
 
 const PostsCommonHeader: FC<{
-  onBack: () => void
+  onBack: () => void;
 }> = ({ onBack }) => {
   return (
     <div className="relative w-full flex justify-between items-center">
@@ -14,7 +14,7 @@ const PostsCommonHeader: FC<{
         <IconButton name={'ellipsisVertical'} size={20} onClick={() => {}} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(PostsCommonHeader)
+export default memo(PostsCommonHeader);

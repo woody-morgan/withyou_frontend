@@ -1,6 +1,6 @@
-import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper'
-import { SvgComponentType } from '@src/core/types/svg-type'
-import React, { FunctionComponent } from 'react'
+import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper';
+import { SvgComponentType } from '@src/core/types/svg-type';
+import React, { FunctionComponent } from 'react';
 
 const GoogleLogo: FunctionComponent<SvgComponentType> = ({ ...props }) => {
   return (
@@ -22,7 +22,7 @@ const GoogleLogo: FunctionComponent<SvgComponentType> = ({ ...props }) => {
         fill="#EA4335"
       />
     </SvgWrapper>
-  )
-}
+  );
+};
 
-export default GoogleLogo
+export default GoogleLogo;

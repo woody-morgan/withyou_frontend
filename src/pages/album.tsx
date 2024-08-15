@@ -1,24 +1,24 @@
-import { PageSEO } from '@src/components/analytics/SEO'
-import { PageLayout } from '@src/components/layout'
-import AlbumCommonHeader from '@src/components/template/AlbumPage/AlbumCommonHeader'
-import siteMetadata from '@src/core/config/siteMetadata'
-import { photoGalleryData } from '@src/core/data/photo-gallery-data'
-import { withAuthSSR } from '@src/hocnf'
-import { NextPage } from 'next'
-import React, { useEffect } from 'react'
-import Gallery from 'react-photo-gallery'
+import { PageSEO } from '@src/components/analytics/SEO';
+import { PageLayout } from '@src/components/layout';
+import AlbumCommonHeader from '@src/components/template/AlbumPage/AlbumCommonHeader';
+import siteMetadata from '@src/core/config/siteMetadata';
+import { photoGalleryData } from '@src/core/data/photo-gallery-data';
+import { withAuthSSR } from '@src/hocnf';
+import { NextPage } from 'next';
+import React, { useEffect } from 'react';
+import Gallery from 'react-photo-gallery';
 
-export const getServerSideProps = withAuthSSR()
+export const getServerSideProps = withAuthSSR();
 
 const AlbumPage: NextPage = () => {
-  const [mounted, setMounted] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false);
 
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
     return () => {
-      setMounted(false)
-    }
-  }, [])
+      setMounted(false);
+    };
+  }, []);
 
   //  need to add custom Photo Component to Gallery Component
   return (
@@ -28,7 +28,7 @@ const AlbumPage: NextPage = () => {
         {mounted && <Gallery photos={photoGalleryData} />}
       </div>
     </PageLayout>
-  )
-}
+  );
+};
 
-export default AlbumPage
+export default AlbumPage;

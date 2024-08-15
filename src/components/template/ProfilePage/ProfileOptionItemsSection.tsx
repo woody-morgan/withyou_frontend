@@ -1,10 +1,10 @@
-import { buttonSettings } from '@src/animations/common'
-import { Icon } from '@src/components/atom'
-import { profileOptionItemData, ProfileOptionItemType } from '@src/core/data/profile-data'
-import cx from 'classnames'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import React, { FC } from 'react'
+import { buttonSettings } from '@src/animations/common';
+import { Icon } from '@src/components/atom';
+import { profileOptionItemData, ProfileOptionItemType } from '@src/core/data/profile-data';
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import React, { FC } from 'react';
 
 const OptionItem: FC<ProfileOptionItemType> = ({ icon, title, url }) => {
   return (
@@ -20,8 +20,8 @@ const OptionItem: FC<ProfileOptionItemType> = ({ icon, title, url }) => {
         <Icon className="absolute right-0" size={28} name="rightArrow" />
       </motion.div>
     </Link>
-  )
-}
+  );
+};
 
 const ProfileOptionItemsSection = () => {
   return (
@@ -30,7 +30,7 @@ const ProfileOptionItemsSection = () => {
         <OptionItem key={`profile-option-item-${index}`} {...item} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default ProfileOptionItemsSection
+export default ProfileOptionItemsSection;

@@ -1,6 +1,6 @@
-import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper'
-import { SvgComponentType } from '@src/core/types/svg-type'
-import React, { FunctionComponent } from 'react'
+import SvgWrapper from '@src/components/atom/Icon/assets/SvgWrapper';
+import { SvgComponentType } from '@src/core/types/svg-type';
+import React, { FunctionComponent } from 'react';
 
 const StarSvg: FunctionComponent<SvgComponentType> = ({ ...props }) => {
   return (
@@ -10,7 +10,7 @@ const StarSvg: FunctionComponent<SvgComponentType> = ({ ...props }) => {
         fill="white"
       />
     </SvgWrapper>
-  )
-}
+  );
+};
 
-export default StarSvg
+export default StarSvg;

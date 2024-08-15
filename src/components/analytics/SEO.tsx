@@ -1,21 +1,21 @@
-import siteMetadata from '@src/core/config/siteMetadata'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import siteMetadata from '@src/core/config/siteMetadata';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 interface CommonSEOProps {
-  title: string
-  description: string
-  ogType: string
+  title: string;
+  description: string;
+  ogType: string;
   ogImage:
     | string
     | {
-        '@type': string
-        url: string
-      }[]
+        '@type': string;
+        url: string;
+      }[];
 }
 
 const CommonSEO = ({ title, description, ogType, ogImage }: CommonSEOProps) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Head>
       <title>{title}</title>
@@ -32,15 +32,17 @@ const CommonSEO = ({ title, description, ogType, ogImage }: CommonSEOProps) => {
         <meta property="og:image" content={ogImage} key={ogImage} />
       )}
     </Head>
-  )
-}
+  );
+};
 
 interface PageSEOProps {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  return <CommonSEO title={title} description={description} ogType="website" ogImage={ogImageUrl} />
-}
+  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
+  return (
+    <CommonSEO title={title} description={description} ogType="website" ogImage={ogImageUrl} />
+  );
+};

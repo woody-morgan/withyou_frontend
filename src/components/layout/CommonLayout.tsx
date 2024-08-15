@@ -1,9 +1,9 @@
-import React, { FC, Fragment, memo } from 'react'
+import React, { FC, Fragment, memo } from 'react';
 
-import Navigation from './PageLayout/Navigation'
+import Navigation from './PageLayout/Navigation';
 
 const CommonLayout: FC<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }> = ({ children }) => {
   return (
     //  overflow hidden to prevent text on background on transition
@@ -11,7 +11,7 @@ const CommonLayout: FC<{
       <Navigation />
       <Fragment>{children}</Fragment>
     </div>
-  )
-}
+  );
+};
 
-export default memo(CommonLayout)
+export default memo(CommonLayout);
