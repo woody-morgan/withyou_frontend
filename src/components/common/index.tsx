@@ -8,3 +8,6 @@ export { default as ImageWrapper } from './ImageWrapper'
 
 // Editor
 export { default as NoteEditor } from './NoteEditor'
+
+// Camera
+export { default as WebCamera } from './WebCamera'

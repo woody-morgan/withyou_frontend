@@ -12,11 +12,14 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint",
-    "lint-fix": "eslint '**/*.{ts,tsx}' --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint-fix": "eslint 'src/**/*.{js,jsxts,tsx}' --fix --ext .js,.jsx,.ts,.tsx .",
     "lint-fix-prod": "cross-env NODE_ENV=production eslint --fix"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint-fix"
+    ],
+    "src/**": [
       "prettier --write ."
     ]
   },
@@ -41,6 +44,7 @@
     "react-photo-gallery": "^8.0.0",
     "react-quill": "^1.3.5",
     "react-redux": "^8.0.2",
+    "react-webcam": "^7.0.1",
     "redux-toolkit": "^1.1.2",
     "sharp": "^0.30.7"
   },
@@ -70,5 +74,10 @@
     "tailwindcss": "^3.1.4",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.7.4"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 3 versions",
+    "not ie <= 11"
+  ]
 }

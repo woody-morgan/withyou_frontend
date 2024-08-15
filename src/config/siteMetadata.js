@@ -5,6 +5,9 @@ const siteMetadata = {
   siteLogo: '/logo.png',
   socialBanner: '/static/banner.jpeg',
   theme: 'system', // system, dark or light
+  analytics: {
+    googleAnalyticsId: 'UA-XXXXX-X',
+  },
   company: {
     name: 'name',
     address: 'address',
