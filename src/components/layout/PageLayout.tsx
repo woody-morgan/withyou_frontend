@@ -62,7 +62,7 @@ const PageLayout: FC<{
         className={cx(headerBackgroundColor)}
         content={headerContent}
       />
-      <div className="relative px-side-padding bg-primary-500 h-full">
+      <div className="relative bg-primary-500 h-full">
         <motion.main
           ref={mainRef}
           variants={disableTransition ? {} : pageVars}
@@ -73,7 +73,7 @@ const PageLayout: FC<{
           transition={{ type: 'linear' }}
           className={cx(
             'relative m-center w-full h-screen pb-bt-nav',
-            fullWidth ? null : `max-w-mobile-app`,
+            fullWidth ? null : `max-w-mobile-app px-side-padding`,
             fixedHeight ? 'overflow-hidden' : 'min-h-screen'
           )}
         >
