@@ -6,7 +6,7 @@ import siteMetadata from '@src/core/config/siteMetadata'
 import useBackward from '@src/hooks/useBackward'
 import React from 'react'
 
-const PostsCreatePage = () => {
+const PostCreatePage = () => {
   const handleBackward = useBackward()
 
   return (
@@ -22,4 +22,4 @@ const PostsCreatePage = () => {
   )
 }
 
-export default PostsCreatePage
+export default PostCreatePage

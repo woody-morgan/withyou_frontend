@@ -8,7 +8,7 @@ export type NavRouterType = {
 
 export const navRouter: NavRouterType[] = [
   {
-    path: '/posts',
+    path: '/',
     name: 'Home',
     icon: 'house',
   },

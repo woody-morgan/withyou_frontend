@@ -1,26 +1,19 @@
 import { PageSEO } from '@src/components/analytics/SEO'
 import { PageLayout } from '@src/components/layout'
-import HomeMainContent from '@src/components/template/HomePage/HomeMainContent'
-import HomeStartSection from '@src/components/template/HomePage/HomeStartSection'
+import PostsCommonHeader from '@src/components/template/PostsPage/PostsCommonHeader'
+import PostsMainSection from '@src/components/template/PostsPage/PostsMainSection'
+import PostsStartSection from '@src/components/template/PostsPage/PostsStartSection'
 import siteMetadata from '@src/core/config/siteMetadata'
 import cx from 'classnames'
-import { NextPage } from 'next'
+import React from 'react'
 
-export function getServerSideProps(ctx) {
-  return {
-    props: {
-      // props to be passed to the page component
-    },
-  }
-}
-
-const HomePage: NextPage = () => {
+const HomePage = () => {
   return (
-    <PageLayout fixedHeight>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+    <PageLayout fixedHeight headerContent={<PostsCommonHeader />}>
+      <PageSEO title={siteMetadata.title + ' Post page'} description={'create your baby logs'} />
       <div className={cx('h-full', 'flex flex-col items-center')}>
-        <HomeMainContent />
-        <HomeStartSection />
+        <PostsMainSection />
+        <PostsStartSection />
       </div>
     </PageLayout>
   )

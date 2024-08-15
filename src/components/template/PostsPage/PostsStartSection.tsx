@@ -5,7 +5,7 @@ import React, { memo } from 'react'
 const PostsStartSection = () => {
   return (
     <div className="flex flex-col w-full items-center space-y-4">
-      <Link href={'/posts/create'}>
+      <Link href={'/create'}>
         <Button styles="secondary" size="large" fullWidth>
           <h3 className="text-white">Create A Note</h3>
         </Button>

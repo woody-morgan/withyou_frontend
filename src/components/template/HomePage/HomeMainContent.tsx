@@ -2,10 +2,10 @@ import { ImageWrapper } from '@src/components/atom'
 import { envConfig } from '@src/core/config/envConfig'
 import React from 'react'
 
-const HomeMainContent = () => {
+const LandingPageMainContent = () => {
   return (
     <div className="w-full h-full space-y-2 flex flex-col justify-center items-center text-center">
-      <div className="w-20 md:font-sm">
+      <div className="w-40">
         <ImageWrapper
           src="/static/notebook.png"
           layout="responsive"
@@ -31,4 +31,4 @@ const HomeMainContent = () => {
   )
 }
 
-export default HomeMainContent
+export default LandingPageMainContent

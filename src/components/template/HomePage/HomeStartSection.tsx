@@ -2,7 +2,7 @@ import { Button } from '@src/components/atom'
 import Link from 'next/link'
 import React from 'react'
 
-const HomeStartSection = () => {
+const LandingPageStartSection = () => {
   return (
     <div className="flex flex-col w-full items-center space-y-4">
       <Link href={'/posts'}>
@@ -19,4 +19,4 @@ const HomeStartSection = () => {
   )
 }
 
-export default HomeStartSection
+export default LandingPageStartSection
