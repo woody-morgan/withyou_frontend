@@ -1,7 +1,7 @@
 import { PageSEO } from '@src/components/analytics/SEO';
 import { PageLayout } from '@src/components/layout';
 import ProfileIntroSection from '@src/components/template/ProfilePage/ProfileIntroSection';
-import ProfileOptionItemsSection from '@src/components/template/ProfilePage/ProfileOptionItemsSection';
+import ProfilePostSection from '@src/components/template/ProfilePage/ProfilePostSection';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { withAuthSSR } from '@src/hocnf';
 import { NextPage } from 'next';
@@ -13,7 +13,7 @@ export const getServerSideProps = withAuthSSR();
 const ProfilePageTemplate = () => (
   <div className="w-full h-full">
     <ProfileIntroSection />
-    <ProfileOptionItemsSection />
+    <ProfilePostSection />
   </div>
 );
 

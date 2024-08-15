@@ -13,14 +13,10 @@ export type FloatingButtonProps = {
 };
 
 const positionSelector: { [key in FloatingButtonProps['position']]: string } = {
-  topLeft:
-    'top-[calc(0.5rem+theme(space.gb-header))] left-[calc(0.5rem+theme(space.side-padding))]',
-  topRight:
-    'top-[calc(0.5rem+theme(space.gb-header))] right-[calc(0.5rem+theme(space.side-padding))]',
-  bottomLeft:
-    'bottom-[calc(0.5rem+theme(space.bt-nav))] left-[calc(0.5rem+theme(space.side-padding))]',
-  bottomRight:
-    'bottom-[calc(0.5rem+theme(space.bt-nav))] right-[calc(0.5rem+theme(space.side-padding))]',
+  topLeft: 'top-[calc(0.5rem+theme(space.gb-header))] left-[calc(theme(space.side-padding))]',
+  topRight: 'top-[calc(0.5rem+theme(space.gb-header))] right-[calc(theme(space.side-padding))]',
+  bottomLeft: 'bottom-[calc(0.5rem+theme(space.bt-nav))] left-[calc(theme(space.side-padding))]',
+  bottomRight: 'bottom-[calc(0.5rem+theme(space.bt-nav))] right-[calc(theme(space.side-padding))]',
 };
 
 const FloatingSmallButtonWrapper: FC<{

@@ -10,12 +10,12 @@ WithoutYou 프론트앤드 레포지토리
 
 ```js
 const appConfig = {
-    notchColor: '#f8eee2',
-    headerHeight: '3rem',
-    bottomNavigationHeight: '5rem',
-    sidePadding: '1rem',
-    backgroundColor: '#fff8e5',
-    mobileAppMaxWidth: '768px',
+  notchColor: '#f8eee2',
+  headerHeight: '3rem',
+  bottomNavigationHeight: '5rem',
+  sidePadding: '1rem',
+  backgroundColor: '#fff8e5',
+  mobileAppMaxWidth: '768px',
 };
 ```
 

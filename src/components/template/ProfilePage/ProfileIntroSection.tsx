@@ -3,8 +3,8 @@ import React from 'react';
 
 const ProfileIntroSection = () => {
   return (
-    <div className="w-[200px] h-[280px] flex flex-col m-center select-none">
-      <div className="relative w-full h-full rounded-full bg-primary-700">
+    <div className="w-full h-52 flex flex-col justify-center items-center space-y-2">
+      <div className="relative w-36 h-36 rounded-full bg-primary-700">
         <ImageWrapper
           src="/static/sample_profile.png"
           layout="fill"
@@ -12,9 +12,9 @@ const ProfileIntroSection = () => {
           alt="profile"
         />
       </div>
-      <div className="text-center space-y-2">
-        <h1>Lee Yuna</h1>
-        <p>Be a fan of Brave Girls</p>
+      <div className="text-center space-y-0.5">
+        <h1>힘찬 엄마</h1>
+        <p className="text-wy-blue-500">엄마</p>
       </div>
     </div>
   );
