@@ -14,9 +14,7 @@ const ModalLayout: FC<ModalBaseShape> = ({ fullScreen, children, onClose }) => {
   return (
     <ModalBaseLayout>
       <ModalBaseOverLay onClick={onClose} />
-      <ModalBaseDesign onClose={onClose} fullScreen={fullScreen}>
-        {children}
-      </ModalBaseDesign>
+      <ModalBaseDesign fullScreen={fullScreen}>{children}</ModalBaseDesign>
     </ModalBaseLayout>
   );
 };

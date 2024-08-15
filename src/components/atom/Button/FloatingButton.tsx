@@ -60,7 +60,7 @@ const FloatingButton: FunctionComponent<FloatingButtonProps> = ({ position = 'bo
 
   const handlePostCreate = () => {
     setActive(false);
-    dispatch(openPostCreateModal({}));
+    dispatch(openPostCreateModal({ fullScreen: true }));
   };
 
   return (

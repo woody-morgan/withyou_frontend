@@ -13,4 +13,5 @@ export type btnStyles =
   | 'warning'
   | 'wy-blue'
   | 'wy-red'
-  | 'wy-yellow';
+  | 'wy-yellow'
+  | 'transparent';
