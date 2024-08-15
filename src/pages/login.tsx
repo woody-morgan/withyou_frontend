@@ -1,26 +1,34 @@
 import { PageSEO } from '@src/components/analytics/SEO'
+import { Icon } from '@src/components/atom'
 import { SVGTypes } from '@src/components/atom/Icon/Icon'
 import { PageLayout } from '@src/components/layout'
-import { IconButton } from '@src/components/molecule'
-import { apiKakaoLogin } from '@src/core/api/apiAuth'
 import { envConfig } from '@src/core/config/envConfig'
 import siteMetadata from '@src/core/config/siteMetadata'
 import { NextPage } from 'next'
+import Link from 'next/link'
 import React, { useMemo } from 'react'
 
 const LoginPage: NextPage = () => {
-  const socialButtonName: Partial<SVGTypes[]> = useMemo(() => ['google', 'apple', 'kakao'], [])
-
-  const handleLogin = async (e) => {
-    const { name } = e.target
-    if (name === 'google') {
-      console.log('not implemented')
-    } else if (name === 'apple') {
-      console.log('not implemented')
-    } else if (name === 'kakao') {
-      await apiKakaoLogin()
-    }
-  }
+  const socialButtonName: {
+    name: SVGTypes
+    redirectUri: string
+  }[] = useMemo(
+    () => [
+      {
+        name: 'google',
+        redirectUri: '',
+      },
+      {
+        name: 'apple',
+        redirectUri: '',
+      },
+      {
+        name: 'kakao',
+        redirectUri: envConfig.kakaoLoginUri,
+      },
+    ],
+    []
+  )
 
   return (
     <PageLayout fixedHeight>
@@ -33,14 +41,12 @@ const LoginPage: NextPage = () => {
           </p>
         </div>
         <div className="inline-flex justify-center w-80 m-center flex-wrap basis-1/9">
-          {socialButtonName.map((name) => (
-            <IconButton
-              key={`social-login-button-${name}`}
-              classNames="m-4 p-4 border-2 rounded-xl border-primary-700"
-              size={40}
-              name={name}
-              onClick={handleLogin}
-            />
+          {socialButtonName.map(({ name, redirectUri }) => (
+            <Link key={`social-login-button-${name}`} href={redirectUri}>
+              <a className="m-4 p-4 border-2 rounded-xl border-primary-700">
+                <Icon size={40} name={name} />
+              </a>
+            </Link>
           ))}
         </div>
         <div />

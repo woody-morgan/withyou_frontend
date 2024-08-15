@@ -3,16 +3,16 @@ import React, { FC } from 'react'
 import Icon, { SVGTypes } from '../../atom/Icon/Icon'
 
 export type IconButtonProps = {
-  classNames?: string
+  className?: string
   name: SVGTypes
   type?: 'button' | 'submit' | 'reset'
   size?: number
   onClick: (e?) => void
 }
 
-const IconButton: FC<IconButtonProps> = ({ classNames, name, type = 'button', size, onClick }) => {
+const IconButton: FC<IconButtonProps> = ({ className, name, type = 'button', size, onClick }) => {
   return (
-    <button className={classNames} name={name} type={type} onClick={onClick}>
+    <button className={className} name={name} type={type} onClick={onClick}>
       <Icon name={name} size={size} />
     </button>
   )

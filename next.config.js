@@ -13,8 +13,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, './src/styles')],
   },
   env: {
-    APP_NAME: process.env.APP_NAME,
     BASE_API_URL: process.env.BASE_API_URL,
+    APP_NAME: process.env.APP_NAME,
+    KAKAO_LOGIN_URI: process.env.KAKAO_LOGIN_URI,
   },
   images: {
     domains: ['unsplash.com'],
