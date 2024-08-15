@@ -4,7 +4,7 @@ import { setClientAuthToken } from '@src/utils/authUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
 import axios from 'axios';
 
-export type SignInResult = ValidateResult & {
+export type SignInResult = {
   accessToken: string;
 };
 

@@ -2,7 +2,6 @@ import { apiKakaoSignIn } from '@src/core/api/apiAuth';
 import { envConfig } from '@src/core/config/envConfig';
 import { KakaoAuthHookType } from '@src/core/types/auth-type';
 import { useLazyScript } from '@src/hooks';
-import { setUserInfo } from '@src/store/modules/auth';
 
 export default function useKakaoAuth({
   router,
@@ -23,16 +22,7 @@ export default function useKakaoAuth({
       success: async function (authObj) {
         const { access_token } = authObj;
         try {
-          const result = await apiKakaoSignIn({ accessToken: access_token });
-          dispatch(
-            setUserInfo({
-              userId: result.userId,
-              userName: result.userName,
-              userProfile: result.userProfile,
-              userType: result.userType,
-              isNew: result.isNew,
-            })
-          );
+          await apiKakaoSignIn({ accessToken: access_token });
           onSuccess?.();
           await router.push('/');
         } catch (e) {
