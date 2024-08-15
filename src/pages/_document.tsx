@@ -1,10 +1,11 @@
-import siteMetadata from '@src/core/config/appConfig'
+import appConfig from '@src/core/config/appConfig'
+import { portalType } from '@src/core/types/portal-type'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 
 export default class MyDocument extends Document {
   render() {
-    const { notchColor } = siteMetadata
+    const { notchColor } = appConfig
     return (
       <Html>
         <Head>
@@ -17,17 +18,16 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-          {/* <!-- Chrome, Firefox, Opera --> */}
           <meta content={notchColor} name="theme-color" />
-          {/* <!-- Windows Phone --> */}
           <meta content={notchColor} name="msapplication-navbutton-color" />
-          {/* <!-- iOS Safari --> */}
           <meta content={notchColor} name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
         </Head>
         <body className="z-0 bg-primary-bg text-black antialiased">
           <Main />
-          <div id="modal" />
+          {portalType.map((item) => {
+            return <div key={item} id={item} />
+          })}
           <NextScript />
         </body>
       </Html>

@@ -6,3 +6,15 @@ export const buttonSettings = {
     scale: 0.95,
   },
 }
+
+export const overLayVariants = {
+  enter: {
+    opacity: 0,
+  },
+  center: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+}

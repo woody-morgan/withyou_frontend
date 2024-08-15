@@ -44,6 +44,7 @@ const appConfig = {
 
 - 서버와 api call을 할시 Authorization 토큰을 저장하는 곳은 axios.default.headers.common["Authorizaton"]이며 브라우저 cookie값에 jwt로
   저장됩니다(`해당부분은 백앤드 부분이 개발되면서 변경될 수 있습니다`)
+- Navigation 바에서 선택된 효과를 넣을때, 꼭 Icon에 "nonselected"와 그에 해당하는 "nonselected-selected"의 이름을 지정해주세요"
 
 ## Husky Hook 설정 방법
 

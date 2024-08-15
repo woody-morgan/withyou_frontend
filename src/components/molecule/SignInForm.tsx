@@ -6,21 +6,9 @@ const SignInForm: FC<SocialAuthHookType> = ({ ...props }) => {
   return (
     <div className="w-full">
       <div className="flex flex-col justify-center items-center">
-        <AppleLoginButton
-          router={props.router}
-          dispatch={props.dispatch}
-          onSuccess={props.onSuccess}
-        />
-        <GoogleLoginButton
-          router={props.router}
-          dispatch={props.dispatch}
-          onSuccess={props.onSuccess}
-        />
-        <KakaoLoginButton
-          router={props.router}
-          dispatch={props.dispatch}
-          onSuccess={props.onSuccess}
-        />
+        <AppleLoginButton {...props} />
+        <GoogleLoginButton {...props} />
+        <KakaoLoginButton {...props} />
       </div>
     </div>
   )

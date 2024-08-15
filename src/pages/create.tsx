@@ -10,7 +10,7 @@ const PostCreatePage = () => {
   const handleBackward = useBackward()
 
   return (
-    <PageLayout headerContent={<PostsCreateHeader onBack={handleBackward} />}>
+    <PageLayout fixedHeight headerContent={<PostsCreateHeader onBack={handleBackward} />}>
       <PageSEO
         title={siteMetadata.title + ' Post Create page'}
         description={'create your baby logs'}

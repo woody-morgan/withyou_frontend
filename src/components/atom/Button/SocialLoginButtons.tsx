@@ -1,4 +1,4 @@
-import { Button, Icon } from '@src/components/atom'
+import { ButtonWithIcon } from '@src/components/atom'
 import { SVGTypes } from '@src/components/atom/Icon/Icon'
 import { AppleAuthHookType, GoogleAuthHookType, KakaoAuthHookType } from '@src/core/types/auth-type'
 import { useKakaoAuth } from '@src/hooks'
@@ -15,15 +15,16 @@ const SocialLoginButtonWrapper: FC<{
   onClick: () => void
 }> = ({ isLoaded, vendorText, name, className, onClick }) => (
   <span className="w-full">
-    <Button
+    <ButtonWithIcon
       className={cx(className, 'relative my-1.5 disabled:opacity-50 text-md')}
+      nameChange={name}
+      sizeChange={28}
       fullWidth
       disabled={!isLoaded}
       onClick={onClick}
     >
       {vendorText}로 시작하기
-      <Icon className="absolute translate-center-y left-4" size={28} name={name} />
-    </Button>
+    </ButtonWithIcon>
   </span>
 )
 

@@ -1,40 +1,46 @@
 import { IconButton } from '@src/components/atom'
+import { SVGTypes } from '@src/components/atom/Icon/Icon'
 import { navRouter } from '@src/core/config/navRouter'
 import { useRootState } from '@src/hooks'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 
 const Navigation: FC<{
   transparent?: boolean
   className?: string
 }> = ({ className, transparent = false }) => {
+  const { pathname } = useRouter()
   const layoutState = useRootState((state) => state.layout)
 
   return (
     layoutState.isShowBottomNav && (
-      <div className="relative">
+      <div className="z-20 relative">
         <motion.div
           className={cx(
-            'z-20 w-full max-w-mobile-app h-bt-nav bottom-0',
+            'w-full max-w-mobile-app h-bt-nav bottom-0',
+            'fixed flex justify-evenly justify-center items-center',
             'px-side-padding py-2',
-            'flex justify-between items-center align-middle',
-            'font-bold',
-            'fixed',
             transparent ? 'bg-transparent' : 'bg-primary-bg',
             className
           )}
         >
           {navRouter.map((info, index) => {
             return (
-              <Link href={info.path} key={`bottom-sheet-${info.name}-index`}>
+              <Link href={info.path} key={`nav-router-${index}`}>
                 <div
                   key={`bottom-sheet-${index}`}
                   className="flex flex-col justify-center items-center text-center h-full"
                 >
-                  <IconButton name={info.icon} size={28} onClick={() => {}} />
-                  <div className="text-xs">{info.name}</div>
+                  <IconButton
+                    name={
+                      pathname === info.path ? ((info.icon + '-selected') as SVGTypes) : info.icon
+                    }
+                    size={28}
+                    onClick={() => {}}
+                  />
                 </div>
               </Link>
             )

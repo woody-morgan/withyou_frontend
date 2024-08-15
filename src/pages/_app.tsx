@@ -26,7 +26,7 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
   return (
     <>
       <Head>
-        <title>{envConfig.appName}</title>
+        <title>{siteMetadata.title}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

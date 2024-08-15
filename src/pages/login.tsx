@@ -2,7 +2,6 @@ import { PageSEO } from '@src/components/analytics/SEO'
 import { ImageWrapper } from '@src/components/atom'
 import { PageLayout } from '@src/components/layout'
 import { SignInForm } from '@src/components/molecule'
-import { envConfig } from '@src/core/config/envConfig'
 import siteMetadata from '@src/core/config/siteMetadata'
 import { withStoreSSR } from '@src/hocnf'
 import { useRootDispatch } from '@src/hooks'
@@ -31,7 +30,7 @@ const LoginPage: NextPage = () => {
       <PageSEO title={siteMetadata.title + ' Login Page'} description={'login page'} />
       <div className="w-full h-full flex flex-col justify-between pt-28 px-side-padding">
         <div className="text-left">
-          <h1 className="font-PyeongChangPeace-Bold text-wy-blue-500">{envConfig.appName}</h1>
+          <h1 className="font-PyeongChangPeace-Bold text-wy-blue-500">{siteMetadata.title}</h1>
           <h2>
             <div>함께 만드는</div>
             <div>우리 아이 추억</div>
