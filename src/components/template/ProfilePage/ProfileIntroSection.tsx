@@ -18,7 +18,7 @@ const ProfileIntroSection: FunctionComponent<{
         imageFiles={imageFiles}
         setImageFiles={setImageFiles}
         inputId="modify_profile"
-        src={thumbnail}
+        src={thumbnail === '' ? '/static/default_profile.svg' : thumbnail}
       />
       <div className="text-center space-y-0.5">
         <h1>{nickname}</h1>
