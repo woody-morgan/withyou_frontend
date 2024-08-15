@@ -1,6 +1,6 @@
 import { addPosts } from '@src/atom/posts';
 import { PageSEO } from '@src/components/analytics/SEO';
-import { withAuthCSR } from '@src/components/hoc';
+import { withAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import HomeMainSection from '@src/components/template/HomePage/HomeMainSection';
 import MainPostsSection from '@src/components/template/HomePage/MainPostsSection';
@@ -9,12 +9,10 @@ import siteMetadata from '@src/core/config/siteMetadata';
 import React from 'react';
 import { useRecoilState } from 'recoil';
 
+export const getServerSideProps = withAuthSSR();
+
 const HomePage = () => {
   const [posts, setPosts] = useRecoilState(addPosts);
-
-  // useEffect(() => {
-  //   setPosts({ posts: samplePostData });
-  // }, []);
 
   return (
     <PageLayout showNavigation fullWidth fixedHeight className="bg-gray-50">
@@ -30,4 +28,4 @@ const HomePage = () => {
   );
 };
 
-export default withAuthCSR(HomePage);
+export default HomePage;

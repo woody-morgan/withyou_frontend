@@ -1,5 +1,6 @@
 import { addPosts } from '@src/atom/posts';
 import { PageSEO } from '@src/components/analytics/SEO';
+import { withAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import ProfileIntroSection from '@src/components/template/ProfilePage/ProfileIntroSection';
 import ProfilePostsSection from '@src/components/template/ProfilePage/ProfilePostsSection';
@@ -8,6 +9,8 @@ import siteMetadata from '@src/core/config/siteMetadata';
 import { NextPage } from 'next';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
+
+export const getServerSideProps = withAuthSSR();
 
 const ProfilePage: NextPage = () => {
   const { posts } = useRecoilValue(addPosts);

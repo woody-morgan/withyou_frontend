@@ -1,4 +1,4 @@
-import { withAuthCSR } from '@src/components/hoc';
+import { withAuthSSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
 import {
   Button,
@@ -12,7 +12,9 @@ import { useValidateInput } from '@src/hooks';
 import { familyRoleList } from '@src/utils/constants';
 import { commonRegex } from '@src/utils/regexUtil';
 import { useRouter } from 'next/router';
-import React, { Fragment, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
+
+export const getServerSideProps = withAuthSSR();
 
 const EnrollPage = () => {
   const router = useRouter();
@@ -88,4 +90,4 @@ const EnrollPage = () => {
   );
 };
 
-export default withAuthCSR(EnrollPage);
+export default EnrollPage;
