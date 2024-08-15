@@ -13,7 +13,7 @@ export type ModalBaseShape = {
 const ModalLayout: FC<ModalBaseShape> = ({ fullScreen, children, onClose }) => {
   return (
     <ModalBaseLayout>
-      <ModalBaseOverLay onClick={onClose} />
+      <ModalBaseOverLay onClose={onClose} />
       <ModalBaseDesign fullScreen={fullScreen}>{children}</ModalBaseDesign>
     </ModalBaseLayout>
   );

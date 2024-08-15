@@ -2,7 +2,7 @@ export type PostInfoType = {
   author: string;
   author_profile_image: string;
   text: string;
-  images: string[] | string | null;
+  images: string[];
 };
 
 export type PostsInfoType = {

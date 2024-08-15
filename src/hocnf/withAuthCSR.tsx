@@ -1,4 +1,4 @@
-import useValidateUser from '@src/hooks/useValidateUser';
+import useValidateUser from '@src/hooks/auth/useValidateUser';
 
 const withAuthClientSide = (Component: any) => {
   const HOCComponent = (props) => {

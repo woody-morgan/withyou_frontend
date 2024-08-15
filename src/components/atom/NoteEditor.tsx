@@ -1,16 +1,16 @@
-import { useRootDispatch } from '@src/hooks';
-import { hideBottomNav, showBottomNav } from '@src/store/modules/layout';
+import { hideBottomBar, showBottomBar } from '@src/atom/layout';
 import cx from 'classnames';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useRef, useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 const NoteEditor = () => {
+  const hideBottomBarCB = useSetRecoilState(hideBottomBar);
+  const showBottomBarCB = useSetRecoilState(showBottomBar);
   const titleRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
-
-  const dispatch = useRootDispatch();
 
   useEffect(() => {
     // use React Query? to get the note
@@ -31,11 +31,11 @@ const NoteEditor = () => {
   };
 
   const handleOnFocus = () => {
-    dispatch(hideBottomNav());
+    hideBottomBarCB();
   };
 
   const handleOnBlur = () => {
-    dispatch(showBottomNav());
+    showBottomBarCB();
   };
 
   return (

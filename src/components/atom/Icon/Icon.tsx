@@ -6,12 +6,13 @@ import { CgClose } from 'react-icons/cg';
 import { FaBabyCarriage, FaSearch } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { IoEllipsisVertical, IoPeopleOutline } from 'react-icons/io5';
+import { IoPeopleOutline } from 'react-icons/io5';
 
 import AlbumSvg from './assets/Album';
 import AlbumSelectedSvg from './assets/AlbumSelected';
 import AppleLogo from './assets/AppleLogo';
 import CommentSvg from './assets/Comment';
+import EllipticVerticalSvg from './assets/EllipticVertical';
 import GoogleLogo from './assets/GoogleLogo';
 import KakaoLogo from './assets/KakaoLogo';
 import ProfileSvg from './assets/Profile';
@@ -68,7 +69,7 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   search: FaSearch,
   leftArrow: IoIosArrowBack,
   rightArrow: IoIosArrowForward,
-  ellipsisVertical: IoEllipsisVertical,
+  ellipsisVertical: EllipticVerticalSvg,
   babyCarriage: FaBabyCarriage,
   people: IoPeopleOutline,
   google: GoogleLogo,

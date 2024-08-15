@@ -1,8 +1,8 @@
-# WithYou_FrontEnd
+# withyou_frontend
 
 ## What is it?
 
-WithoutYou 프론트앤드 레포지토리
+with you 프론트앤드 레포지토리
 
 ## 시작하기 전
 
@@ -76,8 +76,7 @@ const appConfig = {
 #### `발견된 문제점`
 
 1. 브라우저의 뒤로가기 버튼에서 redux store 정보를 제대로 들고오지 못하는 문제가 있었다. 이를 해결하기 위해 history를 redux에서 관리하는 것을 포기하고 browser history api를
-   사용하는
-   것으로 바꾸었다
+   사용하는 것으로 바꾸었다 -> 너무 과한 Transition 효과로 인해서 오히려 이질감이 들었다. 따라서 Transition 효과를 Opacity를 제외하고 제거했다.
 
 #### 활성화된 라우터
 

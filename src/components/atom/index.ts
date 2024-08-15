@@ -19,4 +19,5 @@ export { default as Camera } from './Camera/Camera';
 export { default as FullScreenCamera } from './Camera/FullScreenCamera';
 
 // ETC
+export { default as FullWidthOverflowWrapper } from './FullWidthOverflowWrapper';
 export { default as Portal } from './Portal';

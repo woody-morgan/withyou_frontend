@@ -82,7 +82,7 @@ const DropZone: FunctionComponent<{
         {images.length > 0 ? (
           <div className="absolute w-full h-full">
             <p className="w-full h-full">
-              <img className="w-full h-full rounded-md" src={images[0]} alt="" />
+              <img className="w-full h-full rounded-md object-cover" src={images[0]} alt="" />
             </p>
           </div>
         ) : null}

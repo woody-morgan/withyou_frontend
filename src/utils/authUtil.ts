@@ -2,13 +2,9 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-export const setClientAuthToken = (token: string) => {
+export const setAuthToken = (token: string) => {
   Cookies.set('jwt', `Bearer ${token}`);
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-};
-
-export const setServerAuthToken = (bearerToken: string) => {
-  axios.defaults.headers.common['Authorization'] = bearerToken;
 };
 
 export const getAuthToken = (): string => {
@@ -17,4 +13,9 @@ export const getAuthToken = (): string => {
     axios.defaults.headers.common['Authorization']?.toString() ||
     '';
   return token;
+};
+
+export const clearAuthToken = () => {
+  Cookies.remove('jwt');
+  axios.defaults.headers.common['Authorization'] = '';
 };

@@ -1,19 +1,24 @@
-import { RootDispatchType } from '@src/store/modules';
 import { NextRouter } from 'next/router';
 
 export type CommonUserAuthInfoType = {
-  id: number;
-  familyId: number | null;
-  gender: 'male' | 'female' | null;
-  nickname: string | null;
-  role: string | null;
-  roles: string[];
-  thumbnail: string | null;
-  vendor: 'kakao' | 'google' | 'apple';
-  isNew: boolean;
+  user: {
+    id: number;
+    familyId: number | null;
+    gender: 'male' | 'female' | null;
+    nickname: string | null;
+    role: string | null;
+    roles: string[];
+    thumbnail: string | null;
+    vendor: 'kakao' | 'google' | 'apple';
+    isNew: boolean;
+  };
 };
 
 export type ValidateResult = CommonUserAuthInfoType;
+
+export type SignInResult = {
+  accessToken: string;
+};
 
 export type UserAuthInfoType = CommonUserAuthInfoType & {
   isLogin: boolean;
@@ -21,7 +26,6 @@ export type UserAuthInfoType = CommonUserAuthInfoType & {
 
 export type SocialAuthHookType = {
   router: NextRouter;
-  dispatch: RootDispatchType;
   onSuccess?: () => void;
 };
 

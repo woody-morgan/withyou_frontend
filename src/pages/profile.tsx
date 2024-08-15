@@ -1,31 +1,29 @@
+import { addPosts } from '@src/atom/posts';
 import { PageSEO } from '@src/components/analytics/SEO';
+import { FullWidthOverflowWrapper } from '@src/components/atom';
 import { PageLayout } from '@src/components/layout';
 import ProfileIntroSection from '@src/components/template/ProfilePage/ProfileIntroSection';
-import ProfilePostSection from '@src/components/template/ProfilePage/ProfilePostSection';
+import ProfilePostsSection from '@src/components/template/ProfilePage/ProfilePostsSection';
 import siteMetadata from '@src/core/config/siteMetadata';
-import { withAuthSSR } from '@src/hocnf';
 import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 
-export const getServerSideProps = withAuthSSR();
-
-const ProfilePageTemplate = () => (
-  <div className="w-full h-full">
-    <ProfileIntroSection />
-    <ProfilePostSection />
-  </div>
-);
-
-const DynamicProfilePageTemplate = dynamic(() => Promise.resolve(ProfilePageTemplate), {
-  ssr: false,
-});
+// Todo: enable ssr
+// export const getServerSideProps = withAuthSSR();
 
 const ProfilePage: NextPage = () => {
+  const posts = useRecoilValue(addPosts);
+
   return (
-    <PageLayout fixedHeight>
+    <PageLayout fullWidth fixedHeight>
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
-      <DynamicProfilePageTemplate />
+      <FullWidthOverflowWrapper>
+        <ProfileIntroSection />
+        <div className="bg-gray-50">
+          <ProfilePostsSection posts={posts.posts} />
+        </div>
+      </FullWidthOverflowWrapper>
     </PageLayout>
   );
 };
