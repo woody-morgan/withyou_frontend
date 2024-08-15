@@ -7,7 +7,7 @@ import Webcam, { WebcamProps } from 'react-webcam'
 
 // screenshotQuality={100}
 
-const WebCamera: FC<Partial<WebcamProps>> = ({
+const Camera: FC<Partial<WebcamProps>> = ({
   forceScreenshotSourceSize = true,
   imageSmoothing = true,
   mirrored = true,
@@ -30,4 +30,4 @@ const WebCamera: FC<Partial<WebcamProps>> = ({
   )
 }
 
-export default WebCamera
+export default Camera

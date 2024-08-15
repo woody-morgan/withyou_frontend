@@ -10,4 +10,5 @@ export { default as ImageWrapper } from './ImageWrapper'
 export { default as NoteEditor } from './NoteEditor'
 
 // Camera
-export { default as WebCamera } from './WebCamera'
+export { default as Camera } from './Camera/Camera'
+export { default as FullScreenCamera } from './Camera/FullScreenCamera'
