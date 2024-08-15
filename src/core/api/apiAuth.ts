@@ -19,7 +19,7 @@ export const apiKakaoSignIn = async ({ accessToken }: { accessToken: string }) =
     const { data } = await axios.post<SignInResult>('/auth/kakao/callback', {
       accessToken,
     });
-    setAuthToken(data.accessToken);
+    setAuthToken(data.jwtToken);
   } catch (err) {
     if (isAxiosError<CommonApiError>(err)) {
       const { message, error } = err.response.data;
