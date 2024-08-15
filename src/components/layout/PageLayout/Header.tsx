@@ -17,12 +17,12 @@ const Header: ForwardRefRenderFunction<HTMLDivElement, HeaderProps> = (
       <div
         ref={ref}
         className={cx(
-          'z-20 w-full max-w-mobile-app h-gb-header top-0 bg-primary-bg',
+          'z-20 w-full max-w-mobile-app h-gb-header top-0',
           'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',
           fixed ? 'fixed' : 'absolute',
-          transparent && 'bg-transparent',
+          transparent ? 'bg-transparent' : 'bg-primary-bg',
           className
         )}
       >
