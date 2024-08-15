@@ -12,11 +12,14 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint",
-    "lint-fix": "eslint '**/*.{ts,tsx}' --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint-fix": "eslint 'src/**/*.{js,jsxts,tsx}' --fix --ext .js,.jsx,.ts,.tsx .",
     "lint-fix-prod": "cross-env NODE_ENV=production eslint --fix"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint-fix"
+    ],
+    "src/**": [
       "prettier --write ."
     ]
   },
