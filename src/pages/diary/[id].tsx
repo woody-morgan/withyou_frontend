@@ -7,6 +7,7 @@ import { apiGetDiaryById } from '@src/core/api/diary/apiDiary';
 import { apiGetCommentsById } from '@src/core/api/diary/apiDiaryComment';
 import { ApiGetDiaryComments, IComment } from '@src/core/api/types/api-diary-comment-interface';
 import { ApiCommonDiaryProps, ApiGetDiary } from '@src/core/api/types/api-diary-interface';
+import { useShareAPI } from '@src/hooks/navigation';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
@@ -65,9 +66,11 @@ const PostPage: NextPage<DetailDiaryPageProps> = ({
   const [diaryInfo, setDiaryInfo] = useState<ApiCommonDiaryProps>(null);
   const [commentsInfo, setCommentsInfo] = useState<IComment[]>([]);
 
-  const handleBackward = () => {
+  const [isShareSupported, shareCB, withyouShareCB] = useShareAPI();
+
+  const handleBackward = useCallback(() => {
     router.back();
-  };
+  }, [router]);
 
   const handleCommentCreated = useCallback((newComments: IComment[]) => {
     setCommentsInfo(newComments);
@@ -91,7 +94,7 @@ const PostPage: NextPage<DetailDiaryPageProps> = ({
         {mounted ? (
           <Fragment>
             <div className="h-auto">
-              <DetailDiaryCard diaryInfo={diaryInfo} />
+              <DetailDiaryCard diaryInfo={diaryInfo} onShareClick={withyouShareCB} />
             </div>
             <PostCommentTemplate
               diaryId={diaryId}
@@ -102,7 +105,7 @@ const PostPage: NextPage<DetailDiaryPageProps> = ({
         ) : (
           <Fragment>
             <div className="h-auto">
-              <DetailDiaryCard diaryInfo={initialDiaryInfo} />
+              <DetailDiaryCard diaryInfo={initialDiaryInfo} onShareClick={withyouShareCB} />
             </div>
             <PostCommentTemplate diaryId={diaryId} comments={initialCommentsInfo} />
           </Fragment>
