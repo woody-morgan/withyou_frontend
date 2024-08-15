@@ -3,8 +3,11 @@ import { NoteEditor } from '@src/components/atom';
 import { PageLayout } from '@src/components/layout';
 import PostsCreateHeader from '@src/components/template/PostsPage/PostsCreateHeader';
 import siteMetadata from '@src/core/config/siteMetadata';
+import { withAuthSSR } from '@src/hocnf';
 import useBackward from '@src/hooks/useBackward';
 import React from 'react';
+
+export const getServerSideProps = withAuthSSR();
 
 const PostCreatePage = () => {
   const handleBackward = useBackward();

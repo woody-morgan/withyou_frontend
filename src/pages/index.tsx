@@ -8,7 +8,7 @@ import { withAuthSSR } from '@src/hocnf';
 import { useTimeout } from '@src/hooks';
 import React, { useState } from 'react';
 
-// SSR 에서 미리 불러와서 데이터가 있으면 shimmering 아니면 빈 페이지로 보여줘야함
+// fetch data at ssr & if there is data show shimmering page
 export const getServerSideProps = withAuthSSR();
 
 const HomePage = () => {
