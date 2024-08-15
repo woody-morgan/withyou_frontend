@@ -1,29 +1,21 @@
 import { btnStyles } from '@src/utils/constants';
-import { ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import React from 'react';
 
 import Button from './Button';
 
-export default {
+const metaInfo: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: { action: 'clicked' },
-  },
-} as ComponentMeta<typeof Button>;
+};
+
+export default metaInfo;
 
 const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
   return (
     <div>
       <h1>{title}</h1>
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'flex-end',
-          gap: '1rem',
-        }}
-      >
+      <div className="inline-flex items-end gap-8">
         <Button size="xsmall" styles={styles}>
           xSmall
         </Button>

@@ -1,2 +1,2 @@
-export type PortalType = 'modal' | 'floating' | 'sheet';
-export const portalType: string[] = ['modal', 'floating', 'sheet'];
+export const portalType = ['modal', 'floating', 'sheet'] as const;
+export type PortalType = typeof portalType[number];
