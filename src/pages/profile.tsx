@@ -13,16 +13,14 @@ import { useRecoilValue } from 'recoil';
 // export const getServerSideProps = withAuthSSR();
 
 const ProfilePage: NextPage = () => {
-  const posts = useRecoilValue(addPosts);
+  const { posts } = useRecoilValue(addPosts);
 
   return (
     <PageLayout showNavigation fullWidth fixedHeight>
       <PageSEO title={siteMetadata.title + ' Profile'} description={'profile page'} />
       <FullWidthOverflowWrapper>
         <ProfileIntroSection />
-        <div className="bg-gray-50">
-          <ProfilePostsSection posts={posts.posts} />
-        </div>
+        <ProfilePostsSection posts={posts} />
       </FullWidthOverflowWrapper>
     </PageLayout>
   );

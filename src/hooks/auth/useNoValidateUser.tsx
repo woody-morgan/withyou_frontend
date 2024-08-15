@@ -15,7 +15,8 @@ export default function useValidateUser() {
         if (isNew) {
           router.push('/enroll');
         } else {
-          router.push('/');
+          // need prev path for redirect
+          // router.push('/');
         }
       } catch (error) {
         //  need to show toast or alert or anything to user
