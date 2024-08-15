@@ -17,6 +17,7 @@ module.exports = {
         'PyeongChangPeace-Bold': ['PyeongChangPeace-Bold', 'sans-serif'],
         Pretendard: ['Pretendard', 'sans-serif'],
       },
+      transform: ['hover', 'focus'],
       margin: {
         center: '0 auto',
       },

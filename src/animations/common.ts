@@ -16,5 +16,6 @@ export const overLayVariants = {
   },
   exit: {
     opacity: 0,
+    speed: 1,
   },
 };
