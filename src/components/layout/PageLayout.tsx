@@ -1,10 +1,13 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import { pageVars } from '@src/animations/page'
 import appConfig from '@src/config/appConfig'
 import useWindowResize from '@src/hooks/useWindowResize'
 import Header from '@src/components/layout/PageLayout/Header'
+import { useRootDispatch, useRootState } from '@src/hooks'
+import { addHistory } from '@src/store/modules/history'
+import { useRouter } from 'next/router'
 
 const PageLayout: FC<{
   children: React.ReactNode
@@ -27,7 +30,10 @@ const PageLayout: FC<{
     <h2 className="uppercase text-center w-full">{process.env.NEXT_PUBLIC_APP_NAME}</h2>
   ),
 }) => {
+  const router = useRouter()
+  const dispatch = useRootDispatch()
   const mainRef = useRef<HTMLDivElement>(null)
+  const history = useRootState((state) => state.history)
 
   useWindowResize(() => {
     if (fixedHeight) {
@@ -39,6 +45,11 @@ const PageLayout: FC<{
       mainRef.current.style.setProperty('height', 'h-full')
     }
   }, 0)
+
+  // Add History to Global State Manager(Should be forward when page is changed)
+  useEffect(() => {
+    dispatch(addHistory({ history: router.asPath, transDirection: 'forward' }))
+  }, [])
 
   // do not remove pb-bt-nav on motion.main
   // it is for showing content on the top of bottom nav
@@ -55,6 +66,7 @@ const PageLayout: FC<{
         <motion.main
           ref={mainRef}
           variants={disableTransition ? {} : pageVars}
+          custom={history.transDirection === 'forward' ? 1 : -1}
           initial="hidden"
           animate="enter"
           exit="exit"

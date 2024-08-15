@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Button } from '@src/components/common'
 import Link from 'next/link'
 
-const HomeStartSection = () => {
+const SignupStartSection = () => {
   return (
     <div className="flex flex-col w-full items-center space-y-4">
       <Button styles="secondary" size="large" type="submit" fullWidth>
@@ -17,4 +17,4 @@ const HomeStartSection = () => {
   )
 }
 
-export default memo(HomeStartSection)
+export default memo(SignupStartSection)
