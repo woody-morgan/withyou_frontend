@@ -3,18 +3,68 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "analyze": "cross-env ANALYZE=true next build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "lint": "eslint",
+    "lint-fix": "eslint '**/*.{ts,tsx}' --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint-fix-prod": "cross-env NODE_ENV=production eslint --fix"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint-fix"
+    ],
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write ."
+    ]
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.2.0",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "compression": "^1.7.4",
+    "compression-webpack-plugin": "^10.0.0",
+    "cross-env": "^7.0.3",
+    "framer-motion": "^6.4.1",
+    "immer": "^9.0.15",
+    "lodash-es": "^4.17.21",
     "next": "12.2.0",
+    "next-themes": "^0.2.0",
+    "qs": "^6.11.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "redux-toolkit": "^1.1.2",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@types/node": "^18.0.3",
+    "@types/react": "^18.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "autoprefixer": "^10.4.7",
     "eslint": "8.19.0",
-    "eslint-config-next": "12.2.0"
+    "eslint-config-next": "^12.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": ">=7",
+    "lint-staged": ">=10",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.4",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.7.4"
   }
 }
