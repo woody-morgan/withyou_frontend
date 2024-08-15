@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import React, { FC } from 'react'
 import cx from 'classnames'
 import { motion } from 'framer-motion'
 import { pageVars } from '@src/animations/page'
@@ -8,16 +8,9 @@ const PageLayout: FC<{
   fullWidth?: boolean
   fixedHeight?: boolean
   disableTransition?: boolean
-  enableYPadding?: boolean
-}> = ({
-  children,
-  fullWidth = false,
-  fixedHeight = false,
-  disableTransition = false,
-  enableYPadding = false,
-}) => {
+}> = ({ children, fullWidth = false, fixedHeight = false, disableTransition = false }) => {
   return (
-    <Fragment>
+    <div className="relative px-side-padding bg-primary-500">
       <motion.main
         variants={disableTransition ? {} : pageVars}
         initial="hidden"
@@ -25,15 +18,14 @@ const PageLayout: FC<{
         exit="exit"
         transition={{ type: 'linear' }}
         className={cx(
-          'z-0 m-center px-side-padding w-full',
-          fullWidth ? null : `max-w-screen-sm`,
-          `${fixedHeight ? 'overflow-hidden' : 'min-h-screen'}`,
-          enableYPadding ? 'py-4' : 'py-0'
+          'm-center w-full',
+          fullWidth ? null : `max-w-mobile-app`,
+          `${fixedHeight ? 'overflow-hidden' : 'min-h-screen'}`
         )}
       >
         {children}
       </motion.main>
-    </Fragment>
+    </div>
   )
 }
 

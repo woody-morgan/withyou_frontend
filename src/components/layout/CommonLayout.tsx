@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react'
 import Header from '@src/components/layout/PageLayout/Header'
 import cx from 'classnames'
-import BottomNavigation from '@src/components/layout/PageLayout/BottomNavigation'
+import Navigation from '@src/components/layout/PageLayout/Navigation'
 
 const CommonLayout: FC<{
   children: React.ReactNode
@@ -10,10 +10,10 @@ const CommonLayout: FC<{
   bgColor?: string
 }> = ({ children, headerTransparent = false, headerFixed = false, bgColor }) => {
   return (
-    <div id="page-layout">
+    <div id="page-layout" className="z-20 w-full max-w-mobile-app m-center">
       <Header fixed={headerFixed} transparent={headerTransparent} className={cx(bgColor)} />
       <Fragment>{children}</Fragment>
-      <BottomNavigation fixed />
+      <Navigation fixed />
     </div>
   )
 }

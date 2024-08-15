@@ -8,12 +8,12 @@ WithoutYou 프론트앤드 레포지토리
 
 ### 사이트 설정
 
-src/config/siteMetadata.js에 있는 설정 파일을 수정해주세요.
+src/config/appMetadata.js에 있는 설정 파일을 수정해주세요.
 
 해당 파일은 tailwindconfig.js, header, bottom navigtaion 등에서 사용됩니다
 
 ```js
-const siteMetadata = {
+const appMetadata = {
   notchColor: '#f8eee2',
   headerHeight: '4rem',
   bottomNavigationHeight: '5rem',

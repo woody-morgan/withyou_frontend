@@ -15,11 +15,12 @@ const Header = (
   const [show, setShow] = useState(false)
 
   return (
-    <header>
+    <header className="relative">
       <div
         ref={ref}
         className={cx(
-          'z-20 w-full h-gb-header top-0 px-side-padding py-2',
+          'z-20 w-full max-w-mobile-app h-gb-header top-0',
+          'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',
           fixed ? 'fixed' : 'absolute',
@@ -36,7 +37,7 @@ const Header = (
           />
         </div>
       </div>
-      {/*  height when fixed*/}
+      {/* to give padding for header */}
       <div className="h-gb-header" />
     </header>
   )

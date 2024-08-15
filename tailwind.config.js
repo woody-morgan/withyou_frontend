@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 // generate custom color using https://tailwindcolorgenerator.com/
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const siteMetadata = require('./src/config/siteMetadata')
+const appMetadata = require('./src/config/appMetadata')
 
 module.exports = {
   mod: 'jit',
@@ -12,11 +12,15 @@ module.exports = {
         center: '0 auto',
       },
       spacing: {
-        'gb-header': siteMetadata.headerHeight,
-        'bt-nav': siteMetadata.bottomNavigationHeight,
-        'side-padding': siteMetadata.sidePadding,
+        'gb-header': appMetadata.headerHeight,
+        'bt-nav': appMetadata.bottomNavigationHeight,
+        'side-padding': appMetadata.sidePadding,
+      },
+      maxWidth: {
+        'mobile-app': appMetadata.mobileAppMaxWidth,
       },
       colors: {
+        'primary-bg': appMetadata.backgroundColor,
         primary: {
           300: '#fffff6',
           400: '#fff8ec',
