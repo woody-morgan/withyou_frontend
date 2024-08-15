@@ -1,6 +1,11 @@
 import { withAuthCSR } from '@src/components/hoc';
 import { PageLayout } from '@src/components/layout';
-import { Button, FullWidthOverflowWrapper, InputBox, SelectBox } from '@src/components/ui/atom';
+import {
+  Button,
+  FullWidthOverflowScrollWrapper,
+  InputBox,
+  SelectBox,
+} from '@src/components/ui/atom';
 import CommonBackwardHeader from '@src/components/ui/atom/Header/CommonBackwardHeader';
 import { ImageWithEditButton } from '@src/components/ui/organism';
 import { useValidateInput } from '@src/hooks';
@@ -39,7 +44,7 @@ const EnrollPage = () => {
         className="bg-white"
         headerContent={<CommonBackwardHeader title={'내 프로필 만들기'} onBack={handleBackward} />}
       >
-        <FullWidthOverflowWrapper>
+        <FullWidthOverflowScrollWrapper>
           <div className="w-full flex flex-col justify-between items-center pt-8 space-y-4">
             <ImageWithEditButton
               imageFiles={imageFiles}
@@ -68,7 +73,7 @@ const EnrollPage = () => {
               onSelect={(e) => setRole(e.target.value)}
             />
           </div>
-        </FullWidthOverflowWrapper>
+        </FullWidthOverflowScrollWrapper>
       </PageLayout>
       <div className="fixed bottom-0 w-full max-w-mobile-app">
         <Button
