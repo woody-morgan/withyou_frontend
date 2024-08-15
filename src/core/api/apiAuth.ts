@@ -2,11 +2,12 @@ import { SignInResult, ValidateResult } from '@src/core/types/auth-type';
 import { CommonApiError, isAxiosError } from '@src/core/types/axios-error';
 import { setAuthToken } from '@src/utils/authUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
-import axios from 'axios';
+
+import { customAxios } from '../lib/customAxios';
 
 export const apiValidate = async () => {
   try {
-    const { data } = await axios.get<ValidateResult>('/auth/validate');
+    const { data } = await customAxios().get<ValidateResult>('/auth/validate');
     return data;
   } catch (err) {
     ToastError('error occured during validation process');
@@ -16,7 +17,7 @@ export const apiValidate = async () => {
 
 export const apiKakaoSignIn = async ({ accessToken }: { accessToken: string }) => {
   try {
-    const { data } = await axios.post<SignInResult>('/auth/kakao/callback', {
+    const { data } = await customAxios().post<SignInResult>('/auth/kakao/callback', {
       accessToken,
     });
     setAuthToken(data.jwtToken);

@@ -1,6 +1,6 @@
 import { ToastError, ToastWarn } from '@src/utils/toast';
-import axios from 'axios';
 
+import { customAxios } from '../lib/customAxios';
 import { CommonApiError, isAxiosError } from '../types/axios-error';
 import { apiGetPresignedUrl } from './apiUtil';
 
@@ -21,7 +21,7 @@ export const apiUploadProfileInfo = async ({
   const createFamily = code ? false : true;
   try {
     const { fileName } = await apiGetPresignedUrl(imageFile);
-    await axios.post('/user/profile/upload', {
+    await customAxios().post('/user/profile/upload', {
       fileName,
       role,
       nickname,

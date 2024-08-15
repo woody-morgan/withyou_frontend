@@ -1,7 +1,7 @@
 import { parseExtUtil } from '@src/utils/parseUtil';
 import { ToastError, ToastWarn } from '@src/utils/toast';
-import axios from 'axios';
 
+import { customAxios } from '../lib/customAxios';
 import { CommonApiError, isAxiosError } from '../types/axios-error';
 
 interface GetProfileUploadUrlRequest {
@@ -15,7 +15,7 @@ export const apiGetPresignedUrl = async (
   try {
     const {
       data: { s3Url, fileName },
-    } = await axios.get<GetProfileUploadUrlRequest>('/user/profile/upload-url', {
+    } = await customAxios().get<GetProfileUploadUrlRequest>('/user/profile/upload-url', {
       params: {
         contentType: parseExtUtil(originFile.name),
       },

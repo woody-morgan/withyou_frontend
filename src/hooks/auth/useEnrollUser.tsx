@@ -8,14 +8,19 @@ export default function useValidateUser() {
 
   const validateUser = useCallback(async () => {
     try {
-      await apiValidate();
+      const {
+        user: { isNew },
+      } = await apiValidate();
+      if (!isNew) {
+        router.push('/');
+      }
     } catch (error) {
       clearAuthToken();
       router.push('/login');
     }
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     validateUser();
-  }, []);
+  }, [validateUser]);
 }

@@ -19,10 +19,22 @@ const withAuthSSR = () => {
     setAuthToken(token);
 
     try {
-      await apiValidate();
-      return {
-        props: {},
-      };
+      const {
+        user: { isNew },
+      } = await apiValidate();
+      if (isNew) {
+        return {
+          props: {},
+        };
+      } else {
+        return {
+          props: {},
+          redirect: {
+            destination: '/',
+            permanent: true,
+          },
+        };
+      }
     } catch (error) {
       clearAuthToken();
       return {

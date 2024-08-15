@@ -1,6 +1,5 @@
 import { apiValidate } from '@src/core/api/apiAuth';
 import { clearAuthToken, setAuthToken } from '@src/utils/authUtil';
-import axios from 'axios';
 import { GetServerSideProps } from 'next';
 
 const withAuthSSR = (getServerSidePropsFunc?: GetServerSideProps) => {
