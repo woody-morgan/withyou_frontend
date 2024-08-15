@@ -1,13 +1,13 @@
 import '@src/styles/globals.css';
 
 import Analytics from '@src/components/analytics';
+import { ModalContainer } from '@src/components/container';
 import { CommonLayout } from '@src/components/layout';
 import { envConfig } from '@src/core/config/envConfig';
 import siteMetadata from '@src/core/config/siteMetadata';
 import { wrapper } from '@src/store';
 import { getAuthToken } from '@src/utils/authUtil';
 import axios from 'axios';
-import { AnimatePresence } from 'framer-motion';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -35,10 +35,9 @@ const App: NextPage = ({ Component, pageProps, router }: AppProps) => {
       <Analytics />
       <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
         <CommonLayout>
-          <AnimatePresence initial={false} exitBeforeEnter>
-            <Component {...pageProps} key={router.route} />
-          </AnimatePresence>
+          <Component {...pageProps} key={router.route} />
         </CommonLayout>
+        <ModalContainer />
         <ToastContainer />
       </ThemeProvider>
     </>

@@ -17,7 +17,7 @@ const Navigation: FC<{
 
   return (
     layoutState.isShowBottomNav && (
-      <div className="z-20 relative">
+      <div className="z-10 relative">
         <motion.div
           className={cx(
             'w-full max-w-mobile-app h-bt-nav bottom-0',
