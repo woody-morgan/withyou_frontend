@@ -1,11 +1,10 @@
-import React, { FC } from 'react'
-import Link from 'next/link'
-
-import { motion } from 'framer-motion'
-import cx from 'classnames'
+import { buttonSettings } from '@src/animations/common'
 import { Icon } from '@src/components/common'
 import { profileOptionItemData, ProfileOptionItemType } from '@src/core/data/profile-data'
-import { buttonSettings } from '@src/animations/common'
+import cx from 'classnames'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import React, { FC } from 'react'
 
 const OptionItem: FC<ProfileOptionItemType> = ({ icon, title, url }) => {
   return (

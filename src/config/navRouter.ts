@@ -13,9 +13,9 @@ export const navRouter: NavRouterType[] = [
     icon: 'house',
   },
   {
-    path: '/camera',
-    name: 'Camera',
-    icon: 'camera',
+    path: '/community',
+    name: 'Commu',
+    icon: 'people',
   },
   {
     path: '/posts',

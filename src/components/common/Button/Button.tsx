@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react'
-import { motion } from 'framer-motion'
-import { btnSizes, btnStyles } from '@src/utils/constants'
 import { buttonSettings } from '@src/animations/common'
+import { btnSizes, btnStyles } from '@src/utils/constants'
 import cx from 'classnames'
+import { motion } from 'framer-motion'
+import React, { forwardRef } from 'react'
 
 interface ButtonShape {
   type?: 'button' | 'submit' | 'reset'

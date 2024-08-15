@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import { apiValidate } from '@src/core/api/apiAuth'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export default function useValidateUser() {
   const router = useRouter()

@@ -1,8 +1,8 @@
-import { wrapper } from '@src/store'
 import { AnyAction, EnhancedStore, MiddlewareArray } from '@reduxjs/toolkit'
-import { ThunkMiddleware } from 'redux-thunk'
-import { GetServerSideProps } from 'next'
+import { wrapper } from '@src/store'
 import { RootStateType } from '@src/store/modules'
+import { GetServerSideProps } from 'next'
+import { ThunkMiddleware } from 'redux-thunk'
 
 /**
  * @description

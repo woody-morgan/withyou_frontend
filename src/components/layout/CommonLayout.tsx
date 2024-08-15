@@ -1,5 +1,6 @@
 import React, { FC, Fragment, memo } from 'react'
-import Navigation from '@src/components/layout/PageLayout/Navigation'
+
+import Navigation from './PageLayout/Navigation'
 
 const CommonLayout: FC<{
   children: React.ReactNode

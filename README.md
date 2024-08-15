@@ -66,6 +66,12 @@ const appConfig = {
 
 ### 현재 개발 상태
 
+#### `발견된 문제점`
+
+1. 브라우저의 뒤로가기 버튼에서 redux store 정보를 제대로 들고오지 못하는 문제가 있었다. 이를 해결하기 위해 history를 redux에서 관리하는 것을 포기하고 browser history api를
+   사용하는
+   것으로 바꾸었다
+
 #### 활성화된 라우터
 
 ```js

@@ -1,10 +1,7 @@
-import reducer from '@src/store/modules'
+import { RootDispatchType, RootStateType } from '@src/store/modules'
 import { useDispatch, useSelector } from 'react-redux'
 
-const rootReducer = reducer
-export type RootState = ReturnType<typeof rootReducer>
-
-type StateSelector<T> = (state: RootState) => T
+type StateSelector<T> = (state: RootStateType) => T
 type EqualityFn<T> = (left: T, right: T) => boolean
 
 // Typed Selector Hook
@@ -13,4 +10,4 @@ export function useRootState<T>(selector: StateSelector<T>, equalityFn?: Equalit
 }
 
 // Typed Dispatch Hook
-export const useRootDispatch = () => useDispatch<RootState>()
+export const useRootDispatch = () => useDispatch<RootDispatchType>()

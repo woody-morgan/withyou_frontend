@@ -1,6 +1,6 @@
-import React, { memo } from 'react'
 import { Button } from '@src/components/common'
 import Link from 'next/link'
+import React, { memo } from 'react'
 
 const SignupStartSection = () => {
   return (

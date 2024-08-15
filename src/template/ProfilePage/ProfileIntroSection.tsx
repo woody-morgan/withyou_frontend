@@ -1,5 +1,5 @@
-import React from 'react'
 import { ImageWrapper } from '@src/components/common'
+import React from 'react'
 
 const ProfileIntroSection = () => {
   return (

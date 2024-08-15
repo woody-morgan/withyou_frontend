@@ -1,12 +1,11 @@
-import React from 'react'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
+import { PageLayout } from '@src/components/layout'
 import siteMetadata from '@src/config/siteMetadata'
-import cx from 'classnames'
-
+import PostsCommonHeader from '@src/template/PostsPage/PostsCommonHeader'
 import PostsMainSection from '@src/template/PostsPage/PostsMainSection'
 import PostsStartSection from '@src/template/PostsPage/PostsStartSection'
-import PostsCommonHeader from '@src/template/PostsPage/PostsCommonHeader'
+import cx from 'classnames'
+import React from 'react'
 
 const PostsIndexPage = () => {
   return (

@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
-import { NextPage } from 'next'
-import { PageLayout } from '@src/components/layout'
 import { PageSEO } from '@src/components/analytics/SEO'
+import { PageLayout } from '@src/components/layout'
 import siteMetadata from '@src/config/siteMetadata'
-
-import Gallery from 'react-photo-gallery'
 import { photoGalleryData } from '@src/core/data/photo-gallery-data'
 import AlbumCommonHeader from '@src/template/AlbumPage/AlbumCommonHeader'
+import { NextPage } from 'next'
+import React, { useEffect } from 'react'
+import Gallery from 'react-photo-gallery'
 
 const AlbumPage: NextPage = () => {
   const [mounted, setMounted] = React.useState(false)

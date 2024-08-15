@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
 import { useDimension } from '@src/hooks'
+import React, { FC } from 'react'
 import { WebcamProps } from 'react-webcam'
+
 import Camera from './Camera'
 
 type FullScreenCameraProps = WebcamProps & {
@@ -20,7 +21,7 @@ const FullScreenCamera: FC<Partial<FullScreenCameraProps>> = ({
         width={width}
         videoConstraints={{
           facingMode: facingMode,
-          aspectRatio: height > width ? width / height : height / width,
+          aspectRatio: height <= width ? width / height : height / width,
         }}
         {...props}
       />

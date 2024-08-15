@@ -1,5 +1,5 @@
-import { MutableRefObject, useRef, useState } from 'react'
 import { useWindowResize } from '@src/hooks/index'
+import { MutableRefObject, useRef, useState } from 'react'
 
 export default function useDimension(delay: number): [
   MutableRefObject<HTMLDivElement>,

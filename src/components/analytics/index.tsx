@@ -1,5 +1,6 @@
-import GA from './GoogleAnalytics'
 import siteMetadata from '@src/config/siteMetadata'
+
+import GA from './GoogleAnalytics'
 
 declare global {
   interface Window {
